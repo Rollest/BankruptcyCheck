@@ -46,6 +46,12 @@ export class UsersService {
     });
   }
 
+  async findOneByLogin(login: string) {
+    return await this.userRepository.findOne({
+      where: {login}
+    });
+  }
+
   async update(id: number, updateUserDto: UpdateUserDto) {
     const userExists = await this.userRepository.findOne({
       where: { login: updateUserDto.login},

@@ -8,11 +8,6 @@ export class AppController {
   @Get()
   @Render('index')
   getMain() {
-    return {};
-  }
-  @Get('dynamic')
-  @Render('dynamic')
-  getIndex() {
-    return {message:'Index Page' };
+    return { userIsLoggedIn: false };
   }
 }

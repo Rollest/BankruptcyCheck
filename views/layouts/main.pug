@@ -1,18 +1,40 @@
+doctype html
 html
   head
     title My Website
+    link(rel="stylesheet", href="./views/css/styles.css")
   body
     header
-      nav
-        ul
-          li
-            a(href="#") Home
-          li
-            a(href="#") About
-          li
-            a(href="#") Services
-          li
-            a(href="#") Contact
+      nav.navbar
+        span.container
+          span.navbar-brand
+            img(src="./public/logo.png", alt="Logo")
+          ul.navbar-menu
+            li
+              a(href="#") Главная
+            li
+              a(href="#") О банкротстве
+            li
+              a(href="#") Вопросы-Ответы
+            li
+              a(href="#") Шаблоны документов
+          span.user-dropdown
+            div
+            //- Replace the following with your user authentication logic
+            - if (userIsLoggedIn)
+              .dropdown
+                button.dropdown-toggle(type="button")
+                  | Username
+                ul.dropdown-menu
+                  li
+                    a(href="#") Профиль
+                  li
+                    a(href="#") Настройки
+            - else
+              a(href="#") Войти
+              a(href="#") Зарегистрироваться
     block content
     footer
-      p © 2024 My Website. All rights reserved.
+      .container
+        p © 2024 My Website. All rights reserved.
+    script(src="./views/scripts/main.js")
