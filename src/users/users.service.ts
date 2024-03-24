@@ -62,7 +62,7 @@ export class UsersService {
   }
 
   remove(id: number) {
-    return this.userRepository.softDelete(id) // Soft delete the user
-      .then(() => this.userRepository.update(id, { isActive: false })); // Update isActive to false
+    return this.userRepository.softDelete(id)
+      .then(() => this.userRepository.update(id, { isActive: false }));
 }
 }
