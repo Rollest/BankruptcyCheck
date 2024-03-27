@@ -22,7 +22,7 @@ export class UsersService {
       throw new BadRequestException('Пользователь с таким логином уже зарегистрирован в системе.')
     }
 
-    const hashedPassword = await argon2.hash(createUserDto.password);
+    const hashedPassword = await argon2.hash(createUserDto.password, {type: argon2.argon2id});
 
     const user = new User();
     user.login = createUserDto.login;
@@ -58,7 +58,7 @@ export class UsersService {
     });
 
     if(updateUserDto.password){
-      updateUserDto.password = await argon2.hash(updateUserDto.password);
+      updateUserDto.password = await argon2.hash(updateUserDto.password, {type: argon2.argon2id});
     };
 
     if (!userExists){

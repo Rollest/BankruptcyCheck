@@ -1,71 +1,122 @@
-/* Navbar Styles */
-.navbar {
-    background-color: #007bff; /* Цвет фона */
-    display: flex;
-  }
+body {
+    background-color: rgba(255, 253, 235, 0.49);
+    font-size: 18px;
+    font-weight: 400;
+    color: #140A32;
+    font-family: 'Open Sans', sans-serif;
+}
 
-  
-  .navbar-brand {
-    margin-right: 2rem; /* Отступ справа для логотипа */
-    display: inline-block;
-  }
-  
-  .navbar-brand img {
-    max-height: 80px; /* Максимальная высота логотипа */
-    display: inline-block;
-  }
-  
-  .navbar-menu {
-    list-style-type: none; /* Убираем маркеры у списка */
-    margin: 0; /* Убираем внешние отступы у списка */
-    padding: 0; /* Убираем внутренние отступы у списка */
-    display: inline-block;
-  }
-  
-  .navbar-menu li {
-    display: inline-block; /* Располагаем пункты горизонтально */
-    margin-right: 1rem; /* Отступ между пунктами меню */
-  }
-  
-  .navbar-menu li a {
-    color: #fff; /* Цвет текста ссылок */
-    text-decoration: none; /* Убираем подчеркивание ссылок */
-  }
-  
-  .user-dropdown {
-    float: right; /* Правое выравнивание */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 0px 50px;
+}
+
+/*
+.header-title {
+    font-size: 100px;
+}
+*/
+
+/*-----------Header---------------*/
+.header {
+    padding: 20px 0px 30px 0px;
+    background-color: rgba(211, 211, 211, 0.5);
+}
+
+.header-content {
     display: flex;
-    justify-content: flex-end;
-  }
-  
-  .user-dropdown a {
-    color: #fff; /* Цвет текста ссылок */
-    margin-left: 1rem; /* Отступ между пунктами */
-  }
-  
-  .user-dropdown a:hover {
-    text-decoration: underline; /* Подчеркивание ссылок при наведении */
-  }
-  
-  .dropdown-menu {
-    display: none; /* По умолчанию скрываем выпадающее меню */
-    position: absolute; /* Абсолютное позиционирование */
-    background-color: #007bff; /* Цвет фона */
-    min-width: 150px; /* Минимальная ширина */
-    z-index: 1; /* Задаем z-index, чтобы выпадающее меню оказалось выше остального содержимого */
-  }
-  
-  .dropdown-menu li {
-    display:inline-block;
-  }
-  
-  .dropdown-menu li a {
-    color: #fff; /* Цвет текста ссылок */
-    padding: 0.5rem 1rem; /* Внутренний отступ */
-    text-decoration: none; /* Убираем подчеркивание ссылок */
-  }
-  
-  .dropdown-menu li a:hover {
-    background-color: #0056b3; /* Цвет фона при наведении */
-  }
-  
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+}
+
+.header-brand img {
+    height: 67px;
+    width: 83px;
+}
+
+
+.nav {
+    font-size: 24px;
+    display: flex;
+}
+
+.nav a {
+    margin-right: 32px;
+    text-decoration: none;
+    color: #140A32;
+}
+
+.header-login {
+    display: inline-block;
+}
+
+.header-login-dropdown {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.header-login-ref{
+    text-decoration: none;
+    color: #140A32;
+    font-size: 20px;
+    font-weight: 253;
+    display: flex;
+    margin-left: 10px;
+}
+
+.header-login-dropdown img{
+    height: 50px;
+    width: 50px;
+}
+
+.header-login-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    width: 253px;
+    box-shadow: 0px 30px 16px 0px rgba(0,0,0,0.2);
+    background-color: rgba(211, 211, 211, 1);
+}
+
+.header-login-content a {
+    color: #140A32;
+    padding: 15px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Show the dropdown menu on hover */
+.header-login:hover .header-login-content {
+    display: block;
+}
+
+.header-login-content a:hover {
+    background-color: gray;
+}
+
+
+
+/*
+.header-login:hover {
+    color: green;
+}
+
+.header-login:active {
+    
+}*/
+
+
+/*-----------MAIN---------------*/

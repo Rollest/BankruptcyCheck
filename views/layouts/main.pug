@@ -1,40 +1,39 @@
 doctype html
 html
   head
-    title My Website
-    link(rel="stylesheet", href="./views/css/styles.css")
+    title БанкротствоЧек
+    meta(charset="utf-8")
+    link(rel="stylesheet", href="../views/css/styles.css")
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap", rel="stylesheet")
   body
-    header
-      nav.navbar
-        span.container
-          span.navbar-brand
-            img(src="./public/logo.png", alt="Logo")
-          ul.navbar-menu
-            li
-              a(href="#") Главная
-            li
-              a(href="#") О банкротстве
-            li
-              a(href="#") Вопросы-Ответы
-            li
-              a(href="#") Шаблоны документов
-          span.user-dropdown
-            div
-            //- Replace the following with your user authentication logic
+    header.header
+      .container
+        .header-content
+          .header-brand
+            img(src="../public/logo_new.png", alt="logo")
+            h2.header_title БанкротствоЧек
+          nav.nav
+            a(href="#") Главная
+            a(href="#") О банкротстве
+            a(href="#") Вопросы-Ответы
+            a(href="#") Шаблоны документов
+          .header-login
             - if (userIsLoggedIn)
-              .dropdown
-                button.dropdown-toggle(type="button")
-                  | Username
-                ul.dropdown-menu
-                  li
-                    a(href="#") Профиль
-                  li
-                    a(href="#") Настройки
+              .header-login-dropdown
+                img(src="../public/avatar.png", alt="avatar")
+                a.header-login-ref(href="#") имя пользователя
+              .header-login-content
+                a(href="#") Профиль
+                a(href="#") Настройки
+                a(href="#") Выйти
             - else
-              a(href="#") Войти
-              a(href="#") Зарегистрироваться
+              img(src="../public/avatar.png", alt="avatar")
+              a.header-login-ref(href="#") Вход /
+              a.header-login-ref(href="#") Регистрация
     block content
     footer
       .container
         p © 2024 My Website. All rights reserved.
-    script(src="./views/scripts/main.js")
+    script(src="../views/scripts/main.js")

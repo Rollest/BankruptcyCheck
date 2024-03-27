@@ -1,13 +1,13 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, Param, Render } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
+  @Get(':isLogged')
   @Render('index')
-  getMain() {
-    return { userIsLoggedIn: false };
+  getMain(@Param('isLogged') isLogged: string) {
+    return { userIsLoggedIn: isLogged === 'true' };
   }
 }
