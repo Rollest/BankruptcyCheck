@@ -1,4 +1,6 @@
 export interface IUser{
-    id: number
+    cookies: any
+    user: any
     login: string
+    password: string
 }

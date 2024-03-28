@@ -23,17 +23,38 @@ html
             - if (userIsLoggedIn)
               .header-login-dropdown
                 img(src="../public/avatar.png", alt="avatar")
-                a.header-login-ref(href="#") имя пользователя
+                a.header-login-ref(href="#", id="username") #{username}
               .header-login-content
                 a(href="#") Профиль
                 a(href="#") Настройки
-                a(href="#") Выйти
+                a(href="#", id='exit-btn') Выйти
             - else
               img(src="../public/avatar.png", alt="avatar")
-              a.header-login-ref(href="#") Вход /
-              a.header-login-ref(href="#") Регистрация
+              a.header-login-ref(href="#", id="open-login-btn") Вход /
+              a.header-login-ref(href="#", id="open-registration-btn") Регистрация
+              .login-form(style="display: none;")
+                form()
+                  input(type="text", id="login-login")
+                  br
+                  input(type="text", id="login-password")
+                  br
+                  button(type="button", id="login-btn") Войти
+                  br
+                  button(type="button", id="login-registration-btn") Зарегистрироваться
+              .registration-form(style="display: none;")
+                form()
+                  input(type="text", id="registration-login")
+                  br
+                  input(type="text", id="registration-password")
+                  br
+                  button(type="button", id="registration-btn") Зарегистрироваться
+                  br
+                  button(type="button", id="registration-login-btn") Войти
     block content
     footer
       .container
         p © 2024 My Website. All rights reserved.
-    script(src="../views/scripts/main.js")
+    script(src="../views/scripts/jq.js")
+    script(src="../views/scripts/quiz.js")
+    script(src="../views/scripts/auth.js")
+    

@@ -107,16 +107,26 @@ body {
     background-color: gray;
 }
 
-
-
-/*
-.header-login:hover {
-    color: green;
-}
-
-.header-login:active {
-    
-}*/
+.quiz-container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .options input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  .options label {
+    margin-right: 10px;
+  }
+  
+  .navigation {
+    margin-top: 20px;
+  }
+  
 
 
 /*-----------MAIN---------------*/

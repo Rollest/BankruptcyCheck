@@ -5,32 +5,47 @@ import { log } from 'console';
 import { use } from 'passport';
 import { IUser } from 'src/auth/types/types';
 import { UsersService } from 'src/users/users.service';
+import * as jwt from 'jsonwebtoken';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AuthService {
     constructor(
       private readonly userService: UsersService,
-      private readonly jwtService: JwtService
+      private readonly jwtService: JwtService,
+      private readonly configService: ConfigService
       ){}
 
-    async validateUser(login: string, password: string): Promise<any> {
-    const user = await this.userService.findOneByLogin(login);
-    const passwordIsMatch = await argon2.verify(user.password, password);
-    if (user && passwordIsMatch) {
-      const { password, ...result } = user;
-      return user;
-    }
-    console.log("validateUser");
+      async validateUser(login: string, password: string): Promise<any> {
+        const user = await this.userService.findOneByLogin(login);
+        if (!user) {
+            throw new UnauthorizedException('Пользователь не найден.');
+        }
     
-    throw new UnauthorizedException('User or password are incorrect.')
-  }
+        const passwordIsMatch = await argon2.verify(user.password, password);
+        if (passwordIsMatch) {
+            const { password: _, ...result } = user;
+            return result;
+        }
+    
+        throw new UnauthorizedException('Неверный пароль.');
+    }
 
   async login(user: IUser) {
-    const {id, login} = user
+    const {login, password} = user
     return{
-      id,
       login,
-      token: this.jwtService.sign({id: user.id, login: user.login})
+      password,
+      token: this.jwtService.sign({login: user.login, password: user.password})
+    }
+  }
+
+  async validateToken(token: string): Promise<any> {
+    try {
+      const decoded = jwt.verify(token, this.configService.get('JWT_SECRET'));
+      return decoded;
+    } catch (error) {
+      return null;
     }
   }
 }

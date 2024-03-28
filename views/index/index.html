@@ -3,7 +3,7 @@
   <head>
     <title>БанкротствоЧек</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style_new.css">
+    <link rel="stylesheet" href="../views/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
@@ -12,11 +12,11 @@
     <header class="header">
       <div class="container">
         <div class="header-content">
-          <div class="header-brand"><img src="../../public/logo_new.png" alt="logo">
+          <div class="header-brand"><img src="../public/logo_new.png" alt="logo">
             <h2 class="header_title">БанкротствоЧек</h2>
           </div>
           <nav class="nav"><a href="#">Главная</a><a href="#">О банкротстве</a><a href="#">Вопросы-Ответы</a><a href="#">Шаблоны документов</a></nav>
-          <div class="header-login"><img src="../../public/avatar.png" alt="avatar"><a class="header-login-ref" href="#">Вход /</a><a class="header-login-ref" href="#">Регистрация</a>
+          <div class="header-login"><img src="../public/avatar.png" alt="avatar"><a class="header-login-ref" href="#">Вход /</a><a class="header-login-ref" href="#">Регистрация</a>
           </div>
         </div>
       </div>
@@ -26,11 +26,19 @@
       <p>This is just a sample content for demonstration purposes.</p>
       <p>You can replace it with your actual content.</p>
     </div>
+    <div class="quiz-container">
+      <div class="question"> </div>
+      <div class="navigation"> 
+        <button id="prevBtn" disabled>Назад</button>
+        <button id="nextBtn">Следующий вопрос</button>
+      </div>
+      <progress id="progressBar" value="0" max="100"></progress>
+    </div>
     <footer>
       <div class="container">
         <p>© 2024 My Website. All rights reserved.</p>
       </div>
     </footer>
-    <script src="main.js"></script>
+    <script src="../views/scripts/main.js"></script>
   </body>
 </html>
