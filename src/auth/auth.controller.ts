@@ -23,7 +23,7 @@ export class AuthController {
   @Get('signout')
   @UseGuards(JwtAuthGuard)
   signout(@Res({ passthrough: true }) response: Response) {
-    response.cookie('jwt','',{expires: new Date()})
+    response.cookie('jwt','',{expires: new Date(), httpOnly: true})
   }
 
 

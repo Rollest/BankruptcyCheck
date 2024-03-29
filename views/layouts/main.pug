@@ -53,8 +53,28 @@ html
     block content
     footer
       .container
+        form.feedback-form.new-class(action="#", method="post")
+          h3 Форма обратной связи
+          input(type="text", placeholder="Ваше имя", required)
+          input(type="email", placeholder="Ваш email", required)
+          input(type="tel", placeholder="Ваш номер телефона", required)
+          textarea(rows="4", placeholder="Ваше сообщение", required)
+          button(type="submit") Отправить
+          p Отправляя данную форму, вы подтверждаете свое согласие на обработку персональных данных.
+  
+  
+  .footer
+    .footer-item 
+        p Наши контакты
+        p +7 888 555 88 88
+        p улица Пушкина, дом Колотушкина
+
+    .container
         p © 2024 My Website. All rights reserved.
+    .footer-item
+        a(href='#')
+            img(src="../public/vk_logo.png", alt="logo")
     script(src="../views/scripts/jq.js")
-    script(src="../views/scripts/quiz.js")
+    script(src="../views/scripts/quiz1.js")
     script(src="../views/scripts/auth.js")
     
