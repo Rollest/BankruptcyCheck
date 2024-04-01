@@ -18,7 +18,7 @@ const questions = [
         totalQuestions: 4,
       },
     ],
-    questionShort: 'Какие долги вы хотите списать?',
+    questionShort: 'вид долгов/долги',
   },
   {
     id: 2,
@@ -38,7 +38,7 @@ const questions = [
         isPicked: false,
       },
     ],
-    questionShort: 'Уже были банкротом?',
+    questionShort: 'банкротство ранее',
   },
   {
     id: 3,
@@ -74,7 +74,7 @@ const questions = [
       { id: 10, text: 'Да', nextQuestionId: 6, isPicked: false },
       { id: 11, text: 'Нет', nextQuestionId: 8, isPicked: false },
     ],
-    questionShort: 'Окночено ли взыскание долга?',
+    questionShort: 'окончено взыскание приставом',
   },
   {
     id: 6,
@@ -83,7 +83,7 @@ const questions = [
       { id: 12, text: 'Да', nextQuestionId: 14, isPicked: false },
       { id: 13, text: 'Нет', nextQuestionId: 34, isPicked: false },
     ],
-    questionShort: 'Подавали на внесудебное банкротство?',
+    questionShort: 'заявление/заявление на внесудебное',
   },
   {
     id: 14,
@@ -92,7 +92,7 @@ const questions = [
       { id: 14, text: 'Да', nextQuestionId: 34, isPicked: false },
       { id: 15, text: 'Нет', nextQuestionId: 12, isPicked: false },
     ],
-    questionShort: 'Прошел месяц с возврата заявления?',
+    questionShort: 'возврат заявления',
   },
   {
     id: 12,
@@ -108,7 +108,7 @@ const questions = [
       { id: 16, text: 'Да', nextQuestionId: 7, isPicked: false },
       { id: 17, text: 'Нет', nextQuestionId: 35, isPicked: false },
     ],
-    questionShort: 'ыфвфвфыв?',
+    questionShort: 'судебный пристав не смог взыскать',
   },
   {
     id: 7,
@@ -116,9 +116,9 @@ const questions = [
       'У вас отсутствует имущество, на которое может быть обращено взыскание, кроме пенсий?',
     options: [
       { id: 18, text: 'Да', nextQuestionId: 9, isPicked: false },
-      { id: 19, text: 'Нет', nextQuestionId: 35, isPicked: false },
+      { id: 19, text: 'Нет', nextQuestionId: 15, isPicked: false },
     ],
-    questionShort: 'фывфывфывфывфывфыв?',
+    questionShort: 'имущество',
   },
   {
     id: 9,
@@ -128,7 +128,7 @@ const questions = [
       { id: 20, text: 'Да', nextQuestionId: 66, isPicked: false },
       { id: 21, text: 'Нет', nextQuestionId: 11, isPicked: false },
     ],
-    questionShort: 'фывфывфывфывфывфыв?',
+    questionShort: 'пенсия',
   },
   {
     id: 11,
@@ -136,9 +136,9 @@ const questions = [
       'Вы являетесь получателем ежемесячного пособия в связи с рождением и воспитанием ребенка?',
     options: [
       { id: 22, text: 'Да', nextQuestionId: 666, isPicked: false },
-      { id: 23, text: 'Нет', nextQuestionId: 35, isPicked: false },
+      { id: 23, text: 'Нет', nextQuestionId: 15, isPicked: false },
     ],
-    questionShort: 'фывфывфывывфывфыфывфыфывфыв?',
+    questionShort: 'пособие на ребенка',
   },
   {
     id: 5,
@@ -148,7 +148,7 @@ const questions = [
       { id: 24, text: 'Да', nextQuestionId: 36, isPicked: false },
       { id: 25, text: 'Нет', nextQuestionId: 10, isPicked: false },
     ],
-    questionShort: 'фвфввывывыавыа?',
+    questionShort: 'не сможет выплатить 500 тысяч',
   },
   {
     id: 10,
@@ -157,7 +157,16 @@ const questions = [
       { id: 26, text: 'Да', nextQuestionId: 4, isPicked: false },
       { id: 27, text: 'Нет', nextQuestionId: 37, isPicked: false },
     ],
-    questionShort: 'ываыввыаы?',
+    questionShort: 'сумма 1 млн',
+  },
+    {
+    id: 15,
+    question: 'В отношении вас есть, выданный на основании решения суда, не позднее 7 лет назад, исполнительный документ, по которому судебный пристав не смог взыскать в полном объеме все требования (долги)?',
+    options: [
+      { id: 28, text: 'Да', nextQuestionId: 6, isPicked: false },
+      { id: 29, text: 'Нет', nextQuestionId: 35, isPicked: false },
+    ],
+    questionShort: ' исполнительный документ 7 лет',
   },
   {
     id: 30,
@@ -169,7 +178,7 @@ const questions = [
     id: 31,
     question:
       'Данные долги возможно списать в рамках процедуры банкротства согласно статье 213.28 ФЗ "О несостоятельности (банкротстве)"',
-    options: [{ id: 28, nextQuestionId: 2, isPicked: false }],
+    options: [{ id: 28, text: 'Понятно', nextQuestionId: 2, isPicked: false }],
     questionShort: 'счмвываывав?',
   },
   {
