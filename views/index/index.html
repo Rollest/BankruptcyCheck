@@ -15,7 +15,7 @@
           <div class="header-brand"><img src="../public/logo_new.png" alt="logo">
             <h2 class="header_title">БанкротствоЧек</h2>
           </div>
-          <nav class="nav"><a href="#">Главная</a><a href="#">О банкротстве</a><a href="#">Вопросы-Ответы</a><a href="#">Шаблоны документов</a></nav>
+          <nav class="nav"><a href="#">Главная</a><a href="#">О банкротстве</a><a href="faq">Вопросы-Ответы</a><a href="#">Шаблоны документов</a></nav>
           <div class="header-login"><img src="../public/avatar.png" alt="avatar"><a class="header-login-ref" href="#" id="open-login-btn">Вход /</a><a class="header-login-ref" href="#" id="open-registration-btn">Регистрация</a>
             <div class="login-form" style="display: none;">
               <form>
@@ -38,8 +38,8 @@
       </div>
     </header>
     <main class="main"> 
-      <div class="container"> 
-        <h3 class="main-content1-title">Банкротство граждан. Тест на Банкротство</h3>
+      <div class="container">
+        <h3 class="main-content1-title">Пройдите бесплатный тест и узнайте, подходит ли вам процедура банкротства?</h3>
         <div class="main-content1"> 
           <div class="main-content1-info"> 
             <p>Банкротство — это процедура, которая позволяет законно освободиться от долгов, если нет возможности их выплачивать.</p>
@@ -65,13 +65,13 @@
     </main>
     <!--QUIZ-->
     <div class="quiz-container">
+      <div class="quiz-history"></div>
       <div class="question"> </div>
       <div class="options"></div>
       <div class="navigation"> 
         <button id="prevBtn" disabled>Назад</button>
         <button id="nextBtn">Следующий вопрос</button>
       </div>
-      <progress id="progressBar" value="0" max="100"></progress>
     </div>
     <footer>
       <div class="container">
@@ -98,7 +98,7 @@
     </div>
     <div class="footer-item"><a href="#"><img src="../public/vk_logo.png" alt="logo"></a></div>
     <script src="../views/scripts/jq.js"></script>
-    <script src="../views/scripts/quiz1.js"></script>
+    <script src="../views/scripts/quiz.js"></script>
     <script src="../views/scripts/auth.js"></script>
   </div>
 </html>

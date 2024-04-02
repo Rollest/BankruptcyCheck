@@ -1,245 +1,30 @@
+@import url('./faq.css');
+@import url('./footer.css');
+@import url('./header.css');
+@import url('./main.css');
+@import url('./quiz.css');
+
 body {
-    background-color: rgba(255, 253, 235, 0.49);
-    font-size: 18px;
-    font-weight: 400;
-    color: #140A32;
-    font-family: 'Open Sans', sans-serif;
+  background-color: rgba(255, 253, 235, 0.49);
+  font-size: 18px;
+  font-weight: 400;
+  color: #140a32;
+  font-family: 'Open Sans', sans-serif;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.viewport {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .container {
-    margin: 0px 50px;
+  margin: 0px 50px;
 }
-
-/*
-.header-title {
-    font-size: 100px;
-}
-*/
-
-/*-----------Header---------------*/
-.header {
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    padding: 20px 0px 30px 0px;
-    background-color: rgba(7, 175, 115, 0.79);
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header-brand {
-    display: flex;
-    align-items: center;
-}
-
-.header-brand img {
-    height: 67px;
-    width: 83px;
-}
-
-
-.nav {
-    font-size: 24px;
-    display: flex;
-}
-
-.nav a {
-    margin-right: 32px;
-    text-decoration: none;
-    color: #140A32;
-}
-
-.header-login {
-    display: inline-block;
-}
-
-.header-login-dropdown {
-    display: flex;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-    width: 100%;
-}
-
-.header-login-ref{
-    text-decoration: none;
-    color: #140A32;
-    font-size: 20px;
-    font-weight: 253;
-    display: flex;
-    margin-left: 10px;
-}
-
-.header-login-dropdown img{
-    height: 50px;
-    width: 50px;
-}
-
-.header-login-content {
-    display: none;
-    position: absolute;
-    z-index: 1;
-    width: 253px;
-    box-shadow: 0px 30px 16px 0px rgba(0,0,0,0.2);
-    background-color: rgba(211, 211, 211, 1);
-}
-
-.header-login-content a {
-    color: #140A32;
-    padding: 15px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-/* Show the dropdown menu on hover */
-.header-login:hover .header-login-content {
-    display: block;
-}
-
-.header-login-content a:hover {
-    background-color: gray;
-}
-
-.quiz-container {
-    width: 80%;
-    margin: 50px auto;
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-  }
-  
-  .options input[type="radio"] {
-    margin-right: 5px;
-  }
-  
-  .options label {
-    margin-right: 10px;
-  }
-  
-  .navigation {
-    margin-top: 20px;
-  }
-  
-
-
-/*-----------MAIN---------------*/
-
-.main-content1 {
-  
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.main-content1-title {
-  margin-top: 200px;
-  text-align: center;
-  font-size: 40px;
-  margin-bottom: 44px;
-}
-
-.main-content1-info {
-/*    margin-right: 83px;*/
-  max-width: 750px;
-  margin-top: 44px;
-}
-
-.main-content1-info p {
-  font-size: 24px ;
-}
-
-.main-articles a{
-  text-decoration: none;
-  font-size: 24px;
-  color: #2424b9;
-  margin-bottom: 44px;
-}
-
-.couple {
-  margin-top: 44px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.couple img{
-  height: 360px;
-  width: 570px;
-}
-
-.main-content2 {
-  margin-top: 60px;
-}
-
-.main-content2 p {
-  font-size: 24px;
-}
-
-.main-content2-list {
-  font-size: 24px;
-  margin-left: 50px;
-}
-
-.main-content2-list a {
-  text-decoration: none;
-  font-size: 24px;
-  color: #2424b9;
-}
-  
-  /*-----------Footer---------------*/
-  .footer {
-    padding: 20px 0px 30px 0px;
-    background-color: rgba(7, 175, 115, 0.79);
-    display: flex;
-    position: static;
-    bottom: 0;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    .footer-item img {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 40px;
-      width: auto;
-      margin: 0 50px;
-    }
-    .footer-item p {
-      color: rgba(0, 119, 255, 1);
-      font-size: 12px;
-      font-family: 'Open Sans';
-    }
-    .container p {
-      font-size: 12px;
-    }
-  }
-
-
-  .feedback-form.new-class {
-    position: static;
-    bottom: 120px;
-    right: 20px;
-    background-color: #fff;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-    width: 60%;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .feedback-form.new-class h3 {
-    font-size: 16px;
-    font-family: 'Open Sans';
-    margin-bottom: 5px;
-  }

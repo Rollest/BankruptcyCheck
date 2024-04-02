@@ -1,0 +1,86 @@
+/*-----------Header---------------*/
+.header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  padding: 20px 0px 30px 0px;
+  background-color: rgba(57, 191, 141, 1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+}
+
+.header-brand img {
+  height: 67px;
+  width: 83px;
+}
+
+.nav {
+  font-size: 24px;
+  display: flex;
+}
+
+.nav a {
+  margin-right: 32px;
+  text-decoration: none;
+  color: #140a32;
+}
+
+.header-login {
+  display: inline-block;
+}
+
+.header-login-dropdown {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.header-login-ref {
+  text-decoration: none;
+  color: #140a32;
+  font-size: 20px;
+  font-weight: 253;
+  display: flex;
+  margin-left: 10px;
+}
+
+.header-login-dropdown img {
+  height: 50px;
+  width: 50px;
+}
+
+.header-login-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  width: 253px;
+  box-shadow: 0px 30px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: rgba(211, 211, 211, 1);
+}
+
+.header-login-content a {
+  color: #140a32;
+  padding: 15px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Show the dropdown menu on hover */
+.header-login:hover .header-login-content {
+  display: block;
+}
+
+.header-login-content a:hover {
+  background-color: gray;
+}

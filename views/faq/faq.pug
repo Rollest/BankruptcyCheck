@@ -1,0 +1,12 @@
+extends ../layouts/main
+
+block content
+  script(src="../views/scripts/faq.js")
+  main.main
+    .container
+      .main-content1
+        .faq 
+          .question(onclick="toggleAnswer(1)") Вопрос 1
+          .answer(id="answer1") Ответ на вопрос 1
+          .question(onclick="toggleAnswer(2)") Вопрос 2
+          .answer(id="answer2") Ответ на вопрос 2

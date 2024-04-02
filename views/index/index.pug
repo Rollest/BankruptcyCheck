@@ -3,7 +3,7 @@ extends ../layouts/main
 block content
   main.main 
     .container
-      h3.main-content1-title Банкротство граждан. Тест на Банкротство
+      h3.main-content1-title Пройдите бесплатный тест и узнайте, подходит ли вам процедура банкротства?
       .main-content1 
         .main-content1-info 
           p Банкротство — это процедура, которая позволяет законно освободиться от долгов, если нет возможности их выплачивать.
@@ -34,3 +34,5 @@ block content
     .navigation 
       button(id="prevBtn", disabled) Назад
       button(id="nextBtn") Следующий вопрос
+  script(src="../views/scripts/quiz.js")
+  

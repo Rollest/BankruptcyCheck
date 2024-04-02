@@ -1,0 +1,24 @@
+.quiz-container {
+  width: 80%;
+  margin: 50px auto;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+
+.quiz-container a {
+  text-decoration: none;
+  color: rgba(36, 36, 185, 1);
+}
+
+.options input[type='radio'] {
+  margin-right: 5px;
+}
+
+.options label {
+  margin-right: 10px;
+}
+
+.navigation {
+  margin-top: 20px;
+}

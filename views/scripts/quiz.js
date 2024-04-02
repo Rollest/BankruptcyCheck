@@ -1,107 +1,35 @@
-const questions = [
-    {
-      id: 1,
-      question: "Are you hungry?",
-      options: [
-        { id: 2, text: "Yes", nextQuestionId: 2, isPicked: false, questionNum: 0, totalQuestions: 4},
-        { id: 3, text: "No", nextQuestionId: 10, isPicked: false, questionNum: 0, totalQuestions: 4 }
-      ],
-      questionNum: 0,
-      totalQuestions: 3
-    },
-    {
-      id: 2,
-      question: "Do you want pizza or burger?",
-      options: [
-        { id: 4, text: "Pizza", nextQuestionId: 3, isPicked: false },
-        { id: 5, text: "Burger", nextQuestionId: 4, isPicked: false }
-      ],
-      questionNum: 1,
-      totalQuestions: 3
-    },
-    {
-      id: 3,
-      question: "What topping do you want on your pizza?",
-      options: [
-        { id: 6, text: "Pepperoni", nextQuestionId: 6, isPicked: false },
-        { id: 7, text: "Veggie", nextQuestionId: 7, isPicked: false }
-      ],
-      questionNum: 2,
-      totalQuestions: 3
-    },
-    {
-      id: 4,
-      question: "What type of burger do you prefer?",
-      options: [
-        { id: 8, text: "Beef", nextQuestionId: 8, isPicked: false },
-        { id: 9, text: "Chicken", nextQuestionId: 9, isPicked: false }
-      ],
-      questionNum: 2,
-      totalQuestions: 3
-    },
-    {
-      id: 10,
-      question: "No food needed? Okay, have a good day!",
-      options: [],
-      questionNum: 3,
-      totalQuestions: 3
-    },
-    {
-      id: 6,
-      question: "Pepperoni pizza? Great choice!",
-      options: [],
-      questionNum: 3,
-      totalQuestions: 3
-    },
-    {
-      id: 7,
-      question: "Veggie pizza? Good for health!",
-      options: [],
-      questionNum: 3,
-      totalQuestions: 3
-    },
-    {
-      id: 8,
-      question: "Beef burger? Tasty!",
-      options: [],
-      questionNum: 3,
-      totalQuestions: 3
-    },
-    {
-      id: 9,
-      question: "Chicken burger? Delicious!",
-      options: [],
-      questionNum: 3,
-      totalQuestions: 3
-    }
-  ];
-  
-  let prevQuestions = [];
+fetch('./views/scripts/quiz_questions.json').then(async (response) => {
+  let questions = [];
+  questions = await response.json();
+  console.log(questions);
+
   let currentQuestionIndex = 1;
   let currentQuestion = findQuestionById(currentQuestionIndex);
-  let questionCounter = 0;
-  let totalQuestions = 0;
+  let prevQuestions = [];
+  prevQuestions.push(currentQuestionIndex);
+  let prevQuestionsPointer = 0;
 
-  function findQuestionById(id){
-    for(const question in questions){
-        if(questions[question].id == id){
-            return questions[question]
-        }
+  function findQuestionById(id) {
+    for (const question in questions) {
+      if (questions[question].id == id) {
+        return questions[question];
+      }
     }
   }
-  
+
   const questionElement = document.querySelector('.question');
   const optionsContainer = document.querySelector('.options');
   const prevButton = document.getElementById('prevBtn');
   const nextButton = document.getElementById('nextBtn');
-  
+  const quizHistory = document.querySelector('.quiz-history');
+
   function displayQuestion() {
     const question = currentQuestion.question;
     currentQuestionIndex = currentQuestion.id;
     questionCounter = currentQuestion.questionNum;
     totalQuestions = currentQuestion.totalQuestions;
     questionElement.textContent = question;
-  
+
     optionsContainer.innerHTML = '';
     const options = currentQuestion.options;
     for (const option in options) {
@@ -117,76 +45,143 @@ const questions = [
       optionsContainer.appendChild(document.createElement('br'));
     }
   }
-  
+
+  function addCurrentToHistory() {
+    if (typeof currentQuestion.questionShort !== 'undefined') {
+      let arrow = '';
+      if ($(quizHistory).children().length != 0) {
+        arrow = ' > ';
+      }
+      var link = $('<a></a>')
+        .attr('href', '#')
+        .attr('id', currentQuestion.id)
+        .text(arrow + currentQuestion.questionShort);
+
+      link.click(function (event) {
+        event.preventDefault();
+
+        currentQuestion = findQuestionById(this.id);
+        currentQuestionIndex = currentQuestion.id;
+        prevQuestionsPointer = findIdInPrevQuestionsByQuestionId(this.id);
+
+        displayQuestion();
+        updateButtons();
+        console.log(prevQuestions);
+        console.log(prevQuestionsPointer);
+      });
+
+      $(quizHistory).append(link);
+    }
+
+    function findIdInPrevQuestionsByQuestionId(questionId) {
+      for (let i = 0; i < prevQuestions.length; i++) {
+        const element = prevQuestions[i];
+        if (element == questionId) {
+          return i;
+        }
+      }
+    }
+  }
+
   function selectOption() {
     updateIsPicked();
-    currentQuestion = findNextQuestion();
-    prevQuestions.push(currentQuestionIndex);
-    currentQuestionIndex = currentQuestion.id;
+    const nextQuestion = findNextQuestion();
+    if (
+      prevQuestions.length - 1 > prevQuestionsPointer &&
+      prevQuestions[prevQuestionsPointer + 1] != nextQuestion.id
+    ) {
+      while (prevQuestions.length - 2 > prevQuestionsPointer) {
+        prevQuestions.pop();
+        $(quizHistory).children().last().remove();
+      }
+      prevQuestions.pop();
+      currentQuestion = nextQuestion;
+      currentQuestionIndex = currentQuestion.id;
+      prevQuestions.push(currentQuestionIndex);
+      prevQuestionsPointer = prevQuestions.length - 1;
+      console.log(prevQuestions);
+      console.log(prevQuestionsPointer);
+      console.log('first');
+    } else if (prevQuestions.length - 1 > prevQuestionsPointer) {
+      prevQuestionsPointer++;
+      currentQuestion = nextQuestion;
+      currentQuestionIndex = currentQuestion.id;
+      console.log(prevQuestions);
+      console.log(prevQuestionsPointer);
+      console.log('second');
+    } else {
+      addCurrentToHistory();
+      currentQuestion = nextQuestion;
+      currentQuestionIndex = currentQuestion.id;
+      prevQuestions.push(currentQuestionIndex);
+      prevQuestionsPointer++;
+      console.log(prevQuestions);
+      console.log(prevQuestionsPointer);
+      console.log('third');
+    }
     displayQuestion();
     updateButtons();
 
-    function findNextQuestion(){
-        const selectedOption = document.querySelector('input[name="option"]:checked').value;
-        for(const question in questions){
-            if(questions[question].id == JSON.parse(selectedOption).nextQuestionId){
-                return questions[question]
-            }
+    function findNextQuestion() {
+      const selectedOption = document.querySelector(
+        'input[name="option"]:checked',
+      ).value;
+      for (const question in questions) {
+        if (
+          questions[question].id == JSON.parse(selectedOption).nextQuestionId
+        ) {
+          return questions[question];
         }
-    }
-
-    function updateIsPicked(){
-        const options = currentQuestion.options;
-        for(const option in options){
-            options[option].isPicked = false;
-        }
-        try{
-            const selectedOption = document.querySelector('input[name="option"]:checked').value;
-            const selected_id = JSON.parse(selectedOption).id;
-            for(const option in options){
-                if(options[option].id == selected_id){
-                    options[option].isPicked = true;
-                }
-            }
-        }catch(e){}
+      }
     }
   }
-  
-  function updateButtons() {
-    if (prevQuestions.length == 0) {
-      prevButton.disabled = true;
-    } else {
-      prevButton.disabled = false;
+  function updateIsPicked() {
+    const options = currentQuestion.options;
+    for (const option in options) {
+      options[option].isPicked = false;
     }
-  
+    try {
+      const selectedOption = document.querySelector(
+        'input[name="option"]:checked',
+      ).value;
+      const selected_id = JSON.parse(selectedOption).id;
+      for (const option in options) {
+        if (options[option].id == selected_id) {
+          options[option].isPicked = true;
+        }
+      }
+    } catch (e) {}
+  }
+
+  function updateButtons() {
+    if (currentQuestionIndex != 1) {
+      prevButton.disabled = false;
+    } else {
+      prevButton.disabled = true;
+    }
+
     if (currentQuestion.options.length == 0) {
       nextButton.textContent = 'Завершить';
     } else {
       nextButton.textContent = 'Следующий вопрос';
     }
-    updateProgressBar();
   }
 
-  function updateProgressBar() {
-    const answeredQuestions = questionCounter;
-    console.log(answeredQuestions);
-    console.log(totalQuestions);
-    const progress = (answeredQuestions / totalQuestions) * 100;
-    const progressBar = document.getElementById('progressBar');
-    progressBar.value = progress;
-    }
-  
   prevButton.addEventListener('click', () => {
-    currentQuestion = findQuestionById(prevQuestions.pop());
-    questionCounter--;
+    if (prevQuestionsPointer > 0) {
+      prevQuestionsPointer--;
+    }
+    console.log(prevQuestions);
+    console.log(prevQuestionsPointer);
+    currentQuestion = findQuestionById(prevQuestions[prevQuestionsPointer]);
     displayQuestion();
     updateButtons();
   });
-  
+
   nextButton.addEventListener('click', () => {
     selectOption();
   });
-  
+
   displayQuestion();
   updateButtons();
-  
+});
