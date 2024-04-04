@@ -3,6 +3,7 @@
 @import url('./header.css');
 @import url('./main.css');
 @import url('./quiz.css');
+@import url('./constructor.css');
 
 body {
   background-color: rgba(255, 253, 235, 0.49);

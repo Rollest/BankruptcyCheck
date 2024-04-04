@@ -7,98 +7,102 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
+    <script src="../views/scripts/jq.js"></script>
+    <script src="../views/scripts/auth.js"></script>
   </head>
   <body>
-    <header class="header">
-      <div class="container">
-        <div class="header-content">
-          <div class="header-brand"><img src="../public/logo_new.png" alt="logo">
-            <h2 class="header_title">БанкротствоЧек</h2>
-          </div>
-          <nav class="nav"><a href="#">Главная</a><a href="#">О банкротстве</a><a href="faq">Вопросы-Ответы</a><a href="#">Шаблоны документов</a></nav>
-          <div class="header-login"><img src="../public/avatar.png" alt="avatar"><a class="header-login-ref" href="#" id="open-login-btn">Вход /</a><a class="header-login-ref" href="#" id="open-registration-btn">Регистрация</a>
-            <div class="login-form" style="display: none;">
-              <form>
-                <input type="text" id="login-login"><br>
-                <input type="text" id="login-password"><br>
-                <button type="button" id="login-btn">Войти</button><br>
-                <button type="button" id="login-registration-btn">Зарегистрироваться</button>
-              </form>
+    <div class="viewport">
+      <header class="header">
+        <div class="container">
+          <div class="header-content">
+            <div class="header-brand"><img src="../public/logo_new.png" alt="logo">
+              <h2 class="header_title">БанкротствоЧек</h2>
             </div>
-            <div class="registration-form" style="display: none;">
-              <form>
-                <input type="text" id="registration-login"><br>
-                <input type="text" id="registration-password"><br>
-                <button type="button" id="registration-btn">Зарегистрироваться</button><br>
-                <button type="button" id="registration-login-btn">Войти</button>
-              </form>
+            <nav class="nav"><a href="/api">Главная</a><a href="#">О банкротстве</a><a href="/api/faq">Вопросы-Ответы</a><a href="/api/constructor">Шаблоны документов</a></nav>
+            <div class="header-login"><img src="../public/avatar.png" alt="avatar"><a class="header-login-ref" href="#" id="open-login-btn">Вход /</a><a class="header-login-ref" href="#" id="open-registration-btn">Регистрация</a>
+              <div class="login-form" style="display: none;">
+                <form>
+                  <input type="text" id="login-login"><br>
+                  <input type="text" id="login-password"><br>
+                  <button type="button" id="login-btn">Войти</button><br>
+                  <button type="button" id="login-registration-btn">Зарегистрироваться</button>
+                </form>
+              </div>
+              <div class="registration-form" style="display: none;">
+                <form>
+                  <input type="text" id="registration-login"><br>
+                  <input type="text" id="registration-password"><br>
+                  <button type="button" id="registration-btn">Зарегистрироваться</button><br>
+                  <button type="button" id="registration-login-btn">Войти</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </header>
-    <main class="main"> 
-      <div class="container">
-        <h3 class="main-content1-title">Пройдите бесплатный тест и узнайте, подходит ли вам процедура банкротства?</h3>
-        <div class="main-content1"> 
-          <div class="main-content1-info"> 
-            <p>Банкротство — это процедура, которая позволяет законно освободиться от долгов, если нет возможности их выплачивать.</p>
-            <p>Подробнее о процедуре судебного и внесудебного банкротства:</p>
-            <div class="main-articles"> 
-              <dir><a href="#">Судебное банкротство</a></dir>
-              <dir><a href="#">Внесудебное банкротство</a></dir>
-              <dir><a href="#">Имущество, на которое не может быть обращено взыскание по исполнительным документам</a></dir>
+      </header>
+      <div class="content">
+        <main class="main"> 
+          <div class="container">
+            <h3 class="main-content1-title">Пройдите бесплатный тест и узнайте, подходит ли вам процедура банкротства?</h3>
+            <div class="main-content1"> 
+              <div class="main-content1-info"> 
+                <p>Банкротство — это процедура, которая позволяет законно освободиться от долгов, если нет возможности их выплачивать.</p>
+                <p>Подробнее о процедуре судебного и внесудебного банкротства:</p>
+                <div class="main-articles"> 
+                  <dir><a href="#">Судебное банкротство</a></dir>
+                  <dir><a href="#">Внесудебное банкротство</a></dir>
+                  <dir><a href="#">Имущество, на которое не может быть обращено взыскание по исполнительным документам</a></dir>
+                </div>
+              </div>
+              <div class="couple"> <img src="../public/couple.png" alt="couple"></div>
+            </div>
+            <div class="main-content2"> 
+              <p>Перед прохождением теста <strong>обязательно</strong>  ознакомьтесь с рисками и последствиями процедуры банкротства:</p>
+              <ul class="main-content2-list"> 
+                <li>брать кредиты и займы в течение 5 лет без указания факта банкротства</li>
+                <li>регистрироваться в качестве индивидуального предпринимателя в течение 5 лет</li>
+                <li>занимать должности в органах управления юридического лица в течение 3 лет</li>
+                <li>иныe<a href="#">последствия и риски</a></li>
+              </ul>
             </div>
           </div>
-          <div class="couple"> <img src="../public/couple.png" alt="couple"></div>
+        </main>
+        <!--QUIZ-->
+        <div class="quiz-container">
+          <div class="quiz-history"></div>
+          <div class="question"> </div>
+          <div class="options"></div>
+          <div class="navigation"> 
+            <button id="prevBtn" disabled>Назад</button>
+            <button id="nextBtn">Следующий вопрос</button>
+          </div>
         </div>
-        <div class="main-content2"> 
-          <p>Перед прохождением теста <strong>обязательно</strong>  ознакомьтесь с рисками и последствиями процедуры банкротства:</p>
-          <ul class="main-content2-list"> 
-            <li>брать кредиты и займы в течение 5 лет без указания факта банкротства</li>
-            <li>регистрироваться в качестве индивидуального предпринимателя в течение 5 лет</li>
-            <li>занимать должности в органах управления юридического лица в течение 3 лет</li>
-            <li>иныe<a href="#">последствия и риски</a></li>
-          </ul>
+        <script src="../views/scripts/quiz.js"></script>
+      </div>
+      <footer>
+        <div class="container">
+          <form class="feedback-form new-class" action="#" method="post">
+            <h3>Форма обратной связи</h3>
+            <input type="text" placeholder="Ваше имя" required>
+            <input type="email" placeholder="Ваш email" required>
+            <input type="tel" placeholder="Ваш номер телефона" required>
+            <textarea rows="4" placeholder="Ваше сообщение" required></textarea>
+            <button type="submit">Отправить</button>
+            <p>Отправляя данную форму, вы подтверждаете свое согласие на обработку персональных данных.</p>
+          </form>
         </div>
-      </div>
-    </main>
-    <!--QUIZ-->
-    <div class="quiz-container">
-      <div class="quiz-history"></div>
-      <div class="question"> </div>
-      <div class="options"></div>
-      <div class="navigation"> 
-        <button id="prevBtn" disabled>Назад</button>
-        <button id="nextBtn">Следующий вопрос</button>
-      </div>
+        <div class="footer">
+          <div class="footer-item"> 
+            <p>Наши контакты</p>
+            <p>+7 888 555 88 88</p>
+            <p>улица Пушкина, дом Колотушкина</p>
+          </div>
+          <div class="container">
+            <p>© 2024 My Website. All rights reserved.</p>
+          </div>
+          <div class="footer-item"><a href="#"><img src="../public/vk_logo.png" alt="logo"></a></div>
+        </div>
+      </footer>
     </div>
-    <footer>
-      <div class="container">
-        <form class="feedback-form new-class" action="#" method="post">
-          <h3>Форма обратной связи</h3>
-          <input type="text" placeholder="Ваше имя" required>
-          <input type="email" placeholder="Ваш email" required>
-          <input type="tel" placeholder="Ваш номер телефона" required>
-          <textarea rows="4" placeholder="Ваше сообщение" required></textarea>
-          <button type="submit">Отправить</button>
-          <p>Отправляя данную форму, вы подтверждаете свое согласие на обработку персональных данных.</p>
-        </form>
-      </div>
-    </footer>
   </body>
-  <div class="footer">
-    <div class="footer-item"> 
-      <p>Наши контакты</p>
-      <p>+7 888 555 88 88</p>
-      <p>улица Пушкина, дом Колотушкина</p>
-    </div>
-    <div class="container">
-      <p>© 2024 My Website. All rights reserved.</p>
-    </div>
-    <div class="footer-item"><a href="#"><img src="../public/vk_logo.png" alt="logo"></a></div>
-    <script src="../views/scripts/jq.js"></script>
-    <script src="../views/scripts/quiz.js"></script>
-    <script src="../views/scripts/auth.js"></script>
-  </div>
 </html>

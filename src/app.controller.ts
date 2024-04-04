@@ -51,4 +51,22 @@ export class AppController {
     console.log('not validated');
     return { userIsLoggedIn: false };
   }
+
+  @Get('constructor')
+  @UsePipes(new ValidationPipe())
+  @UseGuards(JwtAuthGuard)
+  @Render('constructor/constructor')
+  async getConstructor(@Request() req) {
+    let jwt = req.cookies['jwt'];
+
+    if (jwt) {
+      let jwtDecoded = await this.authService.validateToken(jwt);
+      if (jwtDecoded != null) {
+        console.log('validated');
+        return { userIsLoggedIn: true, username: jwtDecoded.login };
+      }
+    }
+    console.log('not validated');
+    return { userIsLoggedIn: false };
+  }
 }

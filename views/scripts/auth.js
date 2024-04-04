@@ -61,7 +61,7 @@ $(document).ready(function () {
       passwordInput.css({ 'border-color': 'green' });
 
       $.post(
-        'auth/login',
+        '../api/auth/login',
         { login: loginInput.val(), password: passwordInput.val() },
         function (data) {
           location.reload();
@@ -69,10 +69,6 @@ $(document).ready(function () {
         },
         'json',
       );
-
-      function deleteCookie(name) {
-        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-      }
 
       console.log('login');
     } else {
@@ -107,7 +103,7 @@ $(document).ready(function () {
       loginInput.css({ 'border-color': 'green' });
       passwordInput.css({ 'border-color': 'green' });
       $.post(
-        'users',
+        '../api/users',
         { login: loginInput.val(), password: passwordInput.val() },
         function (data) {
           console.log(data);
@@ -143,9 +139,9 @@ $(document).ready(function () {
     return false;
   }
 
-  const exitBtn = $('#exit-btn');
-  exitBtn.click(function () {
-    $.get('auth/signout').done(function (data) {
+  const signoutBtn = $('#exit-btn');
+  signoutBtn.click(function () {
+    $.get('../api/auth/signout').done(function (data) {
       location.reload();
     });
   });

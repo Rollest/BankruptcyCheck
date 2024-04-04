@@ -1,0 +1,58 @@
+extends ../layouts/main
+
+block content
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.22.1/docxtemplater.js")
+  script(src="https://cdn.jsdelivr.net/npm/pizzip@3.1.6/dist/pizzip.min.js")
+  script(src="../views/scripts/docx_constructor.js")
+  main.main
+    .container
+      .main-content1
+        .constructor
+          .question1
+            p Выберите нужное
+            input(type="radio", name="question1", value="q1v1")
+            label(for="question1") Вариант 1
+            br
+            input(type="radio", name="question1", value="q1v2")
+            label(for="question1") Вариант 2
+            br
+          .question2
+            p Выберите нужное
+            input(type="radio", name="question2", value="q2v1")
+            label(for="question2") Вариант 1
+            br
+            input(type="radio", name="question2", value="q2v2")
+            label(for="question2") Вариант 2
+            br
+          .question3
+            p Выберите нужное
+            input(type="checkbox", name="question3", value="q3v1")
+            label(for="question3") Вариант 1
+            br
+            input(type="checkbox", name="question3", value="q3v2")
+            label(for="question3") Вариант 2
+            br
+            input(type="checkbox", name="question3", value="q3v3")
+            label(for="question3") Вариант 3
+            br
+            input(type="checkbox", name="question3", value="q3v4")
+            label(for="question3") Вариант 4
+            br
+            input(type="checkbox", name="question3", value="q3v5")
+            label(for="question3") Вариант 5
+            br
+            input(type="checkbox", name="question3", value="q3v6")
+            label(for="question3") Вариант 6
+            br
+            input(type="checkbox", name="question3", value="q3v7")
+            label(for="question3") Вариант 7
+            br
+            input(type="checkbox", name="question3", value="q3v8")
+            label(for="question3") Вариант 8
+            br
+            input(type="checkbox", name="question3", value="q3v9")
+            label(for="question3") Вариант 9
+            br
+          button(type="button", id='build-btn') Скачать
+            
+
