@@ -62,3 +62,112 @@
   font-size: 24px;
   color: #2424b9;
 }
+
+/*-----------POPUP---------------*/
+
+.popup-content h2 {
+  text-align: center;
+}
+
+/* Модальный (фон) */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.popup-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 10px;
+}
+
+.popup-content {
+  background-color: #fff;
+  color: #000;
+  max-width: 800px;
+  padding: 30px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.popup-content h3 {
+  font-size: 24px;
+}
+
+.popup-content p {
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Кнопка закрытия */
+.close,
+.close2 {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus,
+.close2:hover,
+.close2:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*-----------REGISTRATION FORM---------------*/
+
+input[type='text'],
+input[type='password'] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type='text']:focus,
+input[type='password']:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.hr {
+  border: 1px solid #afa1a1;
+  margin-bottom: 25px;
+}
+
+.reg-enter-botton {
+  background-color: rgba(7, 175, 115, 1);
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  font-size: 18px;
+}
+
+.reg-enter-botton:hover {
+  opacity: 1;
+}
+
+.privacy {
+  color: #2424b9;
+  text-decoration: none;
+}

@@ -95,11 +95,16 @@ $(document).ready(function () {
   registrationBtn.click(function () {
     const loginInput = $('#registration-login');
     const passwordInput = $('#registration-password');
+    const passwordAgainInput = $('#registration-password-again');
 
     const isLoginOK = isLoginCorrect(loginInput);
     const isPasswordOK = isPasswordCorrect(passwordInput);
 
-    if (isLoginOK && isPasswordOK) {
+    if (
+      isLoginOK &&
+      isPasswordOK &&
+      $(passwordInput).val() == $(passwordAgainInput).val()
+    ) {
       loginInput.css({ 'border-color': 'green' });
       passwordInput.css({ 'border-color': 'green' });
       $.post(

@@ -9,6 +9,7 @@ html
     link(href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap", rel="stylesheet")
     script(src="../views/scripts/jq.js")
     script(src="../views/scripts/auth.js")
+    script(src="../views/scripts/popups.js")
   body
     .viewport
       header.header
@@ -35,24 +36,6 @@ html
                 img(src="../public/avatar.png", alt="avatar")
                 a.header-login-ref(href="#", id="open-login-btn") Вход /
                 a.header-login-ref(href="#", id="open-registration-btn") Регистрация
-                .login-form(style="display: none;")
-                  form()
-                    input(type="text", id="login-login")
-                    br
-                    input(type="text", id="login-password")
-                    br
-                    button(type="button", id="login-btn") Войти
-                    br
-                    button(type="button", id="login-registration-btn") Зарегистрироваться
-                .registration-form(style="display: none;")
-                  form()
-                    input(type="text", id="registration-login")
-                    br
-                    input(type="text", id="registration-password")
-                    br
-                    button(type="button", id="registration-btn") Зарегистрироваться
-                    br
-                    button(type="button", id="registration-login-btn") Войти
       .content
         block content
       footer
@@ -78,6 +61,36 @@ html
           .footer-item
               a(href='#')
                   img(src="../public/vk_logo.png", alt="logo")
+        .popup(id="popup")
+          .popup-body 
+            .popup-content 
+              span.close &times;
+              h2 Вход
+              form
+                .container
+                  hr
+                  input(type="text", placeholder="Введите имя пользователя", id="login-login", required)
+                  br
+                  input(type="password", placeholder="Введите пароль", id="login-password", required)
+                  br
+                  hr
+                  button(type="button", class="reg-enter-button", id="login-btn") Войти
+        .popup(id="popup-2")
+          .popup-body
+            .popup-content 
+              span.close2 &times;
+              h2 Регистрация
+              form
+                .container 
+                  hr
+                  input(type="text", placeholder="Введите имя пользователя", id="registration-login", required)
+                  br
+                  input(type="password", placeholder="Введите пароль", id="registration-password", required)
+                  br
+                  input(type="password", placeholder="Повторите пароль", id="registration-password-again", required)
+                  br
+                  p Создавая аккаунт вы соглашаетесь с нашей #[a.privacy(href="#") политикой конфиденциальности]
+                  button(type="button", class="reg-enter-button", id="registration-btn") Зарегистрироваться
       
     
     
