@@ -1,7 +1,7 @@
 /*-----------MAIN---------------*/
 
 .content {
-  //min-height: 600px;
+  /*min-height: 600px;*/
 }
 .main-content1 {
   display: flex;
@@ -151,7 +151,7 @@ input[type='password']:focus {
   margin-bottom: 25px;
 }
 
-.reg-enter-botton {
+.reg-enter-button {
   background-color: rgba(7, 175, 115, 1);
   color: white;
   padding: 16px 20px;

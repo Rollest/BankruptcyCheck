@@ -17,27 +17,34 @@
   display: flex;
   align-items: center;
 }
-
+.header-brand a {
+  display: flex;
+  align-items: center;
+  color: #140a32;
+  text-decoration: none !important;
+}
 .header-brand img {
   height: 67px;
   width: 83px;
 }
 
 .nav {
-  font-size: 24px;
+  font-size: 22px;
   display: flex;
 }
 
 .nav a {
-  margin-right: 32px;
+  margin-right: 16px;
   text-decoration: none;
   color: #140a32;
 }
 
 .header-login {
-  display: inline-block;
+  display: flex;
+  justify-content: centers;
 }
 
+/*
 .header-login-dropdown {
   display: flex;
   align-items: center;
@@ -45,6 +52,7 @@
   z-index: 2;
   width: 100%;
 }
+*/
 
 .header-login-ref {
   text-decoration: none;
@@ -53,13 +61,16 @@
   font-weight: 253;
   display: flex;
   margin-left: 10px;
+  align-items: center;
+  text-align: center;
+  align-content: center;
 }
 
 .header-login-dropdown img {
   height: 50px;
   width: 50px;
 }
-
+/*
 .header-login-content {
   display: none;
   position: absolute;
@@ -68,6 +79,7 @@
   box-shadow: 0px 30px 16px 0px rgba(0, 0, 0, 0.2);
   background-color: rgba(211, 211, 211, 1);
 }
+*/
 
 .header-login-content a {
   color: #140a32;

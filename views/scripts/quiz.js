@@ -28,6 +28,7 @@ fetch('./views/scripts/quiz_questions.json').then(async (response) => {
     currentQuestionIndex = currentQuestion.id;
     questionCounter = currentQuestion.questionNum;
     totalQuestions = currentQuestion.totalQuestions;
+
     questionElement.textContent = question;
 
     optionsContainer.innerHTML = '';
@@ -36,10 +37,17 @@ fetch('./views/scripts/quiz_questions.json').then(async (response) => {
       const input = document.createElement('input');
       input.type = 'radio';
       input.name = 'option';
+      input.id = options[option].id;
       input.value = JSON.stringify(options[option]);
       input.checked = options[option].isPicked;
       const label = document.createElement('label');
-      label.textContent = options[option].text;
+      const labelText = options[option].text; // Получаем текст опции
+      const linkText = labelText.replace(
+        /<a href='(.*)'>(.*?)<\/a>/g,
+        '<a href="$1">$2</a>',
+      ); // Заменяем текст ссылок внутри метки
+      label.innerHTML = linkText; // Устанавливаем обработанный HTML в метку
+      label.htmlFor = input.id;
       optionsContainer.appendChild(input);
       optionsContainer.appendChild(label);
       optionsContainer.appendChild(document.createElement('br'));
