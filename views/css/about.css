@@ -1,0 +1,104 @@
+.about-content-title {
+  margin-top: 200px;
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 44px;
+}
+
+.image-about {
+  margin-top: 44px;
+  display: flex;
+  justify-content: space-between;
+}
+.image-about img {
+  height: 450px;
+  width: auto;
+}
+
+.about-content1 {
+  display: flex;
+  align-items: top;
+  justify-content: space-between;
+}
+
+.about-content1-info {
+  max-width: 750px;
+  margin-top: 44px;
+}
+
+.about-content1-info p {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.accordion {
+  width: 90%; /* Ширина аккордеона */
+  margin: 0 auto; /* Центрируем аккордеон */
+  display: flex;
+  flex-direction: column; /* Отображаем элементы аккордеона в столбец */
+}
+
+.accordion-item {
+  padding: 20px;
+  margin-bottom: 20px; /* Расстояние между элементами аккордеона */
+}
+
+.accordion-header {
+  background-color: #f0f0f0;
+  border-radius: 10px; /* Круглые углы */
+  padding: 10px;
+  cursor: pointer;
+}
+
+.accordion-content {
+  display: none;
+  padding: 30px;
+}
+
+.accordion-content p {
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.accordion-item .accordion-header {
+  border-top: 1px solid #ccc; /* Уменьшаем ширину полоски сверху */
+  border-bottom: none; /* Убираем нижнюю полоску */
+}
+/* Добавляем стили для активного заголовка */
+.accordion-header.active {
+  background-color: rgba(57, 191, 141, 1);
+}
+.accordion-content-title1 {
+  font-size: 20px;
+  margin-left: 50px;
+}
+
+.toggle-icon {
+  float: left;
+}
+
+.accordion-in {
+  margin-left: 10px; /* Отступаем вложенный аккордеон */
+}
+
+.accordion-in-item {
+  padding: 10px;
+  margin-bottom: 10px; /* Расстояние между элементами вложенного аккордеона */
+}
+
+.accordion-in-header {
+  background-color: rgba(211, 211, 211, 1);
+  border-radius: 10px; /* Круглые углы */
+  padding: 10px;
+  cursor: pointer;
+}
+
+.accordion-in-content {
+  display: none;
+  padding: 10px;
+}
+
+.accordion-in-content p {
+  margin: 0 auto;
+  margin-bottom: 10px;
+}

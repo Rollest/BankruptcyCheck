@@ -36,6 +36,22 @@ export class AppController {
     return { userIsLoggedIn: false };
   }
 
+  @Get('about')
+  @Render('about/about')
+  async getAbout(@Request() req) {
+    let jwt = req.cookies['jwt'];
+
+    if (jwt) {
+      let jwtDecoded = await this.authService.validateToken(jwt);
+      if (jwtDecoded != null) {
+        console.log('validated');
+        return { userIsLoggedIn: true, username: jwtDecoded.login };
+      }
+    }
+    console.log('not validated');
+    return { userIsLoggedIn: false };
+  }
+
   @Get('faq')
   @Render('faq/faq')
   async getFAQ(@Request() req) {
@@ -53,8 +69,8 @@ export class AppController {
   }
 
   @Get('constructor')
-  @UsePipes(new ValidationPipe())
-  @UseGuards(JwtAuthGuard)
+  //@UsePipes(new ValidationPipe())
+  //@UseGuards(JwtAuthGuard)
   @Render('constructor/constructor')
   async getConstructor(@Request() req) {
     let jwt = req.cookies['jwt'];
