@@ -1,4 +1,8 @@
 /*-----------Header---------------*/
+:root {
+  --user-height: 50px;
+}
+
 .header {
   position: fixed;
   top: 0px;
@@ -44,7 +48,6 @@
   justify-content: centers;
 }
 
-/*
 .header-login-dropdown {
   display: flex;
   align-items: center;
@@ -52,7 +55,6 @@
   z-index: 2;
   width: 100%;
 }
-*/
 
 .header-login-ref {
   text-decoration: none;
@@ -67,19 +69,19 @@
 }
 
 .header-login-dropdown img {
-  height: 50px;
+  height: var(--user-height);
   width: 50px;
 }
-/*
+
 .header-login-content {
   display: none;
   position: absolute;
+  margin-top: var(--user-height);
   z-index: 1;
   width: 253px;
   box-shadow: 0px 30px 16px 0px rgba(0, 0, 0, 0.2);
   background-color: rgba(211, 211, 211, 1);
 }
-*/
 
 .header-login-content a {
   color: #140a32;

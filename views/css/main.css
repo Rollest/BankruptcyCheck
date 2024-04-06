@@ -92,7 +92,7 @@
 .popup-content {
   background-color: #fff;
   color: #000;
-  max-width: 800px;
+  max-width: 400px;
   padding: 30px;
   border-radius: 20px;
   position: relative;
@@ -167,7 +167,12 @@ input[type='password']:focus {
   opacity: 1;
 }
 
-.privacy {
+.privacy-text {
+  color: #140a32;
+  font-size: 14px !important;
+}
+.privacy-link {
   color: #2424b9;
   text-decoration: none;
+  font-size: 12px;
 }
