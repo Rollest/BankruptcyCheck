@@ -1,7 +1,6 @@
-fetch('./views/scripts/quiz_questions.json').then(async (response) => {
+fetch('../views/scripts/quiz_questions.json').then(async (response) => {
   let questions = [];
   questions = await response.json();
-  console.log(questions);
 
   let currentQuestionIndex = 1;
   let currentQuestion = findQuestionById(currentQuestionIndex);
@@ -18,6 +17,7 @@ fetch('./views/scripts/quiz_questions.json').then(async (response) => {
   }
 
   const questionElement = document.querySelector('.question');
+  const questionCommentElement = document.querySelector('.question-comment');
   const optionsContainer = document.querySelector('.options');
   const prevButton = document.getElementById('prevBtn');
   const nextButton = document.getElementById('nextBtn');
@@ -25,13 +25,15 @@ fetch('./views/scripts/quiz_questions.json').then(async (response) => {
 
   function displayQuestion() {
     const question = currentQuestion.question;
+    const questionComment = currentQuestion.comment;
     currentQuestionIndex = currentQuestion.id;
     questionCounter = currentQuestion.questionNum;
     totalQuestions = currentQuestion.totalQuestions;
 
     questionElement.textContent = question;
-
+    questionCommentElement.innerHTML = questionComment;
     optionsContainer.innerHTML = '';
+
     const options = currentQuestion.options;
     for (const option in options) {
       const input = document.createElement('input');
@@ -41,12 +43,8 @@ fetch('./views/scripts/quiz_questions.json').then(async (response) => {
       input.value = JSON.stringify(options[option]);
       input.checked = options[option].isPicked;
       const label = document.createElement('label');
-      const labelText = options[option].text; // Получаем текст опции
-      const linkText = labelText.replace(
-        /<a href='(.*)'>(.*?)<\/a>/g,
-        '<a href="$1">$2</a>',
-      ); // Заменяем текст ссылок внутри метки
-      label.innerHTML = linkText; // Устанавливаем обработанный HTML в метку
+      const labelText = options[option].text;
+      label.innerHTML = labelText;
       label.htmlFor = input.id;
       optionsContainer.appendChild(input);
       optionsContainer.appendChild(label);

@@ -1,3 +1,6 @@
+- var user_agreement_link = "https://drive.google.com/file/d/1eqdMHOlAo4Q4MdrqHhCOOvTRXkMNxWl7/view"
+
+
 doctype html
 html
   head
@@ -74,6 +77,9 @@ html
                   br
                   input(type="password", placeholder="Введите пароль", id="login-password", required)
                   br
+                  div(id="enter-comment").popup-comment-div
+                    p(id="enter-login-comment").popup-comment Фарвоафо
+                    p(id="enter-password-comment").popup-comment Фарвоафо
                   hr
                   button(type="button", class="reg-enter-button", id="login-btn") Войти
         .popup(id="popup-2")
@@ -90,7 +96,11 @@ html
                   br
                   input(type="password", placeholder="Повторите пароль", id="registration-password-again", required)
                   br
-                  p.privacy-text Создавая аккаунт вы соглашаетесь с нашей #[a.privacy-link(href="#") политикой конфиденциальности]
+                  div(id="registration-comment").popup-comment-div
+                    p(id="registration-login-comment").popup-comment Фарвоафо
+                    p(id="registration-password-comment").popup-comment Фарвоафо
+                    br
+                  p.privacy-text Создавая аккаунт вы соглашаетесь с нашей #[a.privacy-link(href=user_agreement_link target="_blank") политикой конфиденциальности]
                   button(type="button", class="reg-enter-button", id="registration-btn") Зарегистрироваться
       
     

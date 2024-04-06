@@ -16,10 +16,9 @@
       <header class="header">
         <div class="container">
           <div class="header-content">
-            <div class="header-brand"><img src="../public/logo_new.png" alt="logo">
-              <h2 class="header_title">БанкротствоЧек</h2>
-            </div>
-            <nav class="nav"><a href="/api">Главная</a><a href="#">О банкротстве</a><a href="/api/faq">Вопросы-Ответы</a><a href="/api/constructor">Шаблоны документов</a></nav>
+            <div class="header-brand"><a href="/api"><img src="../public/logo_new.png" alt="logo">
+                <h2 class="header_title">БанкротствоЧек</h2></a></div>
+            <nav class="nav"><a href="/api">Главная</a><a href="/api/about">О банкротстве</a><a href="/api/faq">Вопросы-Ответы</a><a href="/api/constructor">Шаблоны документов</a></nav>
             <div class="header-login"><img src="../public/avatar.png" alt="avatar"><a class="header-login-ref" href="#" id="open-login-btn">Вход /</a><a class="header-login-ref" href="#" id="open-registration-btn">Регистрация</a>
             </div>
           </div>
@@ -31,10 +30,22 @@
           <div class="container">
             <div class="main-content1">
               <div class="faq"> 
-                <div class="question" onclick="toggleAnswer(1)">Вопрос 1</div>
-                <div class="answer" id="answer1">Ответ на вопрос 1</div>
-                <div class="question" onclick="toggleAnswer(2)">Вопрос 2</div>
-                <div class="answer" id="answer2">Ответ на вопрос 2</div>
+                <div class="question" onclick="toggleAnswer(1)">Могу ли я стать банкротом, если сумма моих долгов меньше 25 тысяч рублей?</div>
+                <div class="answer" id="answer1">Процедура банкротства Вам не подходит, но вы все равно можете пройти тест, чтобы узнать свои дальнейшие действия</div>
+                <div class="question" onclick="toggleAnswer(2)">Что меня ожидает после процедуры банкротства?</div>
+                <div class="answer" id="answer2">Процедура банкротства не несет в себе много преимуществ. Ваше имущество будет реализовано, о других риска и последствиях вы можете почитать в разделе "О банкротстве"</div>
+                <div class="question" onclick="toggleAnswer(3)">Потеряю ли я свое жилье после банкротства?</div>
+                <div class="answer" id="answer3">При процедуре банкротства имущество распродается, но Ваше единственное жилье не подлежит данной процедуре и останется у Вас</div>
+                <div class="question" onclick="toggleAnswer(4)">Зачем мне проходить тест?</div>
+                <div class="answer" id="answer4">Тест позволит оценить Ваши риски и выявить наиболее благоприятные для Вас исходы, а также, позволит узнать, что следует делать дальше</div>
+                <div class="question" onclick="toggleAnswer(5)">Могу ли я пройти тест просто для себя?</div>
+                <div class="answer" id="answer5">Да, наш тест предназначен для всех пользователей и позволяет оценить свои риски</div>
+                <div class="question" onclick="toggleAnswer(6)">Обязан ли я заполнять форму, в случае, если итогом теста станет банкротство?</div>
+                <div class="answer" id="answer6">Нет, наш тест ни к чему Вас не обязывает и не побуждает к действиям</div>
+                <div class="question" onclick="toggleAnswer(7)">Могу ли я рассчитывать на дальнейшее сопровождение процедуры банкротства?</div>
+                <div class="answer" id="answer7">Нет, наш сайт носит ознакомительный характер и не предлагает юридических консультаций</div>
+                <div class="question" onclick="toggleAnswer(8)">Зачем мне проходить регистрацию на сайте?</div>
+                <div class="answer" id="answer8">Регистрация позволит Вам получить доступ к конструктору заявлений, который поможет Вам составить заявление о банкротстве</div>
               </div>
             </div>
           </div>
@@ -66,18 +77,20 @@
         <div class="popup" id="popup">
           <div class="popup-body"> 
             <div class="popup-content"> <span class="close">&times;</span>
-              <h2>Выход</h2>
+              <h2>Вход</h2>
               <form>
                 <div class="container">
                   <hr>
                   <input type="text" placeholder="Введите имя пользователя" id="login-login" required><br>
                   <input type="password" placeholder="Введите пароль" id="login-password" required><br>
+                  <hr>
+                  <button class="reg-enter-button" type="button" id="login-btn">Войти</button>
                 </div>
               </form>
             </div>
           </div>
         </div>
-        <div class="pupup" id="popup-2">
+        <div class="popup" id="popup-2">
           <div class="popup-body">
             <div class="popup-content"> <span class="close2">&times;</span>
               <h2>Регистрация</h2>
@@ -87,8 +100,8 @@
                   <input type="text" placeholder="Введите имя пользователя" id="registration-login" required><br>
                   <input type="password" placeholder="Введите пароль" id="registration-password" required><br>
                   <input type="password" placeholder="Повторите пароль" id="registration-password-again" required><br>
-                  <p>Создавая аккаунт вы соглашаетесь с нашей <a class="privacy">политикой конфиденциальности</a></p>
-                  <button class="reg-enter-button" type="button">Зарегистрироваться</button>
+                  <p class="privacy-text">Создавая аккаунт вы соглашаетесь с нашей <a class="privacy-link" href="./api/docs/user-agreement">политикой конфиденциальности</a></p>
+                  <button class="reg-enter-button" type="button" id="registration-btn">Зарегистрироваться</button>
                 </div>
               </form>
             </div>

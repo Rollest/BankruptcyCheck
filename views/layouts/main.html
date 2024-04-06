@@ -1,15 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>БанкротствоЧек</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="../views/css/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap"
-      rel="stylesheet"
-    />
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../views/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
     <script src="../views/scripts/jq.js"></script>
     <script src="../views/scripts/auth.js"></script>
     <script src="../views/scripts/popups.js"></script>
@@ -19,46 +16,30 @@
       <header class="header">
         <div class="container">
           <div class="header-content">
-            <div class="header-brand">
-              <img src="../public/logo_new.png" alt="logo" />
-              <h2 class="header_title">БанкротствоЧек</h2>
-            </div>
-            <nav class="nav">
-              <a href="/api">Главная</a><a href="#">О банкротстве</a
-              ><a href="/api/faq">Вопросы-Ответы</a
-              ><a href="/api/constructor">Шаблоны документов</a>
-            </nav>
-            <div class="header-login">
-              <img src="../public/avatar.png" alt="avatar" /><a
-                class="header-login-ref"
-                href="#"
-                id="open-login-btn"
-                >Вход /</a
-              ><a class="header-login-ref" href="#" id="open-registration-btn"
-                >Регистрация</a
-              >
+            <div class="header-brand"><a href="/api"><img src="../public/logo_new.png" alt="logo">
+                <h2 class="header_title">БанкротствоЧек</h2></a></div>
+            <nav class="nav"><a href="/api">Главная</a><a href="/api/about">О банкротстве</a><a href="/api/faq">Вопросы-Ответы</a><a href="/api/constructor">Шаблоны документов</a></nav>
+            <div class="header-login"><img src="../public/avatar.png" alt="avatar"><a class="header-login-ref" href="#" id="open-login-btn">Вход /</a><a class="header-login-ref" href="#" id="open-registration-btn">Регистрация</a>
             </div>
           </div>
         </div>
       </header>
-      <div class="content"></div>
+      <div class="content">
+      </div>
       <footer>
         <div class="container">
           <form class="feedback-form new-class" action="#" method="post">
             <h3>Форма обратной связи</h3>
-            <input type="text" placeholder="Ваше имя" required />
-            <input type="email" placeholder="Ваш email" required />
-            <input type="tel" placeholder="Ваш номер телефона" required />
+            <input type="text" placeholder="Ваше имя" required>
+            <input type="email" placeholder="Ваш email" required>
+            <input type="tel" placeholder="Ваш номер телефона" required>
             <textarea rows="4" placeholder="Ваше сообщение" required></textarea>
             <button type="submit">Отправить</button>
-            <p>
-              Отправляя данную форму, вы подтверждаете свое согласие на
-              обработку персональных данных.
-            </p>
+            <p>Отправляя данную форму, вы подтверждаете свое согласие на обработку персональных данных.</p>
           </form>
         </div>
         <div class="footer">
-          <div class="footer-item">
+          <div class="footer-item"> 
             <p>Наши контакты</p>
             <p>+7 888 555 88 88</p>
             <p>улица Пушкина, дом Колотушкина</p>
@@ -66,68 +47,36 @@
           <div class="container">
             <p>© 2024 My Website. All rights reserved.</p>
           </div>
-          <div class="footer-item">
-            <a href="#"><img src="../public/vk_logo.png" alt="logo" /></a>
-          </div>
+          <div class="footer-item"><a href="#"><img src="../public/vk_logo.png" alt="logo"></a></div>
         </div>
         <div class="popup" id="popup">
-          <div class="popup-body">
-            <div class="popup-content">
-              <span class="close">&times;</span>
-              <h2>Выход</h2>
+          <div class="popup-body"> 
+            <div class="popup-content"> <span class="close">&times;</span>
+              <h2>Вход</h2>
               <form>
                 <div class="container">
-                  <hr />
-                  <input
-                    type="text"
-                    placeholder="Введите имя пользователя"
-                    id="login-login"
-                    required
-                  /><br />
-                  <input
-                    type="password"
-                    placeholder="Введите пароль"
-                    id="login-password"
-                    required
-                  /><br />
+                  <hr>
+                  <input type="text" placeholder="Введите имя пользователя" id="login-login" required><br>
+                  <input type="password" placeholder="Введите пароль" id="login-password" required><br>
+                  <hr>
+                  <button class="reg-enter-button" type="button" id="login-btn">Войти</button>
                 </div>
               </form>
             </div>
           </div>
         </div>
-        <div class="pupup" id="popup-2">
+        <div class="popup" id="popup-2">
           <div class="popup-body">
-            <div class="popup-content">
-              <span class="close2">&times;</span>
+            <div class="popup-content"> <span class="close2">&times;</span>
               <h2>Регистрация</h2>
               <form>
-                <div class="container">
-                  <hr />
-                  <input
-                    type="text"
-                    placeholder="Введите имя пользователя"
-                    id="registration-login"
-                    required
-                  /><br />
-                  <input
-                    type="password"
-                    placeholder="Введите пароль"
-                    id="registration-password"
-                    required
-                  /><br />
-                  <input
-                    type="password"
-                    placeholder="Повторите пароль"
-                    id="registration-password-again"
-                    required
-                  /><br />
-                  <p>
-                    Создавая аккаунт вы соглашаетесь с нашей
-                    <a class="privacy">политикой конфиденциальности</a>
-                  </p>
-                  <button class="reg-enter-button" type="button">
-                    Зарегистрироваться
-                  </button>
+                <div class="container"> 
+                  <hr>
+                  <input type="text" placeholder="Введите имя пользователя" id="registration-login" required><br>
+                  <input type="password" placeholder="Введите пароль" id="registration-password" required><br>
+                  <input type="password" placeholder="Повторите пароль" id="registration-password-again" required><br>
+                  <p class="privacy-text">Создавая аккаунт вы соглашаетесь с нашей <a class="privacy-link" href="./api/docs/user-agreement">политикой конфиденциальности</a></p>
+                  <button class="reg-enter-button" type="button" id="registration-btn">Зарегистрироваться</button>
                 </div>
               </form>
             </div>

@@ -21,8 +21,8 @@ export class DocsTemplatesController {
   constructor(private readonly docsTemplateService: DocsTemplatesService) {}
 
   @Get(':name')
-  @UsePipes(new ValidationPipe())
-  @UseGuards(JwtAuthGuard)
+  //@UsePipes(new ValidationPipe())
+  //@UseGuards(JwtAuthGuard)
   getPath(@Param('name') name: string, @Res() res: Response) {
     //const path = this.docsTemplateService.getPath(name);
     const filestream = createReadStream('templates/' + name + '.docx');

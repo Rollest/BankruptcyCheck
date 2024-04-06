@@ -25,6 +25,8 @@
 .question {
   font-weight: bolder;
   cursor: default;
+  border: 0px solid #ccc;
+  border-radius: 10px;
 }
 
 .options input[type='radio'] {
@@ -73,4 +75,15 @@
   height: 50px;
   text-align: center;
   border-radius: 20px;
+}
+
+.question-comment {
+  font-size: 14px;
+  padding: 5px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  border-color: rgb(141, 159, 152);
+  border-width: 3px;
 }

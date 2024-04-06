@@ -30,3 +30,8 @@ body {
 .container {
   margin: 0px 30px;
 }
+
+a {
+  text-decoration: none;
+  color: #2424b9;
+}

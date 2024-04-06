@@ -11,18 +11,22 @@ export class UsersService {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
-  ){}
+  ) {}
 
   async create(createUserDto: CreateUserDto) {
     const userExists = await this.userRepository.findOne({
-      where: { login: createUserDto.login},
+      where: { login: createUserDto.login },
     });
 
-    if (userExists){
-      throw new BadRequestException('Пользователь с таким логином уже зарегистрирован в системе.')
+    if (userExists) {
+      throw new BadRequestException(
+        'Пользователь с таким логином уже зарегистрирован в системе.',
+      );
     }
 
-    const hashedPassword = await argon2.hash(createUserDto.password, {type: argon2.argon2id});
+    const hashedPassword = await argon2.hash(createUserDto.password, {
+      type: argon2.argon2id,
+    });
 
     const user = new User();
     user.login = createUserDto.login;
@@ -30,7 +34,7 @@ export class UsersService {
 
     await this.userRepository.save(user);
 
-    return { user };
+    return true;
     //const token = this.jwtService.sign({ email: createUserDto.email });
 
     //return { user, token };
@@ -42,33 +46,36 @@ export class UsersService {
 
   async findOne(id: number) {
     return await this.userRepository.findOne({
-      where: {id}
+      where: { id },
     });
   }
 
   async findOneByLogin(login: string) {
     return await this.userRepository.findOne({
-      where: {login}
+      where: { login },
     });
   }
 
   async update(id: number, updateUserDto: UpdateUserDto) {
     const userExists = await this.userRepository.findOne({
-      where: { login: updateUserDto.login},
+      where: { login: updateUserDto.login },
     });
 
-    if(updateUserDto.password){
-      updateUserDto.password = await argon2.hash(updateUserDto.password, {type: argon2.argon2id});
-    };
+    if (updateUserDto.password) {
+      updateUserDto.password = await argon2.hash(updateUserDto.password, {
+        type: argon2.argon2id,
+      });
+    }
 
-    if (!userExists){
+    if (!userExists) {
       throw new BadRequestException('Пользователя с таким id не существует');
-    };
+    }
     return await this.userRepository.update(id, updateUserDto);
   }
 
   remove(id: number) {
-    return this.userRepository.softDelete(id)
+    return this.userRepository
+      .softDelete(id)
       .then(() => this.userRepository.update(id, { isActive: false }));
-}
+  }
 }
