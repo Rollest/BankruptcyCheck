@@ -1,6 +1,6 @@
 $(document).ready(function () {
   function getFile() {
-    return fetch('./docs-templates/first', {
+    return fetch('docs-templates/first', {
       method: 'GET',
     })
       .then((response) => {

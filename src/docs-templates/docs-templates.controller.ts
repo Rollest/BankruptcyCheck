@@ -25,7 +25,7 @@ export class DocsTemplatesController {
   //@UseGuards(JwtAuthGuard)
   getPath(@Param('name') name: string, @Res() res: Response) {
     //const path = this.docsTemplateService.getPath(name);
-    const filestream = createReadStream('templates/' + name + '.docx');
+    const filestream = createReadStream('public/templates/' + name + '.docx');
     res.type('.docx');
     res.attachment();
     filestream.pipe(res);

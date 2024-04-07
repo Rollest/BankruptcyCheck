@@ -6,13 +6,13 @@ html
   head
     title БанкротствоЧек
     meta(charset="utf-8")
-    link(rel="stylesheet", href="../views/css/styles.css")
+    link(rel="stylesheet", href="css/styles.css")
     link(rel="preconnect", href="https://fonts.googleapis.com")
     link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
     link(href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap", rel="stylesheet")
-    script(src="../views/scripts/jq.js")
-    script(src="../views/scripts/auth.js")
-    script(src="../views/scripts/popups.js")
+    script(src="scripts/jq.js")
+    script(src="scripts/auth.js")
+    script(src="scripts/popups.js")
   body
     .viewport
       header.header
@@ -20,7 +20,7 @@ html
           .header-content
             .header-brand
               a(href="/")
-                img(src="../public/logo_new.png", alt="logo")
+                img(src="logo_new.png", alt="logo")
                 h2.header_title БанкротствоЧек
             nav.nav
               a(href="/") Главная
@@ -30,14 +30,14 @@ html
             .header-login
               - if (userIsLoggedIn)
                 .header-login-dropdown
-                  img(src="../public/avatar.png", alt="avatar")
+                  img(src="avatar.png", alt="avatar")
                   a.header-login-ref(href="#", id="username") #{username}
                 .header-login-content
                   a(href="#") Профиль
                   a(href="#") Настройки
                   a(href="#", id='exit-btn') Выйти
               - else
-                img(src="../public/avatar.png", alt="avatar")
+                img(src="avatar.png", alt="avatar")
                 a.header-login-ref(href="#", id="open-login-btn") Вход /
                 a.header-login-ref(href="#", id="open-registration-btn") Регистрация
       .content
@@ -64,7 +64,7 @@ html
               p © 2024 My Website. All rights reserved.
           .footer-item
               a(href='#')
-                  img(src="../public/vk_logo.png", alt="logo")
+                  img(src="vk_logo.png", alt="logo")
         .popup(id="popup")
           .popup-body 
             .popup-content 

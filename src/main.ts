@@ -9,7 +9,7 @@ async function bootstrap() {
   //app.setGlobalPrefix('api');
   app.enableCors();
   app.use(cookieParser());
-  app.useStaticAssets(join(__dirname, '..'));
+  app.useStaticAssets(join(__dirname, '..', 'public'));
   app.setBaseViewsDir(join(__dirname, '..', 'views'));
   app.setViewEngine('pug');
 

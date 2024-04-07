@@ -26,7 +26,7 @@ $(document).ready(function () {
       passwordInput.css({ 'border-color': 'green' });
 
       $.post(
-        '../auth/login',
+        'auth/login',
         { login: loginInput.val(), password: passwordInput.val() },
         function (data) {
           // Этот код выполнится при успешном ответе

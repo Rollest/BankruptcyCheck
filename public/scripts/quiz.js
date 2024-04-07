@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $.getJSON('../views/scripts/quiz_questions.json', function (questions) {
+  $.getJSON('scripts/quiz_questions.json', function (questions) {
     let currentQuestionIndex = 1;
     let currentQuestion = findQuestionById(currentQuestionIndex);
     let prevQuestions = [];
