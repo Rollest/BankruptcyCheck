@@ -26,7 +26,7 @@ $(document).ready(function () {
       passwordInput.css({ 'border-color': 'green' });
 
       $.post(
-        '../api/auth/login',
+        '../auth/login',
         { login: loginInput.val(), password: passwordInput.val() },
         function (data) {
           // Этот код выполнится при успешном ответе
@@ -65,7 +65,7 @@ $(document).ready(function () {
 
     if (isLoginOK && isPasswordOK) {
       $.post(
-        '../api/users',
+        '../users',
         { login: loginInput.val(), password: passwordInput.val() },
         function (data) {
           loginCommentText = 'Вы успешно зарегистрировались';
