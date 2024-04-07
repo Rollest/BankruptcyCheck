@@ -1,0 +1,29 @@
+version: '2.18.1'
+
+services:
+  postgres:
+    image: 'postgres:16.2-alpine3.19'
+    container_name:
+      - posrgres
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DATABASE}
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    restart: always
+
+  bankruptcy-check:
+    image: bankruptcy-check
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    ports:
+      - 80:80
+volumes:
+  postgres:
