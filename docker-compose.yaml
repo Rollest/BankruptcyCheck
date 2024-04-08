@@ -3,8 +3,7 @@ version: '2.18.1'
 services:
   postgres:
     image: 'postgres:16.2-alpine3.19'
-    container_name:
-      - posrgres
+    container_name: posrgres
     env_file:
       - .env
     environment:
