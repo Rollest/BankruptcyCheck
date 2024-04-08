@@ -8,51 +8,79 @@ block content
     .container
       .main-content1
         .constructor
-          .question1
-            p Выберите нужное
-            input(type="radio", name="question1", value="q1v1")
-            label(for="question1") Вариант 1
-            br
-            input(type="radio", name="question1", value="q1v2")
-            label(for="question1") Вариант 2
-            br
-          .question2
-            p Выберите нужное
-            input(type="radio", name="question2", value="q2v1")
-            label(for="question2") Вариант 1
-            br
-            input(type="radio", name="question2", value="q2v2")
-            label(for="question2") Вариант 2
-            br
-          .question3
-            p Выберите нужное
-            input(type="checkbox", name="question3", value="q3v1")
-            label(for="question3") Вариант 1
-            br
-            input(type="checkbox", name="question3", value="q3v2")
-            label(for="question3") Вариант 2
-            br
-            input(type="checkbox", name="question3", value="q3v3")
-            label(for="question3") Вариант 3
-            br
-            input(type="checkbox", name="question3", value="q3v4")
-            label(for="question3") Вариант 4
-            br
-            input(type="checkbox", name="question3", value="q3v5")
-            label(for="question3") Вариант 5
-            br
-            input(type="checkbox", name="question3", value="q3v6")
-            label(for="question3") Вариант 6
-            br
-            input(type="checkbox", name="question3", value="q3v7")
-            label(for="question3") Вариант 7
-            br
-            input(type="checkbox", name="question3", value="q3v8")
-            label(for="question3") Вариант 8
-            br
-            input(type="checkbox", name="question3", value="q3v9")
-            label(for="question3") Вариант 9
-            br
-          button(type="button", id='build-btn') Скачать
+          h2.title В этом разделе вы можете сконструировать своё заявление
+          .wrapper
+            .question1
+              p #[strong Выберите подходящий вам пункт]:
+              hr
+              input(type="radio", name="question1", value="q1v1")
+              label(for="question1") Учитывая изложенное, считаю необходимым признать мое заявление обоснованным и ввести процедуру реструктуризации долгов (необходимо подтвердить соответствие требованиям пункта 1 статьи 213.13 Закона о банкротстве)
+              br
+              input(type="radio", name="question1", value="q1v2")
+              label(for="question1") Учитывая изложенное, считаю необходимым признать мое заявление обоснованным, ходатайствую о принятии в порядке пункта 6 статьи 213.6 Закона о банкротстве решения о признании меня банкротом и введении процедуры реализации имущества гражданина, поскольку имеющаяся у меня задолженность не подлежит реструктуризации по причине моего несоответствия требованиям пункта 1 статьи 213.13 Закона о банкротстве (указать конкретное основание)
+              br
+          .wrapper
+            .question2
+              p #[strong Выберите подходящий вам пункт]:
+              hr
+              input(type="radio", name="question2", value="q2v1")
+              label(for="question2") Признать мое заявление обоснованным и ввести процедуру реструктуризации долгов
+              br
+              input(type="radio", name="question2", value="q2v2")
+              label(for="question2") Признать мое заявление обоснованным, признать меня банкротом и ввести процедуру реализации имущества
+              br
+          .wrapper
+            .question3
+              p #[strong Выберите только те документы, что у вас есть]:
+              hr
+              input(type="checkbox", name="question3", value="q3v1")
+              label(for="question3") Подтверждение права собственности, удостоверение исключительных права на результаты интеллектуальной деятельности (при наличии)
+              br
+              input(type="checkbox", name="question3", value="q3v2")
+              label(for="question3") Документы о сделках, совершавшихся в течение 3 лет до даты подачи заявления с недвижимостью, ценными бумагами, долями в уставном капитале, транспортными средствами или на сумму свыше 300 000 рублей (при наличии)
+              br
+              input(type="checkbox", name="question3", value="q3v3")
+              label(for="question3") Выписка из реестра акционеров (участников) юридического лица (при наличии)
+              br
+              input(type="checkbox", name="question3", value="q3v4")
+              label(for="question3") ИНН(при наличии)
+              br
+              input(type="checkbox", name="question3", value="q3v5")
+              label(for="question3") Свидетельство о заключении брака(при наличии)
+              br
+              input(type="checkbox", name="question3", value="q3v6")
+              label(for="question3") Свидетельство о расторжении брака, если оно выдано в течение 3 лет до даты подачи заявления (при наличии)
+              br
+              input(type="checkbox", name="question3", value="q3v7")
+              label(for="question3") Копия брачного договора (при наличии)
+              br
+              input(type="checkbox", name="question3", value="q3v8")
+              label(for="question3") Документы о разделе общего имущества супругов, заключенные или принятые в течение 3 лет до даты подачи заявления (при наличии)
+              br
+              input(type="checkbox", name="question3", value="q3v9")
+              label(for="question3") Копия трудовой книжки (при наличии)
+              br
+          .wrapper
+            .question4
+              p #[strong Обратите внимание! Эти документы являются обязательными, и будут добавлены в заявление автоматически]:
+              hr
+              ul.question4-list
+                li Подтверждение задолженности
+                li Документ, подтверждающий наличие или отсутствие статуса ИП
+                li Списки кредиторов и должников гражданина, а также денежных обязательств и (или) обязанности по уплате обязательных платежей
+                li Опись имущества гражданина
+                li Сведения о доходах и о налогах за трехлетний период, предшествующий дате подачи заявления о признании гражданина банкротом
+                li Документы о счетах в банках
+                li СНИЛС
+                li Сведения о состоянии индивидуального лицевого счета застрахованного лица
+                li Копия решения о признании гражданина безработным, в случае принятия указанного решения
+                li Копия свидетельства о рождении ребенка, если гражданин является его родителем, усыновителем или опекуном
+                li Документы, подтверждающие иные обстоятельства, на которых основывается заявление гражданина
+                li Квитанция об оплате государственной пошлины или ходатайство об отсрочке
+                li Доказательство направления копии заявления кредиторам (почтовые квитанции, расписки о вручении, почтовые уведомления)
+                li Доказательство внесения на депозитный счет Арбитражного Суда денежных средств для услуг финансового управляющего либо  ходатайство о предоставлении отсрочки внесения средств
+                li Копия паспорта (копии всех листов, как с отметками, так и не заполненных)
+              br
+          button(type="button", id='build-btn') Скачать документ
             
 

@@ -1,3 +1,65 @@
 .constructor {
-  margin-top: 200px;
+  margin-top: 150px;
+}
+
+.title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.wrapper {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: rgba(206, 233, 218, 1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.question1 input[type='radio'] {
+  margin-right: 5px;
+  line-height: 110%;
+}
+
+.question2 input[type='radio'] {
+  margin-right: 5px;
+  line-height: 110%;
+}
+
+.question3 input[type='checkbox'] {
+  margin-right: 5px;
+  line-height: 110%;
+}
+
+.question4 input[type='radio'] {
+  margin-right: 5px;
+  line-height: 110%;
+}
+
+.question4-list {
+  margin-left: 20px;
+}
+
+hr {
+  border: 1px solid #afa1a1;
+  margin-bottom: 10px;
+}
+
+#build-btn {
+  display: block;
+  background-color: rgba(7, 175, 115, 1);
+  color: white;
+  padding: 16px 20px;
+  margin: 0 auto;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  font-size: 18px;
+  width: 400px;
+  height: 50px;
+  text-align: center;
+  border-radius: 20px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }

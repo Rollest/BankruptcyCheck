@@ -121,7 +121,7 @@
     "id": 9,
     "question": "Ваш основной доход составляет страховая пенсия, пенсия по государственному пенсионному обеспечению, накопительная пенсия, срочная пенсионная выплата или пенсия за службу?",
     "options": [
-      { "id": 20, "text": "Да", "nextQuestionId": 66, "isPicked": false },
+      { "id": 20, "text": "Да", "nextQuestionId": 6, "isPicked": false },
       { "id": 21, "text": "Нет", "nextQuestionId": 11, "isPicked": false }
     ],
     "questionShort": "пенсия"
@@ -130,7 +130,7 @@
     "id": 11,
     "question": "Вы являетесь получателем ежемесячного пособия в связи с рождением и воспитанием ребенка?",
     "options": [
-      { "id": 22, "text": "Да", "nextQuestionId": 666, "isPicked": false },
+      { "id": 22, "text": "Да", "nextQuestionId": 6, "isPicked": false },
       { "id": 23, "text": "Нет", "nextQuestionId": 15, "isPicked": false }
     ],
     "questionShort": "пособие на ребенка"
