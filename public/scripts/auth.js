@@ -141,7 +141,7 @@ $(document).ready(function () {
 
   const signoutBtn = $('#exit-btn');
   signoutBtn.click(function () {
-    $.get('../api/auth/signout').done(function (data) {
+    $.get('auth/signout').done(function (data) {
       location.reload();
     });
   });
