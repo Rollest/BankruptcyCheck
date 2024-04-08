@@ -26,7 +26,7 @@ $(document).ready(function () {
       const questionComment = currentQuestion.comment;
       currentQuestionIndex = currentQuestion.id;
 
-      questionElement.text(question);
+      $(questionElement).html(question);
 
       if (typeof questionComment !== 'undefined') {
         $(questionCommentElement).css({ display: 'block' });
