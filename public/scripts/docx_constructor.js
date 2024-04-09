@@ -33,7 +33,7 @@ $(document).ready(function () {
       };
       doc.setData(data);
       doc.render({});
-      const buffer = doc.getZip().generate({ type: 'uint8array' }); // изменено на 'uint8array'
+      const buffer = doc.getZip().generate({ type: 'uint8array' });
 
       // Создание временной ссылки для скачивания файла
       const blob = new Blob([buffer], {
