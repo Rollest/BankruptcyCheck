@@ -1,17 +1,17 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const feedbackBtn = document.querySelector('.feedback-btn');
-  const feedbackForm = document.querySelector('.feedback-form');
-  const closeButton = document.createElement('span');
-  closeButton.classList.add('close-button');
-  closeButton.innerHTML = '&times;'; // Кнопка закрытия
+$(document).ready(function () {
+  const feedbackBtn = $('.feedback-btn');
+  const feedbackForm = $('.feedback-form');
+  const closeButton = $('<span class="close-button">&times;</span>'); // Создаем элемент кнопки закрытия
 
-  feedbackBtn.addEventListener('click', function () {
-    feedbackForm.style.display = 'block';
-    feedbackForm.appendChild(closeButton);
+  feedbackBtn.on('click', function () {
+    feedbackForm.css('display', 'block');
+    feedbackForm.append(closeButton);
   });
 
-  closeButton.addEventListener('click', function () {
-    feedbackForm.style.display = 'none';
-    feedbackForm.removeChild(closeButton);
+  $('body').on('click', '.close-button', function () {
+    feedbackForm.find('input').val('');
+    feedbackForm.find('textarea').val('');
+    feedbackForm.css('display', 'none');
+    $(this).remove(); // Удаляем кнопку закрытия
   });
 });

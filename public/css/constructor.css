@@ -63,3 +63,7 @@ hr {
   justify-content: center;
   align-items: center;
 }
+
+.comment {
+  color: red;
+}

@@ -29,20 +29,16 @@ $(document).ready(function () {
         'auth/login',
         { login: loginInput.val(), password: passwordInput.val() },
         function (data) {
-          // Этот код выполнится при успешном ответе
           location.reload();
           console.log(data);
         },
         'json',
       ).fail(function (xhr, status, error) {
-        // Этот код выполнится при ошибке
         if (xhr.status === 401) {
-          // Код для обработки ошибки 401
           console.log('Ошибка 401: Пользователь не авторизован.');
           loginCommentText = 'Пользователь с таким логином и паролем не найден';
           manageComments();
         } else {
-          // Код для обработки других ошибок
           console.log('Произошла ошибка: ' + error);
         }
       });

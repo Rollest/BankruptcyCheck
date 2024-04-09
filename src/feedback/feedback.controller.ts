@@ -8,6 +8,6 @@ export class FeedbackController {
 
   @Post()
   postFeedback(@Body() createFeedbackDto: CreateFeedbackDto) {
-    return this.feedbackService.postFeedback(createFeedbackDto);
+    return true; //this.feedbackService.sendFeedback(createFeedbackDto);
   }
 }

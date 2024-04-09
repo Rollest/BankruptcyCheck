@@ -53,10 +53,10 @@ html
           button.feedback-btn Открыть форму обратной связи
           form.feedback-form.new-class(action="#", method="post")
             h3 Форма обратной связи
-            input(id="feedback-name", type="text", placeholder="Ваше имя", required)
-            input(id="feedback-email", ype="email", placeholder="Ваш email", required)
-            input(id="feedback-phone", type="tel", placeholder="Ваш номер телефона", required)
-            textarea(id="feedback-message", rows="4", placeholder="Ваше сообщение", required)
+            input(id="feedback-name", type="text", placeholder="Ваше имя", maxlength="30" required)
+            input(id="feedback-email", ype="email", placeholder="Ваш email", maxlength="30" required)
+            input(id="feedback-phone", type="tel", placeholder="Ваш номер телефона", maxlength="12", required)
+            textarea(id="feedback-message", rows="4", placeholder="Ваше сообщение", maxlength="500" required)
             button(id="feedback-btn", type="button") Отправить
             p Отправляя данную форму, вы подтверждаете свое согласие на обработку персональных данных.
 
@@ -68,9 +68,9 @@ html
               form
                 .container
                   hr
-                  input(type="text", placeholder="Введите имя пользователя", id="login-login", required)
+                  input(type="text", placeholder="Введите имя пользователя", id="login-login", maxlength="30", required)
                   br
-                  input(type="password", placeholder="Введите пароль", id="login-password", required)
+                  input(type="password", placeholder="Введите пароль", id="login-password", maxlength="30", required)
                   br
                   div(id="enter-comment").popup-comment-div
                     p(id="enter-login-comment").popup-comment Фарвоафо
@@ -85,11 +85,11 @@ html
               form
                 .container 
                   hr
-                  input(type="text", placeholder="Введите имя пользователя", id="registration-login", required)
+                  input(type="text", placeholder="Введите имя пользователя", id="registration-login", maxlength="30", required)
                   br
-                  input(type="password", placeholder="Введите пароль", id="registration-password", required)
+                  input(type="password", placeholder="Введите пароль", id="registration-password", maxlength="30", required)
                   br
-                  input(type="password", placeholder="Повторите пароль", id="registration-password-again", required)
+                  input(type="password", placeholder="Повторите пароль", id="registration-password-again", maxlength="30", required)
                   br
                   div(id="registration-comment").popup-comment-div
                     p(id="registration-login-comment").popup-comment Фарвоафо

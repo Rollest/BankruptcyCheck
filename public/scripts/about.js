@@ -1,11 +1,11 @@
 $(document).ready(function () {
-  $('.accordion-content').hide(); // Скрываем весь контент изначально
+  $('.accordion-content').hide();
 
   $('.accordion-header').click(function () {
     var accordionItem = $(this).parent();
     accordionItem.toggleClass('active');
     accordionItem.find('.accordion-content').slideToggle();
-    $(this).toggleClass('active'); // Добавляем/удаляем класс при нажатии
+    $(this).toggleClass('active');
   });
 
   // Добавляем обработчик событий для вложенных аккордеонов

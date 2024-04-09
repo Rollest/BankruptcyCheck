@@ -35,14 +35,13 @@ $(document).ready(function () {
       doc.render({});
       const buffer = doc.getZip().generate({ type: 'uint8array' });
 
-      // Создание временной ссылки для скачивания файла
       const blob = new Blob([buffer], {
         type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
       });
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'generated_document.docx'; // Имя файла
+      a.download = 'generated_document.docx';
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);
@@ -52,39 +51,39 @@ $(document).ready(function () {
   const prilVars = [
     {
       key: 'q3v1',
-      val: ' Копии документов, подтверждающих право собственности гражданина на имущество, и документов, удостоверяющих исключительные права на результаты интеллектуальной деятельности гражданина (при наличии)',
+      val: ' Копии документов, подтверждающих право собственности гражданина на имущество, и документов, удостоверяющих исключительные права на результаты интеллектуальной деятельности гражданина',
     },
     {
       key: 'q3v2',
-      val: ' Копии документов о совершавшихся гражданином в течение трех лет до даты подачи заявления сделках с недвижимым имуществом, ценными бумагами, долями в уставном капитале, транспортными средствами и сделках на сумму свыше трехсот тысяч рублей (при наличии)',
+      val: ' Копии документов о совершавшихся гражданином в течение трех лет до даты подачи заявления сделках с недвижимым имуществом, ценными бумагами, долями в уставном капитале, транспортными средствами и сделках на сумму свыше трехсот тысяч рублей',
     },
     {
       key: 'q3v3',
-      val: ' Выписка из реестра акционеров (участников) юридического лица, акционером (участником) которого является гражданин (при наличии)',
+      val: ' Выписка из реестра акционеров (участников) юридического лица, акционером (участником) которого является гражданин',
     },
     {
       key: 'q3v4',
-      val: ' Копия свидетельства о постановке на учет в налоговом органе (при наличии)',
+      val: ' Копия свидетельства о постановке на учет в налоговом органе',
     },
     {
       key: 'q3v5',
-      val: ' (Если брак заключен и не расторгнут, то нужна) копия свидетельства о заключении брака.',
+      val: ' Копия свидетельства о заключении брака.',
     },
     {
       key: 'q3v6',
-      val: ' Копия свидетельства о расторжении брака, если оно выдано в течение трех лет до даты подачи заявления (при наличии)',
+      val: ' Копия свидетельства о расторжении брака, если оно выдано в течение трех лет до даты подачи заявления',
     },
     {
       key: 'q3v7',
-      val: ' Копия брачного договора (при наличии)',
+      val: ' Копия брачного договора',
     },
     {
       key: 'q3v8',
-      val: ' Копия соглашения или судебного акта о разделе общего имущества супругов, соответственно заключенного и принятого в течение трех лет до даты подачи заявления (при наличии)',
+      val: ' Копия соглашения или судебного акта о разделе общего имущества супругов, соответственно заключенного и принятого в течение трех лет до даты подачи заявления',
     },
     {
       key: 'q3v9',
-      val: ' Копия трудовой книжки (при наличии)',
+      val: ' Копия трудовой книжки',
     },
   ];
 
@@ -103,14 +102,17 @@ $(document).ready(function () {
   const buildBtn = $('#build-btn');
   console.log(buildBtn);
 
+  $('#question1-comment').css({ display: 'none' });
+  $('#question2-comment').css({ display: 'none' });
+
   $(buildBtn).click(function () {
     const answer1 = $('.question1').find("input[type='radio']:checked").val();
     const answer2 = $('.question2').find("input[type='radio']:checked").val();
     const answer3 = $('.question3').find("input[type='checkbox']:checked");
-    console.log(answer1);
-    console.log(answer2);
-    console.log(answer3);
+
     if (answer1 && answer2) {
+      $('#question1-comment').css({ display: 'none' });
+      $('#question2-comment').css({ display: 'none' });
       switch (answer1) {
         case 'q1v1':
           firstText =
@@ -158,6 +160,33 @@ $(document).ready(function () {
       }
 
       buildAndDownloadDocument();
+    } else {
+      let alreadyScrolling = false;
+
+      if (!answer1) {
+        $('#question1-comment').css({ display: 'block' });
+        if (!alreadyScrolling) {
+          alreadyScrolling = true;
+          $([document.documentElement, document.body]).animate(
+            {
+              scrollTop: $('#question1-comment').offset().top - 400,
+            },
+            1000,
+          );
+        }
+      }
+      if (!answer2) {
+        $('#question2-comment').css({ display: 'block' });
+        if (!alreadyScrolling) {
+          alreadyScrolling = true;
+          $([document.documentElement, document.body]).animate(
+            {
+              scrollTop: $('#question2-comment').offset().top - 500,
+            },
+            1000,
+          );
+        }
+      }
     }
   });
 });
