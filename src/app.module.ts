@@ -6,6 +6,7 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { DocsTemplatesModule } from './docs-templates/docs-templates.module';
+import { FeedbackModule } from './feedback/feedback/feedback.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -22,6 +23,7 @@ import { DocsTemplatesModule } from './docs-templates/docs-templates.module';
     UsersModule,
     AuthModule,
     DocsTemplatesModule,
+    FeedbackModule,
   ],
   controllers: [AppController],
   providers: [AppService],
