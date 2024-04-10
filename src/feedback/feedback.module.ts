@@ -12,7 +12,7 @@ import { PugAdapter } from '@nestjs-modules/mailer/dist/adapters/pug.adapter';
         transport:
           'smtps://bankruptcy_check@mail.ru:GhxnXGafBJPt5vhWVR3q@smtp.mail.ru',
         defaults: {
-          from: '"nest-modules" <bankruptcy_check@mail.ru>',
+          from: '"БанкротствоЧек" <bankruptcy_check@mail.ru>',
         },
         template: {
           dir: 'src/feedback/feedback-templates',
