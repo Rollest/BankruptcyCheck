@@ -29,4 +29,3 @@ import { FeedbackModule } from './feedback/feedback.module';
   providers: [AppService],
 })
 export class AppModule{}
-}
