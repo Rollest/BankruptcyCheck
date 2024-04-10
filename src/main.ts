@@ -4,23 +4,24 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
 import * as cookieParser from 'cookie-parser';
 import * as fs from 'fs';
+import * as enforce from 'express-sslify';
 
 async function bootstrap() {
-  const keyFile = fs.readFileSync('/etc/ssl/private.key');
-  const certFile = fs.readFileSync('/etc/ssl/certificate.crt');
+  const keyFile = fs.readFileSync(__dirname + '/../ssl/private.key');
+  const certFile = fs.readFileSync(__dirname + '/../ssl/certificate.crt');
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     httpsOptions: {
       key: keyFile,
       cert: certFile,
     },
   });
-
+  app.use(enforce.HTTPS());
   app.enableCors();
   app.use(cookieParser());
   app.useStaticAssets(join(__dirname, '..', 'public'));
   app.setBaseViewsDir(join(__dirname, '..', 'views'));
   app.setViewEngine('pug');
 
-  await app.listen(80);
+  await app.listen(443);
 }
 bootstrap();
