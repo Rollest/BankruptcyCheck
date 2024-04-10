@@ -7,7 +7,6 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { DocsTemplatesModule } from './docs-templates/docs-templates.module';
 import { FeedbackModule } from './feedback/feedback.module';
-import { HttpsMiddleware } from './middlewares/https.middleware';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -29,8 +28,5 @@ import { HttpsMiddleware } from './middlewares/https.middleware';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(HttpsMiddleware).forRoutes('*');
-  }
+export class AppModule{}
 }
