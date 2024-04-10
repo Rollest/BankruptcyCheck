@@ -95,3 +95,8 @@ footer {
 .feedback-btn:hover {
   background-color: #e2e8e4;
 }
+
+#feedback-result {
+  display: none;
+  color: green;
+}

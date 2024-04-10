@@ -5,8 +5,6 @@ $(document).ready(function () {
   const feedbackMessage = $('#feedback-message');
   const feedbackBtn = $('#feedback-btn');
 
-  console.log(feedbackBtn);
-
   $(feedbackBtn).click(function () {
     console.log('feeeeed back');
     if (allInputsAreOK()) {
@@ -19,7 +17,8 @@ $(document).ready(function () {
           message: $(feedbackMessage).val(),
         },
         function (data) {
-          console.log(data);
+          $(feedbackBtn).prop('disabled', true);
+          $('#feedback-result').css({ display: 'block' });
         },
         'json',
       ).fail(function (xhr, status, error) {
