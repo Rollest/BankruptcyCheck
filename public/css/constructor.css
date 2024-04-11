@@ -63,3 +63,90 @@ hr {
   justify-content: center;
   align-items: center;
 }
+
+.okno {
+  width: 300px;
+  height: 50px;
+  text-align: center;
+  padding: 15px;
+  border: 1px solid #afa1a1;
+  border-radius: 10px;
+  color: #140a32;
+}
+
+[data-tooltip] {
+  position: relative; /* Относительное позиционирование */ 
+ }
+ [data-tooltip]::after {
+  content: attr(data-tooltip); /* Выводим текст */
+  position: absolute; /* Абсолютное позиционирование */
+  width: 300px; /* Ширина подсказки */
+  left: 0; top: 0; /* Положение подсказки */
+  background: #3989c9; /* Синий цвет фона */
+  color: #fff; /* Цвет текста */
+  padding: 0.5em; /* Поля вокруг текста */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
+  pointer-events: none; /* Подсказка */
+  opacity: 0; /* Подсказка невидима */
+  transition: 1s; /* Время появления подсказки */
+ } 
+ [data-tooltip]:hover::after {
+  opacity: 1; /* Показываем подсказку */
+  top: 2em; /* Положение подсказки */
+ }
+
+/*
+.question1 label:nth-of-type(1):hover {
+  color: red;
+}*/
+
+/* Tooltip container */
+
+/*
+.tooltip {
+  position: relative;
+  display: inline-block;
+}*/
+
+.tooltip {
+  width: fit-content;
+}
+.tooltiptext {
+  cursor: default;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  display: none;
+  visibility: hidden;
+  /* background-color: rgba(40, 43, 42, 0.5); */
+  background-color: rgb(255, 253, 235);
+  color: #140a32;
+  /* text-align: center; */
+  padding: 10px 10px;
+  border-radius: 6px;
+  width: 700px;
+  /* margin-left: -150px; */
+  position: absolute;
+  z-index: 1;
+  height: auto;
+  font-weight: normal;
+  cursor: normal;
+}
+
+.tooltip:hover {
+  color: rgb(26, 108, 78);
+  font-weight: bold;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  display: block;
+}
+
+/*
+.question4 li:nth-child(1):hover {
+  color: orange;
+}*/
+
