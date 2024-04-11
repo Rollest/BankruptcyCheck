@@ -43,6 +43,7 @@ $(document).ready(function () {
   $('#login-reg-button').click(function () {
     openReg();
   });
+
   $('#reg-login-button').click(function () {
     openLogin();
   });
@@ -57,7 +58,7 @@ $(document).ready(function () {
     modal2.css('display', 'block');
   }
 
-  $('#constructor-link').on('click', function (event) {
+  $('.constructor-link').on('click', function (event) {
     needToEnter(event);
   });
 

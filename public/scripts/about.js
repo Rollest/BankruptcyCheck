@@ -22,14 +22,20 @@ $(document).ready(function () {
 
   $(checkCourtBtn).click(function () {
     console.log('smth');
-    buildAndDownloadDocument('check_court.docx');
+    const userIsNotLogged = $('.header-login-content').length < 1;
+    if (!userIsNotLogged) {
+      buildAndDownloadDocument('check_court.docx');
+    }
   });
 
   const checkOutBtn = $('#download-btn-out');
 
   $(checkOutBtn).click(function () {
     console.log('smth');
-    buildAndDownloadDocument('check_outcourt.docx');
+    const userIsNotLogged = $('.header-login-content').length < 1;
+    if (!userIsNotLogged) {
+      buildAndDownloadDocument('check_outcourt.docx');
+    }
   });
 
   function getFile(filename) {

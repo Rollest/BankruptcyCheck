@@ -1,4 +1,5 @@
 - var user_agreement_link = "https://drive.google.com/file/d/1eqdMHOlAo4Q4MdrqHhCOOvTRXkMNxWl7/view"
+- var user_personal_link = "https://docs.google.com/document/d/1BDLZoCYlLY21CG_lJ0lYnwH6wVSoyDEpatEhZwzOH_0/edit?usp=share_link"
 
 
 doctype html
@@ -50,13 +51,14 @@ html
           button.feedback-btn Открыть форму обратной связи
           form.feedback-form.new-class(action="#", method="post")
             h3 Форма обратной связи
-            input(id="feedback-name", type="text", placeholder="Ваше имя", maxlength="30" required)
-            input(id="feedback-email", ype="email", placeholder="Ваш email", maxlength="30" required)
+            input(id="feedback-name", type="text", placeholder="Ваше имя", maxlength="30",  required)
+            input(id="feedback-email", type="email", placeholder="Ваш email", maxlength="30",  required)
             input(id="feedback-phone", type="tel", placeholder="Ваш номер телефона", maxlength="13", required)
-            textarea(id="feedback-message", rows="4", placeholder="Ваше сообщение", maxlength="500" required)
+            textarea(id="feedback-message", rows="4", placeholder="Ваше сообщение", maxlength="500",  required)
             button(id="feedback-btn", type="button") Отправить
             p(id="feedback-result") Заявка успешно отправлена, с вами свяжутся в ближайшее время.
-            p Отправляя данную форму, вы подтверждаете свое согласие на обработку персональных данных.
+            p Отправляя данную форму, вы подтверждаете свое согласие на #[a.privacy-link(href=user_personal_link target="_blank") обработку персональных данных].
+            
 
         .popup(id="popup")
           .popup-body 
