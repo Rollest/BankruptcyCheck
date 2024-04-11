@@ -64,6 +64,58 @@ hr {
   align-items: center;
 }
 
-.comment {
+/*
+.question1 label:nth-of-type(1):hover {
   color: red;
+}*/
+
+/* Tooltip container */
+
+/*
+.tooltip {
+  position: relative;
+  display: inline-block;
+}*/
+
+.tooltip {
+  width: fit-content;
 }
+.tooltiptext {
+  cursor: default;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  display: none;
+  visibility: hidden;
+  /* background-color: rgba(40, 43, 42, 0.5); */
+  background-color: rgb(255, 253, 235);
+  color: #140a32;
+  /* text-align: center; */
+  padding: 10px 10px;
+  border-radius: 6px;
+  width: 700px;
+  /* margin-left: -150px; */
+  position: absolute;
+  z-index: 1;
+  height: auto;
+  font-weight: normal;
+  cursor: normal;
+}
+
+.tooltip:hover {
+  color: rgb(26, 108, 78);
+  font-weight: bold;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  display: block;
+}
+
+/*
+.question4 li:nth-child(1):hover {
+  color: orange;
+}*/
+
