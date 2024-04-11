@@ -7,6 +7,8 @@ $(document).ready(function () {
   let passwordComment;
   let passwordCommentText;
 
+  let userIsLogged = false;
+
   const loginBtn = $('#login-btn');
   const registrationBtn = $('#registration-btn');
 
@@ -30,6 +32,7 @@ $(document).ready(function () {
         { login: loginInput.val(), password: passwordInput.val() },
         function (data) {
           location.reload();
+          userIsLogged = true;
           console.log(data);
         },
         'json',
@@ -138,7 +141,12 @@ $(document).ready(function () {
   const signoutBtn = $('#exit-btn');
   signoutBtn.click(function () {
     $.get('auth/signout').done(function (data) {
-      location.reload();
+      if (!location.href.includes('constructor')) {
+        location.reload();
+      } else {
+        location.assign('https://bankruptcycheck.ru');
+      }
+      userIsLogged = false;
     });
   });
 

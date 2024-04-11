@@ -29,7 +29,7 @@ html
               a(href="/") Главная
               a(href="/about") О банкротстве
               a(href="/faq") Вопросы-Ответы
-              a(href="/constructor") Шаблоны документов
+              a(href="/constructor", id="constructor-link") Шаблоны документов
             .header-login
               - if (userIsLoggedIn)
                 .header-login-dropdown
@@ -47,16 +47,12 @@ html
         block content
       footer
         .footer
-          .footer-item 
-              p Наши контакты
-              p +7 888 555 88 88
-              p улица Пушкина, дом Колотушкина
           button.feedback-btn Открыть форму обратной связи
           form.feedback-form.new-class(action="#", method="post")
             h3 Форма обратной связи
             input(id="feedback-name", type="text", placeholder="Ваше имя", maxlength="30" required)
             input(id="feedback-email", ype="email", placeholder="Ваш email", maxlength="30" required)
-            input(id="feedback-phone", type="tel", placeholder="Ваш номер телефона", maxlength="12", required)
+            input(id="feedback-phone", type="tel", placeholder="Ваш номер телефона", maxlength="13", required)
             textarea(id="feedback-message", rows="4", placeholder="Ваше сообщение", maxlength="500" required)
             button(id="feedback-btn", type="button") Отправить
             p(id="feedback-result") Заявка успешно отправлена, с вами свяжутся в ближайшее время.
@@ -79,6 +75,9 @@ html
                     p(id="enter-password-comment").popup-comment Фарвоафо
                   hr
                   button(type="button", class="reg-enter-button", id="login-btn") Войти
+                  hr
+                  p #[a(id="login-reg-button", href="#") Зарегистрироваться] если у вас нет аккаунта
+                  
         .popup(id="popup-2")
           .popup-body
             .popup-content 
@@ -99,6 +98,9 @@ html
                     br
                   p.privacy-text Создавая аккаунт вы соглашаетесь с нашей #[a.privacy-link(href=user_agreement_link target="_blank") политикой конфиденциальности]
                   button(type="button", class="reg-enter-button", id="registration-btn") Зарегистрироваться
+                  hr
+                  p #[a(id="reg-login-button", href="#") Войти] если у вас уже есть аккаунт
+                  
       
     
     

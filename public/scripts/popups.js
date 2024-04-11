@@ -10,12 +10,12 @@ $(document).ready(function () {
 
   // enter
   enter.click(function () {
-    modal.css('display', 'block');
+    openLogin();
   });
 
   // reg
   reg.click(function () {
-    modal2.css('display', 'block');
+    openReg();
   });
 
   // Когда пользователь нажимает на <span> (x), закрывает popup
@@ -39,4 +39,33 @@ $(document).ready(function () {
       modal2.find('input').val('');
     }
   });
+
+  $('#login-reg-button').click(function () {
+    openReg();
+  });
+  $('#reg-login-button').click(function () {
+    openLogin();
+  });
+
+  function openLogin() {
+    modal.css('display', 'block');
+    modal2.css('display', 'none');
+  }
+
+  function openReg() {
+    modal.css('display', 'none');
+    modal2.css('display', 'block');
+  }
+
+  $('#constructor-link').on('click', function (event) {
+    needToEnter(event);
+  });
+
+  function needToEnter(event) {
+    const userIsNotLogged = $('.header-login-content').length < 1;
+    if (userIsNotLogged) {
+      event.preventDefault();
+      modal.css('display', 'block');
+    }
+  }
 });

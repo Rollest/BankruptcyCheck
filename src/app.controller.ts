@@ -69,8 +69,8 @@ export class AppController {
   }
 
   @Get('constructor')
-  //@UsePipes(new ValidationPipe())
-  //@UseGuards(JwtAuthGuard)
+  @UsePipes(new ValidationPipe())
+  @UseGuards(JwtAuthGuard)
   @Render('constructor/constructor')
   async getConstructor(@Request() req) {
     let jwt = req.cookies['jwt'];

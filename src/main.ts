@@ -7,15 +7,17 @@ import * as fs from 'fs';
 import * as enforce from 'express-sslify';
 
 async function bootstrap() {
-  const keyFile = fs.readFileSync(__dirname + '/../ssl/private.key');
-  const certFile = fs.readFileSync(__dirname + '/../ssl/certificate.crt');
-  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+  //const keyFile = fs.readFileSync(__dirname + '/../ssl/private.key');
+  //const certFile = fs.readFileSync(__dirname + '/../ssl/certificate.crt');
+  const app = await NestFactory.create<NestExpressApplication>(
+    AppModule /*, {
     httpsOptions: {
       key: keyFile,
       cert: certFile,
     },
-  });
-  app.use(enforce.HTTPS());
+  }*/,
+  );
+  //app.use(enforce.HTTPS());
   app.enableCors();
   app.use(cookieParser());
   app.useStaticAssets(join(__dirname, '..', 'public'));
