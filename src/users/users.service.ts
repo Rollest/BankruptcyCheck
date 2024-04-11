@@ -35,9 +35,6 @@ export class UsersService {
     await this.userRepository.save(user);
 
     return true;
-    //const token = this.jwtService.sign({ email: createUserDto.email });
-
-    //return { user, token };
   }
 
   async findAll() {

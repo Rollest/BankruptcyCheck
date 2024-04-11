@@ -1,38 +1,71 @@
 $(document).ready(function () {
-  var modal = document.getElementById('popup');
-  var modal2 = document.getElementById('popup-2');
+  var modal = $('#popup');
+  var modal2 = $('#popup-2');
 
-  var enter = document.getElementById('open-login-btn');
-  var reg = document.getElementById('open-registration-btn');
+  var enter = $('#open-login-btn');
+  var reg = $('#open-registration-btn');
 
-  var span = document.getElementsByClassName('close')[0];
-  var span2 = document.getElementsByClassName('close2')[0];
+  var span = $('.close:first');
+  var span2 = $('.close2:first');
 
   // enter
-  enter.onclick = function () {
-    modal.style.display = 'block';
-  };
+  enter.click(function () {
+    openLogin();
+  });
 
   // reg
-  reg.onclick = function () {
-    modal2.style.display = 'block';
-  };
+  reg.click(function () {
+    openReg();
+  });
 
   // Когда пользователь нажимает на <span> (x), закрывает popup
-  span.onclick = function () {
-    modal.style.display = 'none';
-  };
-  span2.onclick = function () {
-    modal2.style.display = 'none';
-  };
+  span.click(function () {
+    modal.css('display', 'none');
+    modal.find('input').val('');
+  });
+  span2.click(function () {
+    modal2.css('display', 'none');
+    modal2.find('input').val('');
+  });
 
   // Когда пользователь щелкает в любом месте за пределами popup, закрывает его
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = 'none';
+  $(window).click(function (event) {
+    if (event.target == modal[0]) {
+      modal.css('display', 'none');
+      modal.find('input').val('');
     }
-    if (event.target == modal2) {
-      modal2.style.display = 'none';
+    if (event.target == modal2[0]) {
+      modal2.css('display', 'none');
+      modal2.find('input').val('');
     }
-  };
+  });
+
+  $('#login-reg-button').click(function () {
+    openReg();
+  });
+  $('#reg-login-button').click(function () {
+    openLogin();
+  });
+
+  function openLogin() {
+    modal.css('display', 'block');
+    modal2.css('display', 'none');
+  }
+
+  function openReg() {
+    modal.css('display', 'none');
+    modal2.css('display', 'block');
+  }
+
+  $('#constructor-link').on('click', function (event) {
+    needToEnter(event);
+  });
+
+  function needToEnter(event) {
+    const userIsNotLogged = $('.header-login-content').length < 1;
+    if (userIsNotLogged) {
+      event.preventDefault();
+      modal.css('display', 'block');
+    }
+  }
 });

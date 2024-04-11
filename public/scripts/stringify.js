@@ -224,7 +224,6 @@ const { writeFile } = require('fs');
 
 const jsonQuestions = JSON.stringify(questions);
 
-// Write the JSON string to the file
 writeFile(
   '/Users/kesum/Desktop/bankruptcy-check/views/scripts/quiz_questions2.json',
   jsonQuestions,

@@ -7,6 +7,8 @@ $(document).ready(function () {
   let passwordComment;
   let passwordCommentText;
 
+  let userIsLogged = false;
+
   const loginBtn = $('#login-btn');
   const registrationBtn = $('#registration-btn');
 
@@ -29,20 +31,17 @@ $(document).ready(function () {
         'auth/login',
         { login: loginInput.val(), password: passwordInput.val() },
         function (data) {
-          // Этот код выполнится при успешном ответе
           location.reload();
+          userIsLogged = true;
           console.log(data);
         },
         'json',
       ).fail(function (xhr, status, error) {
-        // Этот код выполнится при ошибке
         if (xhr.status === 401) {
-          // Код для обработки ошибки 401
           console.log('Ошибка 401: Пользователь не авторизован.');
           loginCommentText = 'Пользователь с таким логином и паролем не найден';
           manageComments();
         } else {
-          // Код для обработки других ошибок
           console.log('Произошла ошибка: ' + error);
         }
       });
@@ -142,7 +141,12 @@ $(document).ready(function () {
   const signoutBtn = $('#exit-btn');
   signoutBtn.click(function () {
     $.get('auth/signout').done(function (data) {
-      location.reload();
+      if (!location.href.includes('constructor')) {
+        location.reload();
+      } else {
+        location.assign('https://bankruptcycheck.ru');
+      }
+      userIsLogged = false;
     });
   });
 

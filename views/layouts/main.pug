@@ -10,9 +10,12 @@ html
     link(rel="preconnect", href="https://fonts.googleapis.com")
     link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
     link(href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap", rel="stylesheet")
+    link(rel="icon", href="logo_new.ico", type="image/x-icon")
     script(src="scripts/jq.js")
     script(src="scripts/auth.js")
     script(src="scripts/popups.js")
+    script(src="scripts/footer.js")
+    script(src="scripts/feedback.js")
   body
     .viewport
       header.header
@@ -26,7 +29,7 @@ html
               a(href="/") Главная
               a(href="/about") О банкротстве
               a(href="/faq") Вопросы-Ответы
-              a(href="/constructor") Шаблоны документов
+              a(href="/constructor", id="constructor-link") Шаблоны документов
             .header-login
               - if (userIsLoggedIn)
                 .header-login-dropdown
@@ -43,28 +46,18 @@ html
       .content
         block content
       footer
-        .container
+        .footer
+          button.feedback-btn Открыть форму обратной связи
           form.feedback-form.new-class(action="#", method="post")
             h3 Форма обратной связи
-            input(type="text", placeholder="Ваше имя", required)
-            input(type="email", placeholder="Ваш email", required)
-            input(type="tel", placeholder="Ваш номер телефона", required)
-            textarea(rows="4", placeholder="Ваше сообщение", required)
-            button(type="submit") Отправить
+            input(id="feedback-name", type="text", placeholder="Ваше имя", maxlength="30" required)
+            input(id="feedback-email", ype="email", placeholder="Ваш email", maxlength="30" required)
+            input(id="feedback-phone", type="tel", placeholder="Ваш номер телефона", maxlength="13", required)
+            textarea(id="feedback-message", rows="4", placeholder="Ваше сообщение", maxlength="500" required)
+            button(id="feedback-btn", type="button") Отправить
+            p(id="feedback-result") Заявка успешно отправлена, с вами свяжутся в ближайшее время.
             p Отправляя данную форму, вы подтверждаете свое согласие на обработку персональных данных.
-    
-    
-        .footer
-          .footer-item 
-              p Наши контакты
-              p +7 888 555 88 88
-              p улица Пушкина, дом Колотушкина
 
-          .container
-              p © 2024 My Website. All rights reserved.
-          .footer-item
-              a(href='#')
-                  img(src="vk_logo.png", alt="logo")
         .popup(id="popup")
           .popup-body 
             .popup-content 
@@ -73,15 +66,18 @@ html
               form
                 .container
                   hr
-                  input(type="text", placeholder="Введите имя пользователя", id="login-login", required)
+                  input(type="text", placeholder="Введите имя пользователя", id="login-login", maxlength="30", required)
                   br
-                  input(type="password", placeholder="Введите пароль", id="login-password", required)
+                  input(type="password", placeholder="Введите пароль", id="login-password", maxlength="30", required)
                   br
                   div(id="enter-comment").popup-comment-div
                     p(id="enter-login-comment").popup-comment Фарвоафо
                     p(id="enter-password-comment").popup-comment Фарвоафо
                   hr
                   button(type="button", class="reg-enter-button", id="login-btn") Войти
+                  hr
+                  p #[a(id="login-reg-button", href="#") Зарегистрироваться] если у вас нет аккаунта
+                  
         .popup(id="popup-2")
           .popup-body
             .popup-content 
@@ -90,11 +86,11 @@ html
               form
                 .container 
                   hr
-                  input(type="text", placeholder="Введите имя пользователя", id="registration-login", required)
+                  input(type="text", placeholder="Введите имя пользователя", id="registration-login", maxlength="30", required)
                   br
-                  input(type="password", placeholder="Введите пароль", id="registration-password", required)
+                  input(type="password", placeholder="Введите пароль", id="registration-password", maxlength="30", required)
                   br
-                  input(type="password", placeholder="Повторите пароль", id="registration-password-again", required)
+                  input(type="password", placeholder="Повторите пароль", id="registration-password-again", maxlength="30", required)
                   br
                   div(id="registration-comment").popup-comment-div
                     p(id="registration-login-comment").popup-comment Фарвоафо
@@ -102,6 +98,9 @@ html
                     br
                   p.privacy-text Создавая аккаунт вы соглашаетесь с нашей #[a.privacy-link(href=user_agreement_link target="_blank") политикой конфиденциальности]
                   button(type="button", class="reg-enter-button", id="registration-btn") Зарегистрироваться
+                  hr
+                  p #[a(id="reg-login-button", href="#") Войти] если у вас уже есть аккаунт
+                  
       
     
     

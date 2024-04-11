@@ -22,19 +22,21 @@
 }
 
 .about-content1-info {
-  max-width: 750px;
+  max-width: 100%;
   margin-top: 44px;
 }
-
+.content-left {
+  margin-left: 5%;
+}
 .about-content1-info p {
   font-size: 24px;
   margin-bottom: 10px;
 }
 
 .accordion {
-  width: 90%; /* Ширина аккордеона */
+  width: 100%; /* Ширина аккордеона */
   margin: 0 auto; /* Центрируем аккордеон */
-  display: flex;
+  display: block;
   flex-direction: column; /* Отображаем элементы аккордеона в столбец */
 }
 
@@ -51,7 +53,6 @@
 }
 
 .accordion-content {
-  display: none;
   padding: 30px;
 }
 
@@ -66,6 +67,7 @@
 }
 /* Добавляем стили для активного заголовка */
 .accordion-header.active {
+  display: block;
   background-color: rgba(57, 191, 141, 1);
 }
 .accordion-content-title1 {
@@ -94,11 +96,23 @@
 }
 
 .accordion-in-content {
-  display: none;
   padding: 10px;
 }
 
 .accordion-in-content p {
   margin: 0 auto;
   margin-bottom: 10px;
+}
+button {
+  padding: 10px 20px;
+  background-color: rgba(211, 211, 211, 1);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 19px;
+}
+
+button:hover {
+  background-color: rgba(240, 240, 240, 0.703);
 }
