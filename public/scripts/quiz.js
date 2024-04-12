@@ -74,8 +74,6 @@ $(document).ready(function () {
 
           displayQuestion();
           updateButtons();
-          console.log(prevQuestions);
-          console.log(prevQuestionsPointer);
         });
 
         $(quizHistory).append(link);
@@ -107,25 +105,16 @@ $(document).ready(function () {
         currentQuestionIndex = currentQuestion.id;
         prevQuestions.push(currentQuestionIndex);
         prevQuestionsPointer = prevQuestions.length - 1;
-        console.log(prevQuestions);
-        console.log(prevQuestionsPointer);
-        console.log('first');
       } else if (prevQuestions.length - 1 > prevQuestionsPointer) {
         prevQuestionsPointer++;
         currentQuestion = nextQuestion;
         currentQuestionIndex = currentQuestion.id;
-        console.log(prevQuestions);
-        console.log(prevQuestionsPointer);
-        console.log('second');
       } else {
         addCurrentToHistory();
         currentQuestion = nextQuestion;
         currentQuestionIndex = currentQuestion.id;
         prevQuestions.push(currentQuestionIndex);
         prevQuestionsPointer++;
-        console.log(prevQuestions);
-        console.log(prevQuestionsPointer);
-        console.log('third');
       }
       displayQuestion();
       updateButtons();
@@ -176,8 +165,6 @@ $(document).ready(function () {
       if (prevQuestionsPointer > 0) {
         prevQuestionsPointer--;
       }
-      console.log(prevQuestions);
-      console.log(prevQuestionsPointer);
       currentQuestion = findQuestionById(prevQuestions[prevQuestionsPointer]);
       displayQuestion();
       updateButtons();

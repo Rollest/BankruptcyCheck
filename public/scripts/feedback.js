@@ -6,7 +6,6 @@ $(document).ready(function () {
   const feedbackBtn = $('#feedback-btn');
 
   $(feedbackBtn).click(function () {
-    console.log('feeeeed back');
     if (allInputsAreOK()) {
       $.post(
         'feedback',
@@ -21,28 +20,22 @@ $(document).ready(function () {
           $('#feedback-result').css({ display: 'block' });
         },
         'json',
-      ).fail(function (xhr, status, error) {
-        console.log('Произошла ошибка: ' + error);
-      });
+      ).fail(function (xhr, status, error) {});
     }
   });
 
   function allInputsAreOK() {
     let result = true;
     if ($(feedbackName).val() == '') {
-      console.log('name is not ok');
       result = false;
     }
     if ($(feedbackEmail).val() == '') {
-      console.log('mail is not ok');
       result = false;
     }
     if ($(feedbackPhone).val() == '') {
-      console.log('phone is not ok');
       result = false;
     }
     if ($(feedbackMessage).val() == '') {
-      console.log('message is not ok');
       result = false;
     }
     return result;

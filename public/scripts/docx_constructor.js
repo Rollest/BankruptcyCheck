@@ -100,35 +100,26 @@ $(document).ready(function () {
   let pril;
 
   const buildBtn = $('#build-btn');
-  console.log(buildBtn);
 
   $('#question1-comment').css({ display: 'none' });
   $('#question2-comment').css({ display: 'none' });
 
   $(buildBtn).click(function () {
     const answer1 = $('.question1').find("input[type='radio']:checked").val();
-    const answer2 = $('.question2').find("input[type='radio']:checked").val();
     const answer3 = $('.question3').find("input[type='checkbox']:checked");
 
-    if (answer1 && answer2) {
+    if (answer1) {
       $('#question1-comment').css({ display: 'none' });
-      $('#question2-comment').css({ display: 'none' });
       switch (answer1) {
         case 'q1v1':
           firstText =
             'Учитывая изложенное, считаю необходимым признать мое заявление обоснованным и ввести процедуру реструктуризации долгов (необходимо подтвердить соответствие требованиям пункта 1 статьи 213.13 Закона о банкротстве).';
+          secondText =
+            'Признать мое заявление обоснованным и ввести процедуру реструктуризации долгов.';
           break;
         case 'q1v2':
           firstText =
             'Учитывая изложенное, считаю необходимым признать мое заявление обоснованным, ходатайствую о принятии в порядке пункта 6 статьи 213.6 Закона о банкротстве решения о признании меня банкротом и введении процедуры реализации имущества гражданина, поскольку имеющаяся у меня задолженность не подлежит реструктуризации по причине моего несоответствия требованиям пункта 1 статьи 213.13 Закона о банкротстве (указать конкретное основание).';
-          break;
-      }
-      switch (answer2) {
-        case 'q2v1':
-          secondText =
-            'Признать мое заявление обоснованным и ввести процедуру реструктуризации долгов.';
-          break;
-        case 'q2v2':
           secondText =
             'Признать мое заявление обоснованным, признать меня банкротом и ввести процедуру реализации имущества.';
           break;
@@ -161,32 +152,13 @@ $(document).ready(function () {
 
       buildAndDownloadDocument();
     } else {
-      let alreadyScrolling = false;
-
-      if (!answer1) {
-        $('#question1-comment').css({ display: 'block' });
-        if (!alreadyScrolling) {
-          alreadyScrolling = true;
-          $([document.documentElement, document.body]).animate(
-            {
-              scrollTop: $('#question1-comment').offset().top - 400,
-            },
-            1000,
-          );
-        }
-      }
-      if (!answer2) {
-        $('#question2-comment').css({ display: 'block' });
-        if (!alreadyScrolling) {
-          alreadyScrolling = true;
-          $([document.documentElement, document.body]).animate(
-            {
-              scrollTop: $('#question2-comment').offset().top - 500,
-            },
-            1000,
-          );
-        }
-      }
+      $('#question1-comment').css({ display: 'block' });
+      $([document.documentElement, document.body]).animate(
+        {
+          scrollTop: $('#question1-comment').offset().top - 400,
+        },
+        1000,
+      );
     }
   });
 });

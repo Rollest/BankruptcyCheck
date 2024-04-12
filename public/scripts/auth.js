@@ -7,8 +7,6 @@ $(document).ready(function () {
   let passwordComment;
   let passwordCommentText;
 
-  let userIsLogged = false;
-
   const loginBtn = $('#login-btn');
   const registrationBtn = $('#registration-btn');
 
@@ -33,7 +31,6 @@ $(document).ready(function () {
         function (data) {
           location.reload();
           userIsLogged = true;
-          console.log(data);
         },
         'json',
       ).fail(function (xhr, status, error) {
@@ -45,8 +42,6 @@ $(document).ready(function () {
           console.log('Произошла ошибка: ' + error);
         }
       });
-
-      console.log('login');
     }
   });
 
@@ -79,7 +74,6 @@ $(document).ready(function () {
           console.log('Произошла ошибка: ' + error);
         }
       });
-      console.log('registration');
     }
   });
 

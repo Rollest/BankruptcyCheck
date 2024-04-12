@@ -9,17 +9,19 @@ import * as http from 'http';
 import * as https from 'https';
 
 async function bootstrap() {
-  const keyFile = fs.readFileSync(__dirname + '/../ssl/private.key');
-  const certFile = fs.readFileSync(__dirname + '/../ssl/certificate.crt');
+  //const keyFile = fs.readFileSync(__dirname + '/../ssl/private.key');
+  //const certFile = fs.readFileSync(__dirname + '/../ssl/certificate.crt');
 
-  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+  const app = await NestFactory.create<NestExpressApplication>(
+    AppModule /*, {
     httpsOptions: {
       key: keyFile,
       cert: certFile,
     },
-  });
+  }*/,
+  );
 
-  app.use(enforce.HTTPS({ trustProtoHeader: true }));
+  //app.use(enforce.HTTPS({ trustProtoHeader: true }));
   app.enableCors();
   app.use(cookieParser());
   app.useStaticAssets(join(__dirname, '..', 'public'));
@@ -29,14 +31,14 @@ async function bootstrap() {
 
   await app.listen(443);
 
-  const httpServer = http.createServer((req, res) => {
+  /*const httpServer = http.createServer((req, res) => {
     res.writeHead(301, { Location: 'https://' + req.headers.host + req.url });
     res.end();
   });
 
   httpServer.listen(80, () => {
     console.log('HTTP server running on port 80');
-  });
+  });*/
 }
 
 bootstrap();
