@@ -38,9 +38,18 @@
 }
 
 .nav a {
-  margin-right: 16px;
   text-decoration: none;
   color: #140a32;
+}
+
+div.vertical-line {
+  width: 1px;
+  background-color: #140a32;
+  float: center;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 
 .header-login {

@@ -3,48 +3,55 @@
   <head>
     <title>БанкротствоЧек</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../views/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
-    <script src="../views/scripts/jq.js"></script>
-    <script src="../views/scripts/auth.js"></script>
-    <script src="../views/scripts/popups.js"></script>
+    <link rel="icon" href="logo_new.ico" type="image/x-icon">
+    <script src="scripts/jq.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/popups.js"></script>
+    <script src="scripts/footer.js"></script>
+    <script src="scripts/feedback.js"></script>
   </head>
   <body>
     <div class="viewport">
       <header class="header">
         <div class="container">
           <div class="header-content">
-            <div class="header-brand"><a href="/api"><img src="../public/logo_new.png" alt="logo">
+            <div class="header-brand"><a href="/"><img src="logo_new.png" alt="logo">
                 <h2 class="header_title">БанкротствоЧек</h2></a></div>
-            <nav class="nav"><a href="/api">Главная</a><a href="/api/about">О банкротстве</a><a href="/api/faq">Вопросы-Ответы</a><a href="/api/constructor">Шаблоны документов</a></nav>
-            <div class="header-login"><img src="../public/avatar.png" alt="avatar"><a class="header-login-ref" href="#" id="open-login-btn">Вход /</a><a class="header-login-ref" href="#" id="open-registration-btn">Регистрация</a>
+            <nav class="nav"><a href="/">Главная</a>
+              <div class="vertival-line"></div><a href="/about">О банкротстве</a>
+              <div class="vertival-line"></div><a href="/faq">Вопросы-Ответы</a>
+              <div class="vertival-line"></div><a class="constructor-link" href="/constructor">Шаблоны документов</a>
+            </nav>
+            <div class="header-login"><img src="avatar.png" alt="avatar"><a class="header-login-ref" href="#" id="open-login-btn">Вход /</a><a class="header-login-ref" href="#" id="open-registration-btn">Регистрация</a>
             </div>
           </div>
         </div>
       </header>
       <div class="content">
-        <script src="../views/scripts/faq.js"></script>
+        <script src="scripts/faq.js"></script>
         <main class="main">
           <div class="container">
             <div class="main-content1">
               <div class="faq"> 
-                <div class="question" onclick="toggleAnswer(1)">Могу ли я стать банкротом, если сумма моих долгов меньше 25 тысяч рублей?</div>
+                <div class="faq_question" onclick="toggleAnswer(1)">Могу ли я стать банкротом, если сумма моих долгов меньше 25 тысяч рублей?</div>
                 <div class="answer" id="answer1">Процедура банкротства Вам не подходит, но вы все равно можете пройти тест, чтобы узнать свои дальнейшие действия</div>
-                <div class="question" onclick="toggleAnswer(2)">Что меня ожидает после процедуры банкротства?</div>
+                <div class="faq_question" onclick="toggleAnswer(2)">Что меня ожидает после процедуры банкротства?</div>
                 <div class="answer" id="answer2">Процедура банкротства не несет в себе много преимуществ. Ваше имущество будет реализовано, о других риска и последствиях вы можете почитать в разделе "О банкротстве"</div>
-                <div class="question" onclick="toggleAnswer(3)">Потеряю ли я свое жилье после банкротства?</div>
+                <div class="faq_question" onclick="toggleAnswer(3)">Потеряю ли я свое жилье после банкротства?</div>
                 <div class="answer" id="answer3">При процедуре банкротства имущество распродается, но Ваше единственное жилье не подлежит данной процедуре и останется у Вас</div>
-                <div class="question" onclick="toggleAnswer(4)">Зачем мне проходить тест?</div>
+                <div class="faq_question" onclick="toggleAnswer(4)">Зачем мне проходить тест?</div>
                 <div class="answer" id="answer4">Тест позволит оценить Ваши риски и выявить наиболее благоприятные для Вас исходы, а также, позволит узнать, что следует делать дальше</div>
-                <div class="question" onclick="toggleAnswer(5)">Могу ли я пройти тест просто для себя?</div>
+                <div class="faq_question" onclick="toggleAnswer(5)">Могу ли я пройти тест просто для себя?</div>
                 <div class="answer" id="answer5">Да, наш тест предназначен для всех пользователей и позволяет оценить свои риски</div>
-                <div class="question" onclick="toggleAnswer(6)">Обязан ли я заполнять форму, в случае, если итогом теста станет банкротство?</div>
+                <div class="faq_question" onclick="toggleAnswer(6)">Обязан ли я заполнять форму, в случае, если итогом теста станет банкротство?</div>
                 <div class="answer" id="answer6">Нет, наш тест ни к чему Вас не обязывает и не побуждает к действиям</div>
-                <div class="question" onclick="toggleAnswer(7)">Могу ли я рассчитывать на дальнейшее сопровождение процедуры банкротства?</div>
+                <div class="faq_question" onclick="toggleAnswer(7)">Могу ли я рассчитывать на дальнейшее сопровождение процедуры банкротства?</div>
                 <div class="answer" id="answer7">Нет, наш сайт носит ознакомительный характер и не предлагает юридических консультаций</div>
-                <div class="question" onclick="toggleAnswer(8)">Зачем мне проходить регистрацию на сайте?</div>
+                <div class="faq_question" onclick="toggleAnswer(8)">Зачем мне проходить регистрацию на сайте?</div>
                 <div class="answer" id="answer8">Регистрация позволит Вам получить доступ к конструктору заявлений, который поможет Вам составить заявление о банкротстве</div>
               </div>
             </div>
@@ -52,27 +59,18 @@
         </main>
       </div>
       <footer>
-        <div class="container">
+        <div class="footer">
+          <button class="feedback-btn">Открыть форму обратной связи</button>
           <form class="feedback-form new-class" action="#" method="post">
             <h3>Форма обратной связи</h3>
-            <input type="text" placeholder="Ваше имя" required>
-            <input type="email" placeholder="Ваш email" required>
-            <input type="tel" placeholder="Ваш номер телефона" required>
-            <textarea rows="4" placeholder="Ваше сообщение" required></textarea>
-            <button type="submit">Отправить</button>
-            <p>Отправляя данную форму, вы подтверждаете свое согласие на обработку персональных данных.</p>
+            <input id="feedback-name" type="text" placeholder="Ваше имя" maxlength="30" required>
+            <input id="feedback-email" type="email" placeholder="Ваш email" maxlength="30" required>
+            <input id="feedback-phone" type="tel" placeholder="Ваш номер телефона" maxlength="13" required>
+            <textarea id="feedback-message" rows="4" placeholder="Ваше сообщение" maxlength="500" required></textarea>
+            <button id="feedback-btn" type="button">Отправить</button>
+            <p id="feedback-result">Заявка успешно отправлена, с вами свяжутся в ближайшее время.</p>
+            <p>Отправляя данную форму, вы подтверждаете свое согласие на <a class="privacy-link" href="https://docs.google.com/document/d/1BDLZoCYlLY21CG_lJ0lYnwH6wVSoyDEpatEhZwzOH_0/edit?usp=share_link" target="_blank">обработку персональных данных</a>.</p>
           </form>
-        </div>
-        <div class="footer">
-          <div class="footer-item"> 
-            <p>Наши контакты</p>
-            <p>+7 888 555 88 88</p>
-            <p>улица Пушкина, дом Колотушкина</p>
-          </div>
-          <div class="container">
-            <p>© 2024 My Website. All rights reserved.</p>
-          </div>
-          <div class="footer-item"><a href="#"><img src="../public/vk_logo.png" alt="logo"></a></div>
         </div>
         <div class="popup" id="popup">
           <div class="popup-body"> 
@@ -81,10 +79,16 @@
               <form>
                 <div class="container">
                   <hr>
-                  <input type="text" placeholder="Введите имя пользователя" id="login-login" required><br>
-                  <input type="password" placeholder="Введите пароль" id="login-password" required><br>
+                  <input type="text" placeholder="Введите имя пользователя" id="login-login" maxlength="30" required><br>
+                  <input type="password" placeholder="Введите пароль" id="login-password" maxlength="30" required><br>
+                  <div class="popup-comment-div" id="enter-comment">
+                    <p class="popup-comment" id="enter-login-comment">Фарвоафо</p>
+                    <p class="popup-comment" id="enter-password-comment">Фарвоафо</p>
+                  </div>
                   <hr>
                   <button class="reg-enter-button" type="button" id="login-btn">Войти</button>
+                  <hr>
+                  <p><a id="login-reg-button" href="#">Зарегистрироваться</a> если у вас нет аккаунта</p>
                 </div>
               </form>
             </div>
@@ -97,11 +101,17 @@
               <form>
                 <div class="container"> 
                   <hr>
-                  <input type="text" placeholder="Введите имя пользователя" id="registration-login" required><br>
-                  <input type="password" placeholder="Введите пароль" id="registration-password" required><br>
-                  <input type="password" placeholder="Повторите пароль" id="registration-password-again" required><br>
-                  <p class="privacy-text">Создавая аккаунт вы соглашаетесь с нашей <a class="privacy-link" href="./api/docs/user-agreement">политикой конфиденциальности</a></p>
+                  <input type="text" placeholder="Введите имя пользователя" id="registration-login" maxlength="30" required><br>
+                  <input type="password" placeholder="Введите пароль" id="registration-password" maxlength="30" required><br>
+                  <input type="password" placeholder="Повторите пароль" id="registration-password-again" maxlength="30" required><br>
+                  <div class="popup-comment-div" id="registration-comment">
+                    <p class="popup-comment" id="registration-login-comment">Фарвоафо</p>
+                    <p class="popup-comment" id="registration-password-comment">Фарвоафо</p><br>
+                  </div>
+                  <p class="privacy-text">Создавая аккаунт вы соглашаетесь с нашей <a class="privacy-link" href="https://drive.google.com/file/d/1eqdMHOlAo4Q4MdrqHhCOOvTRXkMNxWl7/view" target="_blank">политикой конфиденциальности</a></p>
                   <button class="reg-enter-button" type="button" id="registration-btn">Зарегистрироваться</button>
+                  <hr>
+                  <p><a id="reg-login-button" href="#">Войти</a> если у вас уже есть аккаунт</p>
                 </div>
               </form>
             </div>

@@ -27,9 +27,13 @@ html
                 img(src="logo_new.png", alt="logo")
                 h2.header_title БанкротствоЧек
             nav.nav
+              
               a(href="/") Главная
+              .vertical-line
               a(href="/about") О банкротстве
+              .vertical-line
               a(href="/faq") Вопросы-Ответы
+              .vertical-line
               a(href="/constructor", class="constructor-link") Шаблоны документов
             .header-login
               - if (userIsLoggedIn)
