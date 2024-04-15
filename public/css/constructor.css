@@ -80,15 +80,17 @@ hr {
 
 .tooltip {
   width: fit-content;
-}
-.tooltiptext {
-  cursor: default;
+  cursor: pointer;
+  /* display: block; */
+  /* flex-direction: column; */
+  align-items: flex-start;
+  position: relative;
 }
 
 /* Tooltip text */
-.tooltip .tooltiptext {
-  display: none;
-  visibility: hidden;
+.tooltiptext {
+  /* display: none; */
+  /* visibility: hidden; */
   /* background-color: rgba(40, 43, 42, 0.5); */
   background-color: rgb(255, 253, 235);
   color: #140a32;
@@ -97,29 +99,54 @@ hr {
   border-radius: 6px;
   width: 700px;
   /* margin-left: -150px; */
-  position: absolute;
-  z-index: 1;
-  height: auto;
+  /* position: relative; */
+  /* z-index: 1; */
+  /* overflow: hidden; */
+  /* max-height: 0; */
   font-weight: normal;
   cursor: normal;
+  /* transition: max-height 0.4s ease-out; */
 }
 
-.tooltip:active {
-  color: rgb(26, 108, 78);
-  font-weight: bold;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:active .tooltiptext {
-  visibility: visible;
+.tooltip .active {
   display: block;
 }
 
 /*
+.active, .tooltip:hover {
+  color: rgb(26, 108, 78);
+  font-weight: bold;
+  background-color: #ccc;
+}*/
+
+/* Show the tooltip text when you mouse over the tooltip container */
+/*
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  display: block;
+}*/
+
+.tooltip .toggle-icon {
+  float: right;
+  margin-left: 3px;
+  position: absolute;
+}
+
+/* Поворачивающийся значок */
+/*
+.tooltip:after {
+  content: '\02795';
+  font-size: 13px;
+  color: #777;
+  float: left;
+  margin-left: 15px;
+}
+
+.tooltiptext .active:after {
+  content: "\2796";
+}
+*/
+/*
 .question4 li:nth-child(1):hover {
   color: orange;
 }*/
-
-#question1-comment {
-  color: red;
-}
