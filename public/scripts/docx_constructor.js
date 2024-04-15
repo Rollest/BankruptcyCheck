@@ -1,27 +1,31 @@
-$(document).ready(function () {
-  function getFile() {
-    return fetch('docs-templates/first', {
-      method: 'GET',
+function getFile(docName) {
+  return fetch(`docs-templates/${docName}`, {
+    method: 'GET',
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.blob();
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.blob();
-      })
-      .then((blob) => {
-        return blob.arrayBuffer();
-      })
-      .then((arrayBuffer) => {
-        return arrayBuffer;
-      })
-      .catch((error) => {
-        console.error('There was a problem with the fetch operation:', error);
-      });
-  }
+    .then((blob) => {
+      return blob.arrayBuffer();
+    })
+    .then((arrayBuffer) => {
+      return arrayBuffer;
+    })
+    .catch((error) => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
+}
 
-  function buildAndDownloadDocument() {
-    getFile().then((arrayBuffer) => {
+function buildAndDownloadDocument(docName, isConstruct) {
+  getFile(docName).then(async (arrayBuffer) => {
+    let buffer;
+    let blob;
+    const nameSplit = docName.split('.');
+    const format = nameSplit[nameSplit.length - 1];
+    if (isConstruct == true && format == 'docx') {
       const zip = new PizZip(arrayBuffer);
       const doc = new window.docxtemplater()
         .loadZip(zip)
@@ -33,72 +37,84 @@ $(document).ready(function () {
       };
       doc.setData(data);
       doc.render({});
-      const buffer = doc.getZip().generate({ type: 'uint8array' });
-
-      const blob = new Blob([buffer], {
+      buffer = doc.getZip().generate({ type: 'uint8array' });
+      blob = new Blob([buffer], {
         type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
       });
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'generated_document.docx';
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-    });
-  }
+    } else if (format == 'docx') {
+      const zip = new PizZip(arrayBuffer);
+      buffer = zip.generate({ type: 'uint8array' });
+      blob = new Blob([buffer], {
+        type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      });
+    } else if (format === 'pdf') {
+      const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+      const pdfBytes = await pdfDoc.save();
+      buffer = new Uint8Array(pdfBytes);
+      blob = new Blob([buffer], { type: 'application/pdf' });
+    }
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${docName}`;
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+  });
+}
 
-  const prilVars = [
-    {
-      key: 'q3v1',
-      val: ' Копии документов, подтверждающих право собственности гражданина на имущество, и документов, удостоверяющих исключительные права на результаты интеллектуальной деятельности гражданина',
-    },
-    {
-      key: 'q3v2',
-      val: ' Копии документов о совершавшихся гражданином в течение трех лет до даты подачи заявления сделках с недвижимым имуществом, ценными бумагами, долями в уставном капитале, транспортными средствами и сделках на сумму свыше трехсот тысяч рублей',
-    },
-    {
-      key: 'q3v3',
-      val: ' Выписка из реестра акционеров (участников) юридического лица, акционером (участником) которого является гражданин',
-    },
-    {
-      key: 'q3v4',
-      val: ' Копия свидетельства о постановке на учет в налоговом органе',
-    },
-    {
-      key: 'q3v5',
-      val: ' Копия свидетельства о заключении брака.',
-    },
-    {
-      key: 'q3v6',
-      val: ' Копия свидетельства о расторжении брака, если оно выдано в течение трех лет до даты подачи заявления',
-    },
-    {
-      key: 'q3v7',
-      val: ' Копия брачного договора',
-    },
-    {
-      key: 'q3v8',
-      val: ' Копия соглашения или судебного акта о разделе общего имущества супругов, соответственно заключенного и принятого в течение трех лет до даты подачи заявления',
-    },
-    {
-      key: 'q3v9',
-      val: ' Копия трудовой книжки',
-    },
-  ];
+const prilVars = [
+  {
+    key: 'q3v1',
+    val: ' Копии документов, подтверждающих право собственности гражданина на имущество, и документов, удостоверяющих исключительные права на результаты интеллектуальной деятельности гражданина',
+  },
+  {
+    key: 'q3v2',
+    val: ' Копии документов о совершавшихся гражданином в течение трех лет до даты подачи заявления сделках с недвижимым имуществом, ценными бумагами, долями в уставном капитале, транспортными средствами и сделках на сумму свыше трехсот тысяч рублей',
+  },
+  {
+    key: 'q3v3',
+    val: ' Выписка из реестра акционеров (участников) юридического лица, акционером (участником) которого является гражданин',
+  },
+  {
+    key: 'q3v4',
+    val: ' Копия свидетельства о постановке на учет в налоговом органе',
+  },
+  {
+    key: 'q3v5',
+    val: ' Копия свидетельства о заключении брака.',
+  },
+  {
+    key: 'q3v6',
+    val: ' Копия свидетельства о расторжении брака, если оно выдано в течение трех лет до даты подачи заявления',
+  },
+  {
+    key: 'q3v7',
+    val: ' Копия брачного договора',
+  },
+  {
+    key: 'q3v8',
+    val: ' Копия соглашения или судебного акта о разделе общего имущества супругов, соответственно заключенного и принятого в течение трех лет до даты подачи заявления',
+  },
+  {
+    key: 'q3v9',
+    val: ' Копия трудовой книжки',
+  },
+];
 
-  function prilByKey(key) {
-    for (let i = 0; i < prilVars.length; i++) {
-      if (prilVars[i].key == key) {
-        return prilVars[i].val;
-      }
+function prilByKey(key) {
+  for (let i = 0; i < prilVars.length; i++) {
+    if (prilVars[i].key == key) {
+      return prilVars[i].val;
     }
   }
+}
 
-  let firstText;
-  let secondText;
-  let pril;
+let firstText;
+let secondText;
+let pril;
 
+$(document).ready(function () {
   const buildBtn = $('#build-btn');
 
   $('#question1-comment').css({ display: 'none' });
@@ -150,7 +166,7 @@ $(document).ready(function () {
         pril += counter + '.' + prilByKey(element) + '\t\n\n';
       }
 
-      buildAndDownloadDocument();
+      buildAndDownloadDocument('Заявление.docx', true);
     } else {
       $('#question1-comment').css({ display: 'block' });
       $([document.documentElement, document.body]).animate(

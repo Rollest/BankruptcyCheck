@@ -32,9 +32,9 @@ html
               .vertical-line
               a(href="/about") О банкротстве
               .vertical-line
-              a(href="/faq") Вопросы-Ответы
+              a(href="/faq") FAQ
               .vertical-line
-              a(href="/constructor", class="constructor-link") Шаблоны документов
+              a(href="/constructor", class="constructor-link") Заявления
             .header-login
               - if (userIsLoggedIn)
                 .header-login-dropdown
@@ -44,8 +44,8 @@ html
                   a(href="#", id='exit-btn') Выйти
               - else
                 img(src="avatar.png", alt="avatar")
-                a.header-login-ref(href="#", id="open-login-btn") Вход /
-                a.header-login-ref(href="#", id="open-registration-btn") Регистрация
+                a.header-login-ref(href="#", id="open-login-btn") Войти
+                //a.header-login-ref(href="#", id="open-registration-btn") Регистрация
       .content
         block content
       footer

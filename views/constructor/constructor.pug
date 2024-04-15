@@ -3,6 +3,7 @@ extends ../layouts/main
 block content
   script(src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.22.1/docxtemplater.js")
   script(src="https://cdn.jsdelivr.net/npm/pizzip@3.1.6/dist/pizzip.min.js")
+  script(src="https://cdn.jsdelivr.net/npm/pdf-lib@1.4.0/dist/pdf-lib.min.js")
   script(src="scripts/docx_constructor.js")
   main.main
     .container
@@ -69,9 +70,9 @@ block content
                   <span class="tooltiptext"> <p>-Основания: договоры займа, кредита, микрозайма, ипотеки и все иные договоры, которые стали основанием возникновения у вас долга перед кредитором</p><br><p>-Неспособность удовлетворить требования кредиторов: ваши обращения к кредитору, связанные с невозможностью своевременного возврата долга; претензии кредиторов к вам, связанные с неуплатой долга; уведомления кредиторов о наличии у вас задолженности и т.д.</p><br><p>Все эти документы также подтверждают у вас наличие задолженности перед кредиторами.</p></span>
                 li.tooltip Документ, подтверждающий наличие или отсутствие статуса ИП
                   <span class="tooltiptext"><p> <strong>ВАЖНО!</strong> Такие документы должны быть получены не ранее чем за пять рабочих дней до даты подачи в арбитражный суд гражданином заявления о признании его банкротом</p><br><p>Такой документ можно заказать через <a href="https://www.gosuslugi.ru/help/faq/egrul/4567" target="_blank">Госуслуги</a> или <a href="https://egrul.nalog.ru/index.html" target="_blank">на официальном сайте ФНС</a></p></span> 
-                li.tooltip Списки кредиторов и должников гражданина, а также денежных обязательств и (или) обязанности по уплате обязательных платежей. <a href='https://login.consultant.ru/link/?req=doc&base=LAW&n=185204&dst=100013&field=134&date=23.03.2024' target='_blank'>Форма</a> представления указанных списков утверждается регулирующим органом
+                li.tooltip Списки кредиторов и должников гражданина, а также денежных обязательств и (или) обязанности по уплате обязательных платежей. <a href='#' onclick="buildAndDownloadDocument('Шаблон. Список кредиторов и должников гражданина.docx', false);">Форма</a> и <a href='#' onclick="buildAndDownloadDocument('Заполненный список кредиторов и должников.pdf', false);">Пример</a> представления указанных списков утверждается регулирующим органом
                   <span class="tooltiptext">- На сайте представлен шаблон данной формы и образец ее заполнения</span>
-                li.tooltip Опись имущества гражданина. <a href='https://login.consultant.ru/link/?req=doc&base=LAW&n=185204&dst=100181&field=134&date=23.03.2024' target='_blank'>Форма</a> представления данной описи утверждается регулирующим органом
+                li.tooltip Опись имущества гражданина. <a href='#' onclick="buildAndDownloadDocument('Шаблон. Опись имущества гражданина.docx', false);">Форма</a> и <a href='#' onclick="buildAndDownloadDocument('Заполненная опись имущества.pdf', false);">Пример</a> представления данной описи утверждается регулирующим органом
                   <span class="tooltiptext">- На сайте представлен шаблон данной формы и образец ее заполнения</span>
                 li.tooltip Сведения о доходах и о налогах за трехлетний период, предшествующий дате подачи заявления о признании гражданина банкротом
                   <span class="tooltiptext">
@@ -110,4 +111,5 @@ block content
                 li Копия паспорта (копии всех листов, как с отметками, так и не заполненных)
                 
               br
-          button(type="button", id='build-btn') Скачать документ
+          button.btn(type="button", id='build-btn') Скачать документ
+          button.btn(type="button", onclick="buildAndDownloadDocument('Заполненное заявление о признании банкротом гражданина.docx', false);") Скачать заполненный пример заявления
