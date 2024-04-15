@@ -1,8 +1,8 @@
 /*-----------MAIN---------------*/
-
+/*
 .content {
-  /*min-height: 600px;*/
-}
+  min-height: 600px;
+}*/
 .main-content1 {
   display: flex;
   align-items: top;
@@ -73,7 +73,7 @@
 .popup {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 3;/*для того чтобы попапы были видны*/
   left: 0;
   top: 0;
   width: 100%;

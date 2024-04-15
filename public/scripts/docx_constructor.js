@@ -124,24 +124,6 @@ $(document).ready(function () {
     $(this).toggleClass('active');
   });
 
-
-  // аккордион
-  /*
-  var acc = document.getElementsByClassName("tooltip");
-  var index;
-
-  for (index = 0; index < acc.length; i++) {
-    acc[index].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var panel = this.nextElementSibling;
-      if (panel.style.maxHeight){
-        panel.style.Height = null;
-      } else {
-        panel.style.Height = panel.scrollHeight + "px";
-      } 
-    });
-  }*/
-
   const buildBtn = $('#build-btn');
 
   $('#question1-comment').css({ display: 'none' });
