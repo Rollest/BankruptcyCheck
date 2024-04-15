@@ -155,8 +155,10 @@ $(document).ready(function () {
       }
 
       if (currentQuestion.options.length == 0) {
+        $(nextButton).css({ display: 'none' });
         nextButton.text('Завершить');
       } else {
+        $(nextButton).css({ display: 'block' });
         nextButton.text('Следующий вопрос');
       }
     }
