@@ -1,11 +1,15 @@
 $(document).ready(function () {
   $('.accordion-content').hide();
 
+  // Обработчик событий для основных аккордеонов
   $('.accordion-header').click(function () {
     var accordionItem = $(this).parent();
     accordionItem.toggleClass('active');
-    accordionItem.find('.accordion-content').slideToggle();
+    accordionItem.find('.accordion-content').slideToggle('slow'); // Используем slideToggle() с параметром 'slow' для плавного открытия и закрытия
     $(this).toggleClass('active');
+
+    // Находим значок в текущем заголовке и переключаем класс 'rotate'
+    $(this).find('.toggle-icon-plus').toggleClass('rotate');
   });
 
   // Добавляем обработчик событий для вложенных аккордеонов
@@ -14,7 +18,7 @@ $(document).ready(function () {
   $('.accordion-in-header').click(function () {
     var accordionInItem = $(this).parent();
     accordionInItem.toggleClass('active');
-    accordionInItem.find('.accordion-in-content').slideToggle();
+    accordionInItem.find('.accordion-in-content').slideToggle('slow'); // Используем slideToggle() с параметром 'slow' для плавного открытия и закрытия
     $(this).toggleClass('active'); // Добавляем/удаляем класс при нажатии
   });
 

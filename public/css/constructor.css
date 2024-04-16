@@ -64,6 +64,30 @@ hr {
   align-items: center;
   margin-bottom: 16px;
 }
+.button-cont {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.btn-small {
+  display: inline-flex;
+  background-color: rgba(7, 175, 115, 1);
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  font-size: 12px;
+  width: 192px;
+  height: 120px;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin: 0 12px; /* Добавляем небольшой отступ между кнопками */
+}
 
 /*
 .question1 label:nth-of-type(1):hover {

@@ -46,6 +46,7 @@
 }
 
 .accordion-header {
+  position: relative;
   background-color: #f0f0f0;
   border-radius: 10px; /* Круглые углы */
   padding: 10px;
@@ -82,13 +83,16 @@
 .accordion-in {
   margin-left: 10px; /* Отступаем вложенный аккордеон */
 }
-
+p-text {
+  margin-left: 10px;
+}
 .accordion-in-item {
   padding: 10px;
   margin-bottom: 10px; /* Расстояние между элементами вложенного аккордеона */
 }
 
 .accordion-in-header {
+  font-size: 18px;
   background-color: rgba(211, 211, 211, 1);
   border-radius: 10px; /* Круглые углы */
   padding: 10px;
@@ -110,9 +114,23 @@ button {
   border-radius: 10px;
   cursor: pointer;
   margin-left: 10px;
-  font-size: 19px;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+  color: #140a32;
 }
 
 button:hover {
   background-color: rgba(240, 240, 240, 0.703);
+}
+.toggle-icon-plus {
+  position: absolute;
+  right: 10px; /* Расположение значка справа от заголовка */
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s;
+  font-size: 28px;
+}
+
+.rotate {
+  transform: translateY(-50%) rotate(45deg); /* Поворот значка на 45 градусов */
 }
