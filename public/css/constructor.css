@@ -174,3 +174,7 @@ hr {
 .question4 li:nth-child(1):hover {
   color: orange;
 }*/
+
+.comment {
+  color: red;
+}
