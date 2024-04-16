@@ -41,7 +41,7 @@
 }
 
 .accordion-item {
-  padding: 20px;
+  padding: 20px 0 20px 0;
   margin-bottom: 20px; /* Расстояние между элементами аккордеона */
 }
 
@@ -88,6 +88,7 @@ p-text {
 }
 .accordion-in-item {
   padding: 10px;
+  padding-left: 0px;
   margin-bottom: 10px; /* Расстояние между элементами вложенного аккордеона */
 }
 
@@ -113,7 +114,7 @@ button {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  margin-left: 10px;
+  //margin-left: 10px;
   font-size: 18px;
   font-family: 'Open Sans', sans-serif;
   color: #140a32;

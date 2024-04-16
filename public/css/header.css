@@ -7,9 +7,15 @@
   position: fixed;
   top: 0px;
   width: 100%;
-  padding: 20px 0px 30px 0px;
+  padding: 20px 13% 30px 13%;
   background-color: rgba(57, 191, 141, 1);
-  z-index: 2;/*чтобы конструктор был норм вида*/
+  z-index: 2; /*чтобы конструктор был норм вида*/
+}
+
+.header-brand-nav {
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
 .header-content {
@@ -21,36 +27,55 @@
 .header-brand {
   display: flex;
   align-items: center;
-}
-.header-brand a {
-  display: flex;
-  align-items: center;
-  color: #140a32;
-  text-decoration: none !important;
-}
-.header-brand img {
-  height: 67px;
-  width: 83px;
+
+  a {
+    display: flex;
+    align-items: center;
+    color: #140a32;
+    text-decoration: none !important;
+  }
+
+  img {
+    height: 67px;
+    width: 83px;
+  }
 }
 
 .nav {
   font-size: 22px;
   display: flex;
+  margin-left: 20px;
+
+  a {
+    text-decoration: none;
+    color: #140a32;
+    padding: 10px;
+    border-radius: 12px;
+
+    &:hover {
+      background-color: rgba(100, 200, 170, 1);
+    }
+  }
 }
 
-.nav a {
-  text-decoration: none;
-  color: #140a32;
+@media screen and (max-width: 1400px) {
+  .nav a {
+    font-size: 15px;
+  }
+  .header-brand img {
+    height: 55px;
+    width: 70px;
+  }
 }
 
 div.vertical-line {
   width: 1px;
   background-color: #140a32;
   float: center;
-  margin-right: 15px;
-  margin-left: 15px;
-  margin-top: 6px;
-  margin-bottom: 6px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .header-login {
@@ -64,6 +89,11 @@ div.vertical-line {
   position: relative;
   z-index: 2;
   width: 100%;
+
+  img {
+    height: var(--user-height);
+    width: 50px;
+  }
 }
 
 .header-login-ref {
@@ -78,26 +108,21 @@ div.vertical-line {
   align-content: center;
 }
 
-.header-login-dropdown img {
-  height: var(--user-height);
-  width: 50px;
-}
-
 .header-login-content {
   display: none;
   position: absolute;
   margin-top: var(--user-height);
   z-index: 1;
-  width: 253px;
+  width: 140px;
   box-shadow: 0px 30px 16px 0px rgba(0, 0, 0, 0.2);
   background-color: rgba(211, 211, 211, 1);
-}
 
-.header-login-content a {
-  color: #140a32;
-  padding: 15px 16px;
-  text-decoration: none;
-  display: block;
+  a {
+    color: #140a32;
+    padding: 15px 16px;
+    text-decoration: none;
+    display: block;
+  }
 }
 
 /* Show the dropdown menu on hover */

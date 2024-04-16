@@ -36,12 +36,19 @@
 .couple {
   margin-top: 44px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .couple img {
   height: 360px;
   width: 570px;
+}
+.couple p {
+  font-size: 12px;
+  text-align: center;
+  color: grey;
 }
 
 .main-content2 {
@@ -73,7 +80,7 @@
 .popup {
   display: none;
   position: fixed;
-  z-index: 3;/*для того чтобы попапы были видны*/
+  z-index: 3; /*для того чтобы попапы были видны*/
   left: 0;
   top: 0;
   width: 100%;
@@ -178,6 +185,7 @@ input[type='password']:focus {
 .privacy-text {
   color: #140a32;
   font-size: 14px !important;
+  text-align: center;
 }
 .privacy-link {
   color: #2424b9;

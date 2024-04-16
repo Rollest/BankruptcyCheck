@@ -19,24 +19,26 @@ html
     script(src="scripts/footer.js")
     script(src="scripts/feedback.js")
     script(src="scripts/relevance_date.js")
+    script(src="scripts/navbar.js")
   body
     .viewport
       header.header
         .container
           .header-content
-            .header-brand
-              a(href="/")
-                img(src="logo_new.png", alt="logo")
-                h2.header_title БанкротствоЧек
-            nav.nav
-              
-              a(href="/") Главная
-              .vertical-line
-              a(href="/about") О банкротстве
-              .vertical-line
-              a(href="/faq") FAQ
-              .vertical-line
-              a(href="/constructor", class="constructor-link") Заявления
+            .header-brand-nav
+              .header-brand
+                a(href="/")
+                  img(src="logo_new.png", alt="logo")
+                  h2.header_title БанкротствоЧек
+              nav.nav
+                
+                a(href="/", id="a-main") Главная
+                .vertical-line
+                a(href="/about", id="a-about") О банкротстве
+                .vertical-line
+                a(href="/faq", id="a-faq") FAQ
+                .vertical-line
+                a(href="/constructor", class="constructor-link", id="a-constructor") Заявления
             .header-login
               - if (userIsLoggedIn)
                 .header-login-dropdown
@@ -62,7 +64,7 @@ html
             textarea(id="feedback-message", rows="4", placeholder="Ваше сообщение", maxlength="500",  required)
             button(id="feedback-btn", type="button") Отправить
             p(id="feedback-result") Заявка успешно отправлена, с вами свяжутся в ближайшее время.
-            p Отправляя данную форму, вы подтверждаете, что ознакомились с нашей #[a.privacy-link(href=user_policy_link target="_blank") политикой обработки персональных данных], и дали свое согласие на #[a.privacy-link(href=user_personal_link target="_blank") обработку персональных данных].
+            p.privacy-text Отправляя данную форму, вы подтверждаете, что ознакомились с нашей #[a.privacy-link(href=user_policy_link target="_blank") политикой обработки персональных данных] и дали свое согласие на #[a.privacy-link(href=user_personal_link target="_blank") обработку персональных данных].
             
 
         .popup(id="popup")

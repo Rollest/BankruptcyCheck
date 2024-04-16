@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   closeButton.innerHTML = '&times;'; // Кнопка закрытия
 
   feedbackBtn.addEventListener('click', function () {
-    feedbackForm.style.display = 'block';
+    feedbackForm.style.display = 'flex';
     feedbackForm.appendChild(closeButton);
   });
 
