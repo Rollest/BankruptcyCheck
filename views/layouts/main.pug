@@ -1,5 +1,6 @@
-- var user_agreement_link = "https://drive.google.com/file/d/1eqdMHOlAo4Q4MdrqHhCOOvTRXkMNxWl7/view"
-- var user_personal_link = "https://docs.google.com/document/d/1BDLZoCYlLY21CG_lJ0lYnwH6wVSoyDEpatEhZwzOH_0/edit?usp=share_link"
+- var user_agreement_link = "/policy/Пользовательское соглашение.pdf"
+- var user_personal_link = "/policy/Согласие_на_обработку_персональных_данных_БанкротствоЧек.pdf"
+- var user_policy_link = "/policy/Политика_обработки_персональных_данных_БанкротствоЧек.pdf"
 
 
 doctype html
@@ -59,7 +60,7 @@ html
             textarea(id="feedback-message", rows="4", placeholder="Ваше сообщение", maxlength="500",  required)
             button(id="feedback-btn", type="button") Отправить
             p(id="feedback-result") Заявка успешно отправлена, с вами свяжутся в ближайшее время.
-            p Отправляя данную форму, вы подтверждаете свое согласие на #[a.privacy-link(href=user_personal_link target="_blank") обработку персональных данных].
+            p Отправляя данную форму, вы подтверждаете, что ознакомились с нашей #[a.privacy-link(href=user_policy_link target="_blank") политикой обработки персональных данных], и дали свое согласие на #[a.privacy-link(href=user_personal_link target="_blank") обработку персональных данных].
             
 
         .popup(id="popup")

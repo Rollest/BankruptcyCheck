@@ -85,4 +85,10 @@ export class AppController {
     console.log('not validated');
     return { userIsLoggedIn: false };
   }
+
+  @Get('policy/:name')
+  @Render('policy')
+  async getPolicy(@Param('name') name: string) {
+    return { policy: name };
+  }
 }
