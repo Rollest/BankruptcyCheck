@@ -120,8 +120,10 @@ $(document).ready(function () {
   $('.tooltip').click(function () {
     var accordionItem = $(this).parent();
     accordionItem.toggleClass('active');
-    accordionItem.find('.tooltiptext').slideToggle();
+    accordionItem.find('.tooltiptext').slideToggle('slow');
     $(this).toggleClass('active');
+
+    $(this).find('.toggle-icon-constr').toggleClass('rotate');
   });
 
   const buildBtn = $('#build-btn');

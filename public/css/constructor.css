@@ -149,11 +149,31 @@ hr {
   visibility: visible;
   display: block;
 }*/
-
+/*
 .tooltip .toggle-icon {
   float: right;
   margin-left: 3px;
   position: absolute;
+}
+*/
+
+.toggle-icon-constr {
+  position: absolute;
+  float: right;
+  padding-top: 20px;
+  padding-left: 15px;
+  margin-left: 3px;
+  transform: translateX(-50%) translateY(-50%);
+  transition: transform 0.3s;
+  font-size: 28px;
+}
+
+.toggle-icon-constr .rotate {
+  transform: translateX(-50%) translateY(-50%) rotate(45deg); /* Поворот значка на 45 градусов */
+}
+
+.qss {
+  background-color: #9c858533;
 }
 
 /* Поворачивающийся значок */

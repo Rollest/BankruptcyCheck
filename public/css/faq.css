@@ -5,6 +5,7 @@
   margin: 150px auto;
 }
 
+/*
 .faq_question {
   background-color: rgba(206, 233, 218, 1);
   padding: 10px;
@@ -13,15 +14,44 @@
   font-weight: bolder;
   border: 0px solid #ccc;
   border-radius: 10px;
+}*/
+
+.faq_question {
+  position: relative;
+  background-color: rgba(136, 199, 177, 0.659);
+  border-radius: 10px; /* Круглые углы */
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.25s ease;
-  padding: 0 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: rgba(138, 132, 132, 0.221);
+  border-radius: 10px;
 }
 
-.show-answer {
-  max-height: 1000px; /* Выберите достаточно большое значение */
+.faq_question.active {
+  display: block;
+  background-color: rgba(57, 191, 141, 1);
 }
+
+.toggle-icon-faq {
+  position: absolute;
+  right: 7px; /* Расположение значка справа от заголовка */
+  top: 50%;
+  transform: translateY(-45%);
+  transition: transform 0.3s;
+  font-size: 28px;
+}
+
+.toggle-icon-faq.rotate {
+  transform: translateY(-45%) rotate(45deg); /* Поворот значка на 45 градусов */
+}
+
+/*
+.show-answer {
+  max-height: 1000px;
+}
+*/

@@ -114,14 +114,14 @@ button {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  //margin-left: 10px;
+  margin-left: 10px;
   font-size: 18px;
   font-family: 'Open Sans', sans-serif;
   color: #140a32;
 }
 
 button:hover {
-  background-color: rgba(240, 240, 240, 0.703);
+  background-color: rgba(139, 135, 135, 0.703);
 }
 .toggle-icon-plus {
   position: absolute;
