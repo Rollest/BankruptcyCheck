@@ -23,49 +23,19 @@ export class AppController {
   @Get('')
   @Render('index')
   async getMain(@Request() req) {
-    let jwt = req.cookies['jwt'];
-
-    if (jwt) {
-      let jwtDecoded = await this.authService.validateToken(jwt);
-      if (jwtDecoded != null) {
-        console.log('validated');
-        return { userIsLoggedIn: true, username: jwtDecoded.login };
-      }
-    }
-    console.log('not validated');
-    return { userIsLoggedIn: false };
+    return await this.appService.validateJWT(req);
   }
 
   @Get('about')
   @Render('about/about')
   async getAbout(@Request() req) {
-    let jwt = req.cookies['jwt'];
-
-    if (jwt) {
-      let jwtDecoded = await this.authService.validateToken(jwt);
-      if (jwtDecoded != null) {
-        console.log('validated');
-        return { userIsLoggedIn: true, username: jwtDecoded.login };
-      }
-    }
-    console.log('not validated');
-    return { userIsLoggedIn: false };
+    return await this.appService.validateJWT(req);
   }
 
   @Get('faq')
   @Render('faq/faq')
   async getFAQ(@Request() req) {
-    let jwt = req.cookies['jwt'];
-
-    if (jwt) {
-      let jwtDecoded = await this.authService.validateToken(jwt);
-      if (jwtDecoded != null) {
-        console.log('validated');
-        return { userIsLoggedIn: true, username: jwtDecoded.login };
-      }
-    }
-    console.log('not validated');
-    return { userIsLoggedIn: false };
+    return await this.appService.validateJWT(req);
   }
 
   @Get('constructor')
@@ -73,17 +43,7 @@ export class AppController {
   @UseGuards(JwtAuthGuard)
   @Render('constructor/constructor')
   async getConstructor(@Request() req) {
-    let jwt = req.cookies['jwt'];
-
-    if (jwt) {
-      let jwtDecoded = await this.authService.validateToken(jwt);
-      if (jwtDecoded != null) {
-        console.log('validated');
-        return { userIsLoggedIn: true, username: jwtDecoded.login };
-      }
-    }
-    console.log('not validated');
-    return { userIsLoggedIn: false };
+    return await this.appService.validateJWT(req);
   }
 
   @Get('policy/:name')

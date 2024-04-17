@@ -20,6 +20,7 @@ html
     script(src="scripts/feedback.js")
     script(src="scripts/relevance_date.js")
     script(src="scripts/navbar.js")
+    script(src="scripts/disclaimer.js")
   body
     .viewport
       header.header
@@ -114,7 +115,11 @@ html
                   button(type="button", class="reg-enter-button", id="registration-btn") Зарегистрироваться
                   hr
                   p #[a(id="reg-login-button", href="#") Войти] если у вас уже есть аккаунт
-                  
-      
-    
-    
+        .popup(id="popup-disclaimer")
+          .popup-body
+            .popup-content 
+              h2 Дисклеймер
+              br
+              p Вся информация на портале носит справочный характер
+              br
+              button(type="button", class="reg-enter-button", id="accept-disclaimer-btn") Принимаю
