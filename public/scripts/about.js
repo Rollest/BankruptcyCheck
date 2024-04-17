@@ -1,4 +1,7 @@
 $(document).ready(function () {
+  var accordionItem = $('#accordion-item-out-court-bank').closest(
+    '.accordion-item',
+  );
   $('.accordion-content').hide();
 
   // Обработчик событий для основных аккордеонов

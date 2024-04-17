@@ -54,8 +54,13 @@ html
         block content
       footer
         .footer
-          p.relevance-date
-          button.feedback-btn Открыть форму обратной связи
+
+          .container-data
+            
+            .centered-elements
+              p.relevance-date Дата публикации
+              button.feedback-btn Открыть форму обратной связи
+            p.info-text Вся информация на портале носит справочный характер
           form.feedback-form.new-class(action="#", method="post")
             h3 Форма обратной связи
             input(id="feedback-name", type="text", placeholder="Ваше имя", maxlength="30",  required)
