@@ -5,7 +5,19 @@ footer {
   flex-direction: column;
   justify-content: space-between;
 }
+.container-data {
+  text-align: center;
+}
 
+.centered-elements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p.info-text {
+  margin-top: 8px;
+}
 .footer {
   padding: 20px 0px 30px 0px;
   background-color: rgba(57, 191, 141, 1);

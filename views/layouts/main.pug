@@ -20,6 +20,7 @@ html
     script(src="scripts/feedback.js")
     script(src="scripts/relevance_date.js")
     script(src="scripts/navbar.js")
+    script(src="scripts/disclaimer.js")
   body
     .viewport
       header.header
@@ -54,8 +55,13 @@ html
         block content
       footer
         .footer
-          p.relevance-date
-          button.feedback-btn Открыть форму обратной связи
+
+          .container-data
+            
+            .centered-elements
+              p.relevance-date Дата публикации
+              button.feedback-btn Открыть форму обратной связи
+            p.info-text Вся информация на портале носит справочный характер
           form.feedback-form.new-class(action="#", method="post")
             h3 Форма обратной связи
             input(id="feedback-name", type="text", placeholder="Ваше имя", maxlength="30",  required)
@@ -109,7 +115,11 @@ html
                   button(type="button", class="reg-enter-button", id="registration-btn") Зарегистрироваться
                   hr
                   p #[a(id="reg-login-button", href="#") Войти] если у вас уже есть аккаунт
-                  
-      
-    
-    
+        .popup(id="popup-disclaimer")
+          .popup-body
+            .popup-content 
+              h2 Дисклеймер
+              br
+              p Вся информация на портале носит справочный характер
+              br
+              button(type="button", class="reg-enter-button", id="accept-disclaimer-btn") Принимаю

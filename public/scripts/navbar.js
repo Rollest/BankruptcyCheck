@@ -1,6 +1,5 @@
 $(document).ready(function () {
   const url = window.location.href;
-  console.log(url);
 
   if (url.includes('about')) {
     $('#a-about').css({

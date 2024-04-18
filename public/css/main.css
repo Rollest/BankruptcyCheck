@@ -79,6 +79,7 @@
 /* Модальный (фон) */
 .popup {
   display: none;
+  justify-content: center;
   position: fixed;
   z-index: 3; /*для того чтобы попапы были видны*/
   left: 0;
