@@ -39,6 +39,9 @@ html
                 .vertical-line
                 a(href="/faq", id="a-faq") FAQ
                 .vertical-line
+                -if (isAdmin)
+                  a(href="/admin", id="a-admin") Админ
+                  .vertical-line
                 a(href="/constructor", class="constructor-link", id="a-constructor") Заявления
             .header-login
               - if (userIsLoggedIn)

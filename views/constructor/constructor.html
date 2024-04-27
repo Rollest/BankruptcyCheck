@@ -13,20 +13,26 @@
     <script src="scripts/popups.js"></script>
     <script src="scripts/footer.js"></script>
     <script src="scripts/feedback.js"></script>
+    <script src="scripts/relevance_date.js"></script>
+    <script src="scripts/navbar.js"></script>
+    <script src="scripts/disclaimer.js"></script>
   </head>
   <body>
     <div class="viewport">
       <header class="header">
         <div class="container">
           <div class="header-content">
-            <div class="header-brand"><a href="/"><img src="logo_new.png" alt="logo">
-                <h2 class="header_title">БанкротствоЧек</h2></a></div>
-            <nav class="nav"><a href="/">Главная</a>
-              <div class="vertival-line"></div><a href="/about">О банкротстве</a>
-              <div class="vertival-line"></div><a href="/faq">Вопросы-Ответы</a>
-              <div class="vertival-line"></div><a class="constructor-link" href="/constructor">Шаблоны документов</a>
-            </nav>
-            <div class="header-login"><img src="avatar.png" alt="avatar"><a class="header-login-ref" href="#" id="open-login-btn">Вход /</a><a class="header-login-ref" href="#" id="open-registration-btn">Регистрация</a>
+            <div class="header-brand-nav">
+              <div class="header-brand"><a href="/"><img src="logo_new.png" alt="logo">
+                  <h2 class="header_title">БанкротствоЧек</h2></a></div>
+              <nav class="nav"><a href="/" id="a-main">Главная</a>
+                <div class="vertical-line"></div><a href="/about" id="a-about">О банкротстве</a>
+                <div class="vertical-line"></div><a href="/faq" id="a-faq">FAQ</a>
+                <div class="vertical-line"></div><a class="constructor-link" href="/constructor" id="a-constructor">Заявления</a>
+              </nav>
+            </div>
+            <div class="header-login"><img src="avatar.png" alt="avatar"><a class="header-login-ref" href="#" id="open-login-btn">Войти</a>
+              <!--a.header-login-ref(href="#", id="open-registration-btn") Регистрация-->
             </div>
           </div>
         </div>
@@ -34,6 +40,7 @@
       <div class="content">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.22.1/docxtemplater.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/pizzip@3.1.6/dist/pizzip.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.4.0/dist/pdf-lib.min.js"></script>
         <script src="scripts/docx_constructor.js"></script>
         <main class="main">
           <div class="container">
@@ -47,7 +54,7 @@
                     <input type="radio" name="question1" value="q1v1">
                     <label for="question1">Учитывая изложенное, считаю необходимым признать мое заявление обоснованным и ввести процедуру реструктуризации долгов (необходимо подтвердить соответствие требованиям <a href="https://www.consultant.ru/document/cons_doc_LAW_39331/07305843250c57acd92d661a5f83e29056b56615/" target="_blank">пункта 1 статьи 213.13 Закона о банкротстве</a>)</label><br>
                     <input type="radio" name="question1" value="q1v2">
-                    <label for="question1">Учитывая изложенное, считаю необходимым признать мое заявление обоснованным, ходатайствую о принятии в порядке <a href="https://www.consultant.ru/document/cons_doc_LAW_39331/ca74b72db11763fcd33eb8464df77ad7e069eeb6/#:~:text=6.,%D0%BD%D0%B5%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BE%20%D0%BD%D0%B0%D1%81%D1%82%D0%BE%D1%8F%D1%89%D0%B8%D0%BC%20%D0%A4%D0%B5%D0%B4%D0%B5%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%BC%20%D0%B7%D0%B0%D0%BA%D0%BE%D0%BD%D0%BE%D0%BC." target="_blank">пункта 6 статьи 213.6 Закона о банкротстве</a> решения о признании меня банкротом и введении процедуры реализации имущества гражданина, поскольку имеющаяся у меня задолженность не подлежит реструктуризации по причине моего несоответствия требованиям пункта <a href="https://www.consultant.ru/document/cons_doc_LAW_39331/07305843250c57acd92d661a5f83e29056b56615/" target="_blank">1 статьи 213.13 Закона о банкротстве</a> (указать конкретное основание)</label><br>
+                    <label for="question1">Учитывая изложенное, считаю необходимым признать мое заявление обоснованным, ходатайствую о принятии в порядке <a href="https://www.consultant.ru/document/cons_doc_LAW_39331/ca74b72db11763fcd33eb8464df77ad7e069eeb6/#:~:text=6.,%D0%BD%D0%B5%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BE%20%D0%BD%D0%B0%D1%81%D1%82%D0%BE%D1%8F%D1%89%D0%B8%D0%BC%20%D0%A4%D0%B5%D0%B4%D0%B5%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%BC%20%D0%B7%D0%B0%D0%BA%D0%BE%D0%BD%D0%BE%D0%BC." target="_blank">пункта 6 статьи 213.6 Закона о банкротстве</a> решения о признании меня банкротом и введении процедуры реализации имущества гражданина, поскольку имеющаяся у меня задолженность не подлежит реструктуризации по причине моего несоответствия требованиям <a href="https://www.consultant.ru/document/cons_doc_LAW_39331/07305843250c57acd92d661a5f83e29056b56615/" target="_blank">пункта 1 статьи 213.13 Закона о банкротстве</a> (указать конкретное основание)</label><br>
                     <p class="comment" id="question1-comment">Необходимо выбрать один из вариантов.</p>
                   </div>
                 </div>
@@ -55,23 +62,25 @@
                   <div class="question3">
                     <p><strong>Выберите только те документы, что у вас есть</strong>:</p>
                     <hr>
-                    <input type="checkbox" name="question3" value="q3v1">
-                    <label class="tooltip" for="question3">Подтверждение права собственности, удостоверение исключительных права на результаты интеллектуальной деятельности (при наличии)<span class="tooltiptext"> 
+                    <input type="checkbox" name="question3" value="q3v1"><span>
+                      <label class="tooltip" for="question3">Подтверждение права собственности, удостоверение исключительных права на результаты интеллектуальной деятельности (при наличии)<span class="toggle-icon-constr">&#43</span></label>
+                      <div class="tooltiptext"> 
                         <p>- Право собственности на недвижимое имущество подтверждается выпиской из ЕГРН, которую можно получить на <a href="https://rosreestr.gov.ru/eservices/request_info_from_egrn/" target="_blank">официальном сайте Росреестра</a> или <a href="https://www.gosuslugi.ru/online-egrn" target="_blank">Госуслугах</a>.</p>
                         <p>- Право собственности на движимое имущество подтверждается договором, актом приема-передачи, для автомобилей также ПТС и иными доказательствами.</p>
-                        <p>- Исключительные права подтверждаются <a href="https://www.a-priority.ru/business-center/documents-confirming-the-ownership-of.php" target="_blank">договорами и свидетельствами</a>.</p></span></label><br>
-                    <input type="checkbox" name="question3" value="q3v2">
-                    <label class="tooltip" for="question3">Документы о сделках, совершавшихся в течение 3 лет до даты подачи заявления с недвижимостью, ценными бумагами, долями в уставном капитале, транспортными средствами или на сумму свыше 300 000 рублей (при наличии)<span class="tooltiptext">- Все договоры, которые вы совершали с перечисленными объектами и те договоры, сумма которых составила более 300 000 рублей.  </span></label><br>
-                    <input type="checkbox" name="question3" value="q3v3">
-                    <label class="tooltip" for="question3">Выписка из реестра акционеров (участников) юридического лица (при наличии)<span class="tooltiptext">- Выписка запрашивается у держателя реестров акционеров - специализированная организация, которая имеет лицензию на эту деятельность. Такая компания называется «регистратор». Узнать, кто является держателем реестра, можно, заказав выписку из ЕГРЮЛ на акционерное общество. Это открытая информация и сделать это можно совершенно бесплатно на сайте ФНС или через сервисы проверки контрагентов. Для получения выписки из реестра акционеров нужно составить официальный письменный запрос реестродержателю на предоставление выписки.</span></label><br>
+                        <p>- Исключительные права подтверждаются <a href="https://www.a-priority.ru/business-center/documents-confirming-the-ownership-of.php" target="_blank">договорами и свидетельствами</a>.</p>
+                      </div></span><br>
+                    <input type="checkbox" name="question3" value="q3v2"><span>
+                      <label class="tooltip" for="question3">Документы о сделках, совершавшихся в течение 3 лет до даты подачи заявления с недвижимостью, ценными бумагами, долями в уставном капитале, транспортными средствами или на сумму свыше 300 000 рублей (при наличии)<span class="toggle-icon-constr">&#43</span></label>
+                      <div class="tooltiptext">- Все договоры, которые вы совершали с перечисленными объектами и те договоры, сумма которых составила более 300 000 рублей.  </div></span><br>
+                    <input type="checkbox" name="question3" value="q3v3"><span>
+                      <label class="tooltip" for="question3">Выписка из реестра акционеров (участников) юридического лица (при наличии)<span class="toggle-icon-constr">&#43</span></label>
+                      <div class="tooltiptext">- Выписка запрашивается у держателя реестров акционеров - специализированная организация, которая имеет лицензию на эту деятельность. Такая компания называется «регистратор». Узнать, кто является держателем реестра, можно, заказав выписку из ЕГРЮЛ на акционерное общество. Это открытая информация и сделать это можно совершенно бесплатно на <a href="https://www.nalog.gov.ru" target="_blank">официальном сайте ФНС</a> или через сервисы проверки контрагентов. Для получения выписки из реестра акционеров нужно составить официальный письменный запрос реестродержателю на предоставление выписки.</div></span><br>
                     <input type="checkbox" name="question3" value="q3v4">
-                    <label for="question3"><a href='https://www.nalog.gov.ru/rn75/news/activities_fts/13484498/' target='_blank'>ИНН</a>(при наличии)</label><br>
-                    <input type="checkbox" name="question3" value="q3v5">
-                    <label class="tooltip" for="question3">
-                      Свидетельство о заключении брака(при наличии)<span class="tooltiptext">- Если свидетельство утеряно, его следует запросить в органах ЗАГС месту жительства или пребывания заявителя</span> </label><br>
-                    <input type="checkbox" name="question3" value="q3v6">
-                    <label class="tooltip" for="question3">
-                      Свидетельство о расторжении брака, если оно выдано в течение 3 лет до даты подачи заявления (при наличии)<span class="tooltiptext">- Если свидетельство утеряно, его следует запросить в органах ЗАГС месту жительства или пребывания заявителя</span> </label><br>
+                    <label for="question3"><a href='https://www.nalog.gov.ru/rn75/news/activities_fts/13484498/' target='_blank'>ИНН</a> (при наличии)</label><br>
+                    <input type="checkbox" name="question3" value="q3v5"><span>
+                      <label class="tooltip" for="question3">Свидетельство о заключении брака (при наличии)<span class="toggle-icon-constr">&#43</span></label><div class="tooltiptext">- Если свидетельство утеряно, его следует запросить в органах ЗАГС месту жительства или пребывания заявителя</div> </span><br>
+                    <input type="checkbox" name="question3" value="q3v6"><span>
+                      <label class="tooltip" for="question3">Свидетельство о расторжении брака, если оно выдано в течение 3 лет до даты подачи заявления (при наличии)<span class="toggle-icon-constr">&#43</span></label><div class="tooltiptext">- Если свидетельство утеряно, его следует запросить в органах ЗАГС месту жительства или пребывания заявителя</div> </span><br>
                     <input type="checkbox" name="question3" value="q3v7">
                     <label for="question3">Копия брачного договора (при наличии)</label><br>
                     <input type="checkbox" name="question3" value="q3v8">
@@ -85,53 +94,71 @@
                     <p><strong>Обратите внимание! Эти документы являются обязательными, и будут добавлены в заявление автоматически</strong>:</p>
                     <hr>
                     <ul class="question4-list">
-                      <li class="tooltip">
-                        Подтверждение задолженности<span class="tooltiptext"> <p>-Основания: договоры займа, кредита, микрозайма, ипотеки и все иные договоры, которые стали основанием возникновения у вас долга перед кредитором</p><br><p>-Неспособность удовлетворить требования кредиторов: ваши обращения к кредитору, связанные с невозможностью своевременного возврата долга; претензии кредиторов к вам, связанные с неуплатой долга; уведомления кредиторов о наличии у вас задолженности и т.д.</p><br><p>Все эти документы также подтверждают у вас наличие задолженности перед кредиторами.</p></span></li>
-                      <li class="tooltip">
-                        Документ, подтверждающий наличие или отсутствие статуса ИП<span class="tooltiptext"><p> <strong>ВАЖНО!</strong> Такие документы должны быть получены не ранее чем за пять рабочих дней до даты подачи в арбитражный суд гражданином заявления о признании его банкротом</p><br><p>Такой документ можно заказать через <a href="https://www.gosuslugi.ru/help/faq/egrul/4567" target="_blank">Госуслуги</a> или <a href="https://egrul.nalog.ru/index.html" target="_blank">на официальном сайте ФНС</a></p></span> </li>
-                      <li class="tooltip">
-                        Списки кредиторов и должников гражданина, а также денежных обязательств и (или) обязанности по уплате обязательных платежей. <a href='https://login.consultant.ru/link/?req=doc&base=LAW&n=185204&dst=100013&field=134&date=23.03.2024' target='_blank'>Форма</a> представления указанных списков утверждается регулирующим органом<span class="tooltiptext">- На сайте представлен шаблон данной формы и образец ее заполнения</span></li>
-                      <li class="tooltip">
-                        Опись имущества гражданина. <a href='https://login.consultant.ru/link/?req=doc&base=LAW&n=185204&dst=100181&field=134&date=23.03.2024' target='_blank'>Форма</a> представления данной описи утверждается регулирующим органом<span class="tooltiptext">- На сайте представлен шаблон данной формы и образец ее заполнения</span></li>
-                      <li class="tooltip">
-                        Сведения о доходах и о налогах за трехлетний период, предшествующий дате подачи заявления о признании гражданина банкротом<span class="tooltiptext">
-                        <p>- Для этого вам нужна справка 2-НДФЛ. Данную справку можно получить на  <a href="https://www.nalog.gov.ru/rn50/news/activities_fts/10095937/" target="_blank">официальном сайте ФНС</a> в личном кабинете налогоплательщика для физических лиц или на портале <a href="https://www.gosuslugi.ru/help/faq/income_statement/102203" target="_blank">Госуслуг</a>.</p></span>
-                      </li>
-                      <li class="tooltip">Документы о счетах в банках<span class="tooltiptext"><strong>ВАЖНО!</strong> Данные документы должны быть получены за трехлетний период, предшествующий дате подачи заявления о признании гражданина банкротом.</span></li>
-                      <li class="tooltip">
-                        СНИЛС<span class="tooltiptext">- это СНИЛС (страховой номер индивидуального лицевого счёта)
-</span>
-                      </li>
-                      <li class="tooltip">
-                        Сведения о состоянии индивидуального лицевого счета застрахованного лица<span class="tooltiptext">- Сведения можно получить через Личный кабинет застрахованного лица, Единый портал государственных (муниципальных) услуг (ЕПГУ) или в территориальном органе ПФР.
-</span>
-                      </li>
-                      <li class="tooltip">Копия решения о признании гражданина безработным, в случае принятия указанного решения
+                      <div>
+                        <li class="tooltip">Подтверждение задолженности<span class="toggle-icon-constr">&#43</span></li><div class="tooltiptext"> <p>-Основания: договоры займа, кредита, микрозайма, ипотеки и все иные договоры, которые стали основанием возникновения у вас долга перед кредитором</p><br><p>-Неспособность удовлетворить требования кредиторов: ваши обращения к кредитору, связанные с невозможностью своевременного возврата долга; претензии кредиторов к вам, связанные с неуплатой долга; уведомления кредиторов о наличии у вас задолженности и т.д.</p><br><p>Все эти документы также подтверждают у вас наличие задолженности перед кредиторами.</p></div>
+                      </div>
+                      <div> 
+                        <li class="tooltip">Документ, подтверждающий наличие или отсутствие статуса ИП<span class="toggle-icon-constr">&#43</span></li><div class="tooltiptext"><p> <strong>ВАЖНО!</strong> Такие документы должны быть получены не ранее чем за пять рабочих дней до даты подачи в арбитражный суд гражданином заявления о признании его банкротом</p><br><p>Такой документ можно заказать через <a href="https://www.gosuslugi.ru/help/faq/egrul/4567" target="_blank">Госуслуги</a> или <a href="https://egrul.nalog.ru/index.html" target="_blank">на официальном сайте ФНС</a></p></div> 
+                      </div>
+                      <div>
+                        <li class="tooltip">Списки кредиторов и должников гражданина, а также денежных обязательств и (или) обязанности по уплате обязательных платежей. Форма представления указанных списков утверждается регулирующим органом. <a href='#' onclick="buildAndDownloadDocument('Шаблон. Список кредиторов и должников гражданина.docx', false);">Форма</a> и <a href='#' onclick="buildAndDownloadDocument('Заполненный список кредиторов и должников.pdf', false);">Пример</a> доступны для скачивания.<span class="toggle-icon-constr">&#43</span></li><div class="tooltiptext">- На сайте представлен шаблон данной формы и образец ее заполнения</div>
+                      </div>
+                      <div>
+                        <li class="tooltip">Опись имущества гражданина. Форма представления данной описи утверждается регулирующим органом. <a href='#' onclick="buildAndDownloadDocument('Шаблон. Опись имущества гражданина.docx', false);">Форма</a> и <a href='#' onclick="buildAndDownloadDocument('Заполненная опись имущества.pdf', false);">Пример</a> доступны для скачивания.<span class="toggle-icon-constr">&#43</span></li><div class="tooltiptext">- На сайте представлен шаблон данной формы и образец ее заполнения</div>
+                      </div>
+                      <div>
+                        <li class="tooltip">Сведения о доходах и о налогах за трехлетний период, предшествующий дате подачи заявления о признании гражданина банкротом<span class="toggle-icon-constr">&#43</span></li><div class="tooltiptext">
+                        <p>- Для этого вам нужна справка 2-НДФЛ. Данную справку можно получить на  <a href="https://www.nalog.gov.ru/rn50/news/activities_fts/10095937/" target="_blank">официальном сайте ФНС</a> в личном кабинете налогоплательщика для физических лиц или на портале <a href="https://www.gosuslugi.ru/help/faq/income_statement/102203" target="_blank">Госуслуг</a>.</p></div>
+                      </div>
+                      <div>
+                        <li class="tooltip">Документы о счетах в банках<span class="toggle-icon-constr">&#43</span></li>
+                        <div class="tooltiptext"><strong>ВАЖНО!</strong> Данные документы должны быть получены за трехлетний период, предшествующий дате подачи заявления о признании гражданина банкротом.</div>
+                      </div>
+                      <div>
+                        <li class="tooltip">СНИЛС<span class="toggle-icon-constr">&#43</span></li><div class="tooltiptext">- это СНИЛС (страховой номер индивидуального лицевого счёта)</div>
+                      </div>
+                      <div>
+                        <li class="tooltip">Сведения о состоянии индивидуального лицевого счета застрахованного лица<span class="toggle-icon-constr">&#43</span></li><div class="tooltiptext">- Сведения можно получить через Личный кабинет застрахованного лица, Единый портал государственных (муниципальных) услуг (ЕПГУ) или в территориальном органе ПФР.</div>
+                      </div>
+                      <div>
+                        <li class="tooltip">Копия решения о признании гражданина безработным, в случае принятия указанного решения<span class="toggle-icon-constr">&#43</span></li>
                         <div class="tooltiptext"><strong>ВАЖНО!</strong> Данные документы должны быть получены за трехлетний период, предшествующий дате подачи заявления о признании гражданина банкротом. </div>
-                      </li>
-                      <li class="tooltip">
-                        Копия свидетельства о рождении ребенка, если гражданин является его родителем, усыновителем или опекуном<span class="tooltiptext">- Если оно утеряно, то следует обратиться в ЗАГС. Повторный документ выдается органом ЗАГС по месту жительства или пребывания заявителя. Также можно подать заявление через Госуслуги. </span></li>
-                      <li class="tooltip">
-                        Документы, подтверждающие иные обстоятельства, на которых основывается заявление гражданина<span class="tooltiptext">- Речь идет о всех тех документах, которые вы посчитаете необходимым предоставить суду, чтобы доказать обоснованность ваших требований и обстоятельств, указанных в заявлении.</span></li>
-                      <li class="tooltip">
-                        Квитанция об оплате государственной пошлины или ходатайство об отсрочке<span class="tooltiptext">
+                      </div>
+                      <div>
+                        <li class="tooltip">Копия свидетельства о рождении ребенка, если гражданин является его родителем, усыновителем или опекуном<span class="toggle-icon-constr">&#43</span></li><div class="tooltiptext">- Если оно утеряно, то следует обратиться в ЗАГС. Повторный документ выдается органом ЗАГС по месту жительства или пребывания заявителя. Также можно подать заявление через Госуслуги. </div>
+                      </div>
+                      <div>
+                        <li class="tooltip">Документы, подтверждающие иные обстоятельства, на которых основывается заявление гражданина<span class="toggle-icon-constr">&#43</span></li><div class="tooltiptext">- Речь идет о всех тех документах, которые вы посчитаете необходимым предоставить суду, чтобы доказать обоснованность ваших требований и обстоятельств, указанных в заявлении.</div>
+                      </div>
+                      <div>
+                        <li class="tooltip">Квитанция об оплате государственной пошлины или ходатайство об отсрочке<span class="toggle-icon-constr">&#43</span></li><div class="tooltiptext">
                         <p>- Вам необходимо приложить квитанцию об оплате государственной пошлины в размере 300 рублей. </p>
                         <p>- Если вы являетесь инвалидом 1 или 2 группы, то вы освобождены от уплаты государственной пошлины - для этого вам необходимо заполнить соответствующее заявление (шаблон и образец заполнения представлены на нашем сайте)</p>
-                        <p>- Если вы находитесь в тяжелом материальном положении, то вы также можете заполнить соответствующее заявление (шаблон и образец заполнения представлены на нашем сайте)</p></span>
-                      </li>
-                      <li class="tooltip">
-                        Доказательство направления копии заявления кредиторам (почтовые квитанции, расписки о вручении, почтовые уведомления)<span class="tooltiptext">- Вам необходимо направить всем своим кредиторам (те, кому вы должны) копию вашего заявления о признании вас банкротом и приложить доказательства такого отправления.</span></li>
-                      <li class="tooltip">
-                        Доказательство внесения на депозитный счет Арбитражного Суда денежных средств для услуг финансового управляющего либо  ходатайство о предоставлении отсрочки внесения средств<span class="tooltiptext">
+                        <p>- Если вы находитесь в тяжелом материальном положении, то вы также можете заполнить соответствующее заявление (шаблон и образец заполнения представлены на нашем сайте)</p></div>
+                      </div>
+                      <div>
+                        <li class="tooltip">Доказательство направления копии заявления кредиторам (почтовые квитанции, расписки о вручении, почтовые уведомления)<span class="toggle-icon-constr">&#43</span></li><div class="tooltiptext">- Вам необходимо направить всем своим кредиторам (те, кому вы должны) копию вашего заявления о признании вас банкротом и приложить доказательства такого отправления.</div>
+                      </div>
+                      <div>
+                        <li class="tooltip">Доказательство внесения на депозитный счет Арбитражного Суда денежных средств для услуг финансового управляющего либо  ходатайство о предоставлении отсрочки внесения средств<span class="toggle-icon-constr">&#43</span></li><div class="tooltiptext">
                         <p>- Размер фиксированного вознаграждения финансового управляющего составляет 25 000 рублей за процедуру. Эти деньги необходимо внести в депозит суда до даты подачи заявления в суд. В таком случае необходимо к заявлению приложить квитанцию об оплате</p>
                         <p>- Также вы можете к заявлению приложить ходатайство (шаблон и образец заполнения представлены на здесь) о предоставлении вам отсрочки на внесение денежных средств в размере 25.000 рублей в депозит суда. </p>
-                        <p><strong>ВАЖНО!</strong> Деньги должны быть внесены до даты судебного заседания суда по рассмотрению вашего заявления по существу. В противном случае ваше заявление не рассмотрят.</p></span>
-                      </li>
+                        <p><strong>ВАЖНО!</strong> Деньги должны быть внесены до даты судебного заседания суда по рассмотрению вашего заявления по существу. В противном случае ваше заявление не рассмотрят.</p></div>
+                      </div>
                       <li>Копия паспорта (копии всех листов, как с отметками, так и не заполненных)</li>
                     </ul><br>
                   </div>
                 </div>
-                <button type="button" id="build-btn">Скачать документ</button>
+                <button class="btn" type="button" id="build-btn">Скачать заявление</button>
+                <button class="btn" type="button" onclick="buildAndDownloadDocument('Заполненное заявление о признании банкротом гражданина.docx', false);">Скачать заполненный пример заявления</button>
+                <div class="button-cont">
+                  <button class="btn-small" type="button" onclick="buildAndDownloadDocument('1.1 Шаблон. Заявление (ходатайство) об освобождении от уплаты государственной пошлины.docx', false);" id="taxes">Скачать ходатайство об освобождении от уплаты государственной пошлины</button>
+                  <button class="btn-small" type="button" onclick="buildAndDownloadDocument('1.2 Заполненное заявление (ходатайство) об освобождении от уплаты государственной пошлины.docx', false);"> Скачать его заполненный пример  </button>
+                </div>
+                <div class="button-cont">
+                  <button class="btn-small" type="button" onclick="buildAndDownloadDocument('2.1 Шаблон. Ходатайство о предоставлении отсрочки внесения средств  на выплату вознаграждения финансовому управляющему.docx', false);" id="money">Скачать ходатайство о предоставлении отсрочки внесения средств  на выплату вознаграждения финансовому управляющему</button>
+                  <button class="btn-small" type="button" onclick="buildAndDownloadDocument('2.2 Заполненное ходатайство о предоставлении отсрочки внесения средств на выплату вознаграждения финансовому управляющему.docx', false);"> Скачать его заполненный пример  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -139,7 +166,13 @@
       </div>
       <footer>
         <div class="footer">
-          <button class="feedback-btn">Открыть форму обратной связи</button>
+          <div class="container-data">
+            <div class="centered-elements">
+              <p class="relevance-date">Дата публикации</p>
+              <button class="feedback-btn">Открыть форму обратной связи</button>
+            </div>
+            <p class="info-text">Вся информация на портале носит справочный характер</p>
+          </div>
           <form class="feedback-form new-class" action="#" method="post">
             <h3>Форма обратной связи</h3>
             <input id="feedback-name" type="text" placeholder="Ваше имя" maxlength="30" required>
@@ -148,7 +181,7 @@
             <textarea id="feedback-message" rows="4" placeholder="Ваше сообщение" maxlength="500" required></textarea>
             <button id="feedback-btn" type="button">Отправить</button>
             <p id="feedback-result">Заявка успешно отправлена, с вами свяжутся в ближайшее время.</p>
-            <p>Отправляя данную форму, вы подтверждаете свое согласие на <a class="privacy-link" href="https://docs.google.com/document/d/1BDLZoCYlLY21CG_lJ0lYnwH6wVSoyDEpatEhZwzOH_0/edit?usp=share_link" target="_blank">обработку персональных данных</a>.</p>
+            <p class="privacy-text">Отправляя данную форму, вы подтверждаете, что ознакомились с нашей <a class="privacy-link" href="/policy/Политика_обработки_персональных_данных_БанкротствоЧек.pdf" target="_blank">политикой обработки персональных данных</a> и дали свое согласие на <a class="privacy-link" href="/policy/Согласие_на_обработку_персональных_данных_БанкротствоЧек.pdf" target="_blank">обработку персональных данных</a>.</p>
           </form>
         </div>
         <div class="popup" id="popup">
@@ -187,12 +220,21 @@
                     <p class="popup-comment" id="registration-login-comment">Фарвоафо</p>
                     <p class="popup-comment" id="registration-password-comment">Фарвоафо</p><br>
                   </div>
-                  <p class="privacy-text">Создавая аккаунт вы соглашаетесь с нашей <a class="privacy-link" href="https://drive.google.com/file/d/1eqdMHOlAo4Q4MdrqHhCOOvTRXkMNxWl7/view" target="_blank">политикой конфиденциальности</a></p>
+                  <p class="privacy-text">Создавая аккаунт вы соглашаетесь с нашей <a class="privacy-link" href="/policy/Пользовательское соглашение.pdf" target="_blank">политикой конфиденциальности</a></p>
                   <button class="reg-enter-button" type="button" id="registration-btn">Зарегистрироваться</button>
                   <hr>
                   <p><a id="reg-login-button" href="#">Войти</a> если у вас уже есть аккаунт</p>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+        <div class="popup" id="popup-disclaimer">
+          <div class="popup-body">
+            <div class="popup-content"> 
+              <h2>Дисклеймер</h2><br>
+              <p>Вся информация на портале носит справочный характер</p><br>
+              <button class="reg-enter-button" type="button" id="accept-disclaimer-btn">Принимаю</button>
             </div>
           </div>
         </div>

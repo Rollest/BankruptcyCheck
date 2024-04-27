@@ -47,8 +47,16 @@ export class AppController {
   }
 
   @Get('policy/:name')
-  @Render('policy')
+  @Render('policy/policy')
   async getPolicy(@Param('name') name: string) {
     return { policy: name };
+  }
+
+  @Get('admin')
+  @UsePipes(new ValidationPipe())
+  @UseGuards(JwtAuthGuard)
+  @Render('admin/admin')
+  async getAdmin(@Request() req) {
+    return await this.appService.validateJWTAdmin(req);
   }
 }

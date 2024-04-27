@@ -25,20 +25,26 @@ export class UsersController {
 
     return this.usersService.create(createUserDto);
   }
-  /*
 
   @Get()
+  @UsePipes(new ValidationPipe())
+  @UseGuards(JwtAuthGuard)
   findAll() {
     return this.usersService.findAll();
   }
 
   @Get(':id')
+  @UsePipes(new ValidationPipe())
+  @UseGuards(JwtAuthGuard)
   findOne(@Param('id') id: string) {
     return this.usersService.findOne(+id);
   }
 
   @Patch(':id')
+  @UsePipes(new ValidationPipe())
+  @UseGuards(JwtAuthGuard)
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+    console.log(updateUserDto);
     return this.usersService.update(+id, updateUserDto);
   }
 
@@ -47,5 +53,5 @@ export class UsersController {
   @UseGuards(JwtAuthGuard)
   remove(@Param('id') id: string) {
     return this.usersService.remove(+id);
-  }*/
+  }
 }

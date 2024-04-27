@@ -135,10 +135,13 @@ $(document).ready(function () {
   const signoutBtn = $('#exit-btn');
   signoutBtn.click(function () {
     $.get('auth/signout').done(function (data) {
-      if (!location.href.includes('constructor')) {
+      if (
+        !location.href.includes('constructor') &&
+        !location.href.includes('admin')
+      ) {
         location.reload();
       } else {
-        location.assign('https://bankruptcycheck.ru');
+        location.assign('./');
       }
       userIsLogged = false;
     });

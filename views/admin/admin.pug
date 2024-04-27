@@ -1,0 +1,20 @@
+extends ../layouts/main
+
+block content
+  script(src="scripts/admin.js")
+  main.main
+    .container
+      h3.main-content1-title Админ панель
+      table(border="1px" id="userTable")
+        thead
+          tr
+            th ID
+            th Login
+            th Password
+            th Created At
+            th Updated At
+            th Deleted At
+            th Is Admin
+            th Is Active
+            th Actions
+        tbody

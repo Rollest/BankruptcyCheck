@@ -7,6 +7,7 @@ import * as fs from 'fs';
 import * as enforce from 'express-sslify';
 import * as http from 'http';
 import * as https from 'https';
+import { HttpExceptionFilter } from './filters/http-exception.filter';
 
 async function bootstrap() {
   //const keyFile = fs.readFileSync(__dirname + '/../ssl/private.key');
@@ -22,6 +23,7 @@ async function bootstrap() {
   );
 
   //app.use(enforce.HTTPS({ trustProtoHeader: true }));
+  app.useGlobalFilters(new HttpExceptionFilter());
   app.enableCors();
   app.use(cookieParser());
   app.useStaticAssets(join(__dirname, '..', 'public'));

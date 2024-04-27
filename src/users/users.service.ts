@@ -58,16 +58,19 @@ export class UsersService {
       where: { login: updateUserDto.login },
     });
 
-    if (updateUserDto.password) {
-      updateUserDto.password = await argon2.hash(updateUserDto.password, {
-        type: argon2.argon2id,
-      });
-    }
-
     if (!userExists) {
       throw new BadRequestException('Пользователя с таким id не существует');
     }
-    return await this.userRepository.update(id, updateUserDto);
+
+    const isAdmin = updateUserDto.isAdmin === 'true'; // Преобразуем строку 'true' в true
+    const isActive = updateUserDto.isActive === 'true'; // Преобразуем строку 'true' в true
+
+    return await this.userRepository.save({
+      ...userExists,
+      ...updateUserDto,
+      isAdmin, // Присваиваем преобразованные значения
+      isActive, // Присваиваем преобразованные значения
+    });
   }
 
   remove(id: number) {
