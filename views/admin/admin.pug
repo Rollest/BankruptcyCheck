@@ -18,3 +18,14 @@ block content
             th Is Active
             th Actions
         tbody
+      br
+      button(type="button", class="reg-enter-button", id="add-new-user") Добавить пользователя
+      .popup(id="popup-confirmation")
+          .popup-body
+            .popup-content 
+              h2 Вы точно хотите удалить запись?
+              br
+              p Вся информация о данной записи удалится безвозвратно
+              br
+              button(type="button", class="reg-enter-button", id="accept-confirmation-btn") Удалить
+              button(type="button", class="reg-enter-button", id="deny-confirmation-btn") Отменить

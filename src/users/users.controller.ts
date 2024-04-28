@@ -54,4 +54,11 @@ export class UsersController {
   remove(@Param('id') id: string) {
     return this.usersService.remove(+id);
   }
+
+  @Delete('permanent/:id')
+  @UsePipes(new ValidationPipe())
+  @UseGuards(JwtAuthGuard)
+  permanentlyDelete(@Param('id') id: string) {
+    return this.usersService.permanentlyDelete(+id);
+  }
 }
