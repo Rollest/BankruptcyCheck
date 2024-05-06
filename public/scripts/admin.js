@@ -66,23 +66,18 @@ $(document).ready(function () {
     if (row.find('.edit-input.password').val() !== passwordPrev) {
       sendDto['password'] = row.find('.edit-input.password').val();
     }
-    if (
-      row.find('.edit-input.isAdmin').prop('checked') !== isAdminPrev ||
-      true
-    ) {
+    if (row.find('.edit-input.isAdmin').prop('checked') !== isAdminPrev) {
       sendDto['isAdmin'] = row.find('.edit-input.isAdmin').prop('checked');
     }
-    if (
-      row.find('.edit-input.isActive').prop('checked') !== isActivePrev ||
-      true
-    ) {
+    if (row.find('.edit-input.isActive').prop('checked') !== isActivePrev) {
       sendDto['isActive'] = row.find('.edit-input.isActive').prop('checked');
     }
 
     $.ajax({
       url: `/users/${userId}`,
       method: 'PATCH',
-      data: sendDto,
+      contentType: 'application/json',
+      data: JSON.stringify(sendDto),
       success: function (response) {
         loadUsers();
         alert('Изменения внесены успешно');

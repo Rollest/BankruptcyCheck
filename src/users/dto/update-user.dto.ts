@@ -10,8 +10,8 @@ export class UpdateUserDto {
   password: string;
 
   @IsOptional()
-  isAdmin: string;
+  isAdmin: boolean;
 
   @IsOptional()
-  isActive: string;
+  isActive: boolean;
 }

@@ -55,21 +55,22 @@ export class UsersService {
 
   async update(id: number, updateUserDto: UpdateUserDto) {
     const userExists = await this.userRepository.findOne({
-      where: { login: updateUserDto.login },
+      where: { id },
     });
 
     if (!userExists) {
       throw new BadRequestException('Пользователя с таким id не существует');
     }
 
-    const isAdmin = updateUserDto.isAdmin === 'true'; // Преобразуем строку 'true' в true
-    const isActive = updateUserDto.isActive === 'true'; // Преобразуем строку 'true' в true
+    if (updateUserDto.password != null) {
+      updateUserDto.password = await argon2.hash(updateUserDto.password, {
+        type: argon2.argon2id,
+      });
+    }
 
     return await this.userRepository.save({
       ...userExists,
       ...updateUserDto,
-      isAdmin, // Присваиваем преобразованные значения
-      isActive, // Присваиваем преобразованные значения
     });
   }
 
