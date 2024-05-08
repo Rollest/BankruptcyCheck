@@ -14,25 +14,11 @@ export class LawsService {
   ) {}
 
   async create(createLawDto: CreateLawDto) {
-    const userExists = await this.lawRepository.findOne({
-      where: { login: createLawDto.login },
-    });
+    const law = new Law();
+    law.heading = createLawDto.heading;
+    law.mainText = hashedPassword;
 
-    if (userExists) {
-      throw new BadRequestException(
-        'Пользователь с таким логином уже зарегистрирован в системе.',
-      );
-    }
-
-    const hashedPassword = await argon2.hash(createLawDto.password, {
-      type: argon2.argon2id,
-    });
-
-    const user = new Law();
-    user.login = createLawDto.login;
-    user.password = hashedPassword;
-
-    await this.lawRepository.save(user);
+    await this.lawRepository.save(law);
 
     return true;
   }
@@ -54,11 +40,11 @@ export class LawsService {
   }
 
   async update(id: number, updateLawDto: UpdateLawDto) {
-    const userExists = await this.lawRepository.findOne({
+    const lawExists = await this.lawRepository.findOne({
       where: { id },
     });
 
-    if (!userExists) {
+    if (!lawExists) {
       throw new BadRequestException('Пользователя с таким id не существует');
     }
 
@@ -69,7 +55,7 @@ export class LawsService {
     }
 
     return await this.lawRepository.save({
-      ...userExists,
+      ...lawExists,
       ...updateLawDto,
     });
   }
