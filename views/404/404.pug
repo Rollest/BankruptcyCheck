@@ -1,19 +1,6 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title 404 Not Found
-    style.
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 50px;
-      }
-      h1 {
-        font-size: 48px;
-        margin-bottom: 20px;
-      }
-  body
-    h1 Error 404: Page Not Found
-    p We're sorry, but the page you requested could not be found.
+extends ../layouts/main
+
+block content
+  main.main
+    .container
+      h3.main-content1-title Error 404: Page Not Found

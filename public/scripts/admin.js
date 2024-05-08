@@ -18,7 +18,7 @@ $(document).ready(function () {
       let row = `<tr>
                   <td>${user.id}</td>
                   <td><span class="editable login">${user.login}</span><input type="text" class="edit-input login" value="${user.login}" style="display: none;"></td>
-                  <td><span class="editable password">password</span><input type="text" class="edit-input password" value="${user.password}" style="display: none;"></td>
+                  <td><span class="editable password">password</span></td>
                   <td>${user.createdAt}</td>
                   <td>${user.updatedAt}</td>
                   <td>${user.deletedAt ? user.deletedAt : '-'}</td>
@@ -37,7 +37,6 @@ $(document).ready(function () {
   loadUsers();
 
   let loginPrev;
-  let passwordPrev;
   let isAdminPrev;
   let isActivePrev;
 
@@ -49,7 +48,6 @@ $(document).ready(function () {
     row.find('.applyBtn').show();
 
     loginPrev = row.find('.edit-input.login').val();
-    passwordPrev = row.find('.edit-input.password').val();
     isAdminPrev = row.find('.edit-input.isAdmin').prop('checked');
     isActivePrev = row.find('.edit-input.isActive').prop('checked');
   });
@@ -62,9 +60,6 @@ $(document).ready(function () {
 
     if (row.find('.edit-input.login').val() !== loginPrev) {
       sendDto['login'] = row.find('.edit-input.login').val();
-    }
-    if (row.find('.edit-input.password').val() !== passwordPrev) {
-      sendDto['password'] = row.find('.edit-input.password').val();
     }
     if (row.find('.edit-input.isAdmin').prop('checked') !== isAdminPrev) {
       sendDto['isAdmin'] = row.find('.edit-input.isAdmin').prop('checked');
@@ -118,7 +113,7 @@ $(document).ready(function () {
     let row = `<tr>
                   <td></td>
                   <td><input type="text" class="edit-input login" value=""></td>
-                  <td><input type="text" class="edit-input password" value=""></td>
+                  <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -134,14 +129,13 @@ $(document).ready(function () {
   $(document).on('click', '.addBtn', function () {
     let row = $(this).closest('tr');
     let login = row.find('.edit-input.login').val();
-    let password = row.find('.edit-input.password').val();
     if (login.length > 5 && password.length > 5) {
       $.ajax({
         url: `/users`,
         method: 'POST',
         data: {
           login: login,
-          password: password,
+          password: generateRandomPassword(10),
         },
         success: function (response) {
           loadUsers();
@@ -155,4 +149,14 @@ $(document).ready(function () {
       alert('Логин и пароль должны состоять минимум из 6 символов');
     }
   });
+  function generateRandomPassword(length) {
+    var charset =
+      'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+';
+    var password = '';
+    for (var i = 0; i < length; i++) {
+      var randomIndex = Math.floor(Math.random() * charset.length);
+      password += charset[randomIndex];
+    }
+    return password;
+  }
 });

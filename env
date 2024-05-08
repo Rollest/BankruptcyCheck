@@ -1,0 +1,8 @@
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+POSTGRES_USER=bankruptcycheckadmin
+POSTGRES_PASSWORD=3oepYYwkumRVAKjOdNS-
+POSTGRES_DATABASE=bankruptcy-check-db
+
+
+JWT_SECRET=ji030fHNH9q2idASDsfaer-0wqjfA:SLD!ASssd:LZ>uwoep02ejwx/za1!@-_$_@_!_DKQON
