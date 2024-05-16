@@ -5,27 +5,44 @@ block content
   main.main
     .container
       h3.main-content1-title Админ панель
-      table(border="1px" id="userTable")
-        thead
-          tr
-            th ID
-            th Login
-            th Password
-            th Created At
-            th Updated At
-            th Deleted At
-            th Is Admin
-            th Is Active
-            th Actions
-        tbody
-      br
-      button(type="button", class="reg-enter-button", id="add-new-user") Добавить пользователя
-      .popup(id="popup-confirmation")
-          .popup-body
-            .popup-content 
-              h2 Вы точно хотите удалить запись?
-              br
-              p Вся информация о данной записи удалится безвозвратно
-              br
-              button(type="button", class="reg-enter-button", id="accept-confirmation-btn") Удалить
-              button(type="button", class="reg-enter-button", id="deny-confirmation-btn") Отменить
+      button(id="toUserTable", class="reg-enter-button") К пользователям
+      button(id="toLawTable", class="reg-enter-button") К законам
+      div(id="userTableDiv")
+        table(border="1px" id="userTable")
+          thead
+            tr
+              th ID
+              th Логин
+              th Пароль
+              th Дата создания
+              th Дата изменения
+              th Дата удаления
+              th Админ
+              th Активен
+              th Действия
+          tbody
+        br
+        button(type="button", class="reg-enter-button", id="add-new-user") Добавить пользователя
+      div(id="lawTableDiv", style="display:none;")
+        table(border="1px" id="lawTable")
+          thead
+            tr
+              th ID
+              th Заголовок
+              th Основной текст
+              th Дата публикации
+              th Создано
+              th Обновлено
+              th Действия
+          tbody
+        br
+        button(type="button", class="reg-enter-button", id="add-new-law") Добавить Закон
+    .popup(id="popup-confirmation")
+        .popup-body
+          .popup-content 
+            h2 Вы точно хотите удалить запись?
+            br
+            p Вся информация о данной записи удалится безвозвратно
+            br
+            button(type="button", class="reg-enter-button", id="accept-confirmation-btn") Удалить
+            button(type="button", class="reg-enter-button", id="deny-confirmation-btn") Отменить

@@ -1,0 +1,24 @@
+extends ../layouts/main
+
+block content
+  script(src="scripts/laws.js")
+  main.main
+    .container
+      h3.main-content1-title Законы
+
+      input#filterByName(type='text', placeholder='Фильтр по названию')
+
+      p Фильтрация по дате
+      .date-filter
+        p От
+        input#filterStartDate(type='date', placeholder='С какого числа')
+        p До
+        input#filterEndDate(type='date', placeholder='До какого числа')
+
+      p Сортировка
+      select#sortOptions
+        option(value='none') Без сортировки
+        option(value='date-asc') Сортировка по дате (возрастание)
+        option(value='date-desc') Сортировка по дате (убывание)
+
+      ul#laws-list

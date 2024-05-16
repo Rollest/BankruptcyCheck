@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { DocsTemplatesModule } from './docs-templates/docs-templates.module';
 import { FeedbackModule } from './feedback/feedback.module';
+import { LawsModule } from './laws/laws.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -24,8 +25,9 @@ import { FeedbackModule } from './feedback/feedback.module';
     AuthModule,
     DocsTemplatesModule,
     FeedbackModule,
+    LawsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule{}
+export class AppModule {}

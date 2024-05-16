@@ -16,11 +16,10 @@ export class LawsService {
   async create(createLawDto: CreateLawDto) {
     const law = new Law();
     law.heading = createLawDto.heading;
-    law.mainText = hashedPassword;
+    law.mainText = createLawDto.mainText;
+    law.releaseDate = createLawDto.releaseDate;
 
-    await this.lawRepository.save(law);
-
-    return true;
+    return await this.lawRepository.save(law);
   }
 
   async findAll() {
@@ -33,37 +32,18 @@ export class LawsService {
     });
   }
 
-  async findOneByLogin(login: string) {
-    return await this.lawRepository.findOne({
-      where: { login },
-    });
-  }
-
   async update(id: number, updateLawDto: UpdateLawDto) {
     const lawExists = await this.lawRepository.findOne({
       where: { id },
     });
 
     if (!lawExists) {
-      throw new BadRequestException('Пользователя с таким id не существует');
+      throw new BadRequestException('Записи с таким id не существует');
     }
-
-    if (updateLawDto.password != null) {
-      updateLawDto.password = await argon2.hash(updateLawDto.password, {
-        type: argon2.argon2id,
-      });
-    }
-
     return await this.lawRepository.save({
       ...lawExists,
       ...updateLawDto,
     });
-  }
-
-  remove(id: number) {
-    return this.lawRepository
-      .softDelete(id)
-      .then(() => this.lawRepository.update(id, { isActive: false }));
   }
 
   permanentlyDelete(id: number) {

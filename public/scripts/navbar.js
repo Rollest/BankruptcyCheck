@@ -11,6 +11,11 @@ $(document).ready(function () {
       'text-decoration': 'underline',
       'text-underline-offset': '6px',
     });
+  } else if (url.includes('laws')) {
+    $('#a-laws').css({
+      'text-decoration': 'underline',
+      'text-underline-offset': '6px',
+    });
   } else if (url.includes('constructor')) {
     $('#a-constructor').css({
       'text-decoration': 'underline',

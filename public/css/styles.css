@@ -5,6 +5,7 @@
 @import url('./quiz.css');
 @import url('./constructor.css');
 @import url('./about.css');
+@import url('./laws.css');
 
 body {
   background-color: rgba(255, 253, 235, 0.49);

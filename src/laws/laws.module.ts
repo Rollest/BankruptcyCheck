@@ -10,4 +10,4 @@ import { Law } from './entities/law.entity';
   providers: [LawsService],
   exports: [LawsService],
 })
-export class UsersModule {}
+export class LawsModule {}

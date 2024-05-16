@@ -10,15 +10,10 @@ import {
 } from '@nestjs/common';
 import { AppService } from './app.service';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
-import { AuthService } from './auth/auth.service';
-import { IUser } from './auth/types/types';
 
 @Controller()
 export class AppController {
-  constructor(
-    private readonly appService: AppService,
-    private readonly authService: AuthService,
-  ) {}
+  constructor(private readonly appService: AppService) {}
 
   @Get('')
   @Render('index')
@@ -35,6 +30,12 @@ export class AppController {
   @Get('faq')
   @Render('faq/faq')
   async getFAQ(@Request() req) {
+    return await this.appService.validateJWT(req);
+  }
+
+  @Get('laws-page')
+  @Render('laws/laws')
+  async getLaws(@Request() req) {
     return await this.appService.validateJWT(req);
   }
 
